@@ -1,0 +1,157 @@
+{
+  "ok": true,
+  "package": "mc-design-windows-client",
+  "layout": "mc-design-windows-client",
+  "release_eligible": true,
+  "python_runtime_bundled": true,
+  "python_runtime_prepare": {
+    "ok": true,
+    "cached": true,
+    "runtime": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\.runtime\\python-3.8.10-embed-amd64",
+    "python_exe": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\.runtime\\python-3.8.10-embed-amd64\\python.exe",
+    "python_version": "3.8.10",
+    "arch": "amd64",
+    "source_type": "bundled_prepared_runtime",
+    "archive": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\runtime\\python-3.8.10-embed-amd64-mcdesign-runtime.zip",
+    "prepared_at_epoch": 1779897869,
+    "verification": {
+      "python": "3.8.10 (tags/v3.8.10:3d8993a, May  3 2021, 11:48:03) [MSC v.1928 64 bit (AMD64)]",
+      "version_info": [
+        3,
+        8,
+        10
+      ],
+      "bits": 64,
+      "requests": "2.32.3",
+      "websockets": "10.4"
+    },
+    "note": "Runtime is extracted from package/windows/runtime and copied into the customer package as client/python."
+  },
+  "python_version_expected": "Python 3.8 x64, Windows 7 compatible",
+  "client": {
+    "entrypoint": "McDesignClient.exe",
+    "diagnostic_entrypoint": "start-client.bat",
+    "app_package": "client/app/mc_design_client.pyz",
+    "python_runtime": "client/python/python.exe",
+    "python_runtime_bundled": true,
+    "python_version_expected": "Python 3.8 x64, Windows 7 compatible",
+    "assets": "client/resources/agent_assets.mcdpkg",
+    "nx_tools_manifest": "client/resources/nx_tools_manifest.json",
+    "package_config": "client/resources/mc-design-package.mcdpkg",
+    "user_config_template": "configure/mc-design-client.config"
+  },
+  "client_launcher": {
+    "source_boundary": "mc-design-nx/client-launcher",
+    "entrypoint": "McDesignClient.exe",
+    "requires": [
+      ".NET Framework 4.7.2"
+    ]
+  },
+  "asset_snapshot": {
+    "source_boundary": "mc-design-nx/assets/source",
+    "path": "client/resources/agent_assets.mcdpkg",
+    "bundle_version": "turn-event-local",
+    "agent_id": "design_agent",
+    "min_client_version": "0.1.0",
+    "sha256": "ef51c52d10a326a3da0fa3e17b43f991511114c67eb5f5cfb0234dae61cda1c9",
+    "asset_package_sha256": "ef51c52d10a326a3da0fa3e17b43f991511114c67eb5f5cfb0234dae61cda1c9",
+    "agents": [
+      "beya",
+      "design_agent",
+      "governance_agent",
+      "reviewer"
+    ],
+    "skill_count": 31,
+    "skill_file_count": 1,
+    "static_file_count": 0
+  },
+  "package_config": {
+    "source_boundary": "mc-design-nx/configure/mc-design-package.config",
+    "path": "client/resources/mc-design-package.mcdpkg"
+  },
+  "user_config": {
+    "source_boundary": "mc-design-nx/configure/mc-design-client.config",
+    "path": "configure/mc-design-client.config"
+  },
+  "nx_plugin": {
+    "source_boundary": "mc-design-nx/nx-plugin",
+    "startup": "nx-plugin/startup",
+    "application": "nx-plugin/application",
+    "tools": "nx-plugin/tools",
+    "sdk": "nx-plugin/sdk",
+    "requires": [
+      "Windows 7",
+      "NX 11",
+      ".NET Framework 4.7.2"
+    ],
+    "tool_manifest": {
+      "path": "client/resources/nx_tools_manifest.json",
+      "registration_time": "package-build",
+      "tool_count": 56
+    }
+  },
+  "install_notes": [
+    "Installer may require administrator rights to configure NX custom directory.",
+    "Runtime client is started by the user; NX plugin must only detect it.",
+    "External AI service access uses one Kubernetes-routed host:port.",
+    "Customer install packages contain an asset snapshot, not the source asset directory."
+  ],
+  "installer": {
+    "name": "McDesignClientSetup",
+    "bundle_version": "turn-event-local",
+    "install_entrypoint": "install.bat",
+    "uninstall_entrypoint": "uninstall.bat",
+    "install_helper": "installer/tools/install_helper.mcpy",
+    "install_state": "install-state.json",
+    "smoke_test": "smoke-test.bat",
+    "msbuild": {
+      "status": "built",
+      "returncode": 0,
+      "log": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\output\\logs\\build-core.log",
+      "required_artifacts_present": true,
+      "duration_seconds": 2.021
+    },
+    "ui_build": {
+      "status": "built",
+      "returncode": 0,
+      "log": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\output\\logs\\build-ui.log",
+      "artifact_present": true,
+      "duration_seconds": 0.733
+    },
+    "launcher_build": {
+      "status": "built",
+      "returncode": 0,
+      "log": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\output\\logs\\build-launcher.log",
+      "artifact_present": true,
+      "artifact": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\client-launcher\\dist\\McDesignClient.exe",
+      "duration_seconds": 0.658
+    },
+    "python_runtime_prepare": {
+      "ok": true,
+      "cached": true,
+      "runtime": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\.runtime\\python-3.8.10-embed-amd64",
+      "python_exe": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\.runtime\\python-3.8.10-embed-amd64\\python.exe",
+      "python_version": "3.8.10",
+      "arch": "amd64",
+      "source_type": "bundled_prepared_runtime",
+      "archive": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\runtime\\python-3.8.10-embed-amd64-mcdesign-runtime.zip",
+      "prepared_at_epoch": 1779897869,
+      "verification": {
+        "python": "3.8.10 (tags/v3.8.10:3d8993a, May  3 2021, 11:48:03) [MSC v.1928 64 bit (AMD64)]",
+        "version_info": [
+          3,
+          8,
+          10
+        ],
+        "bits": 64,
+        "requests": "2.32.3",
+        "websockets": "10.4"
+      },
+      "note": "Runtime is extracted from package/windows/runtime and copied into the customer package as client/python."
+    },
+    "work_dir_kept": true,
+    "package_dir": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\output\\.work\\McDesignClientSetup-turn-event-local",
+    "payload_dir": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\output\\.work\\McDesignClientSetup-turn-event-local\\payload",
+    "archive": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\output\\installers\\McDesignClientSetup-turn-event-local.zip"
+  }
+}
