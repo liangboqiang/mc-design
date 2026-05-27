@@ -1,0 +1,8 @@
+[submodule "mc-design-ai-service"]
+	path = mc-design-ai-service
+	url = http://gitlab.app.yuchai.com/sky-tju-componentdesign/mc-design-ai-service.git
+	branch = dev
+[submodule "mc-design-nx"]
+	path = mc-design-nx
+	url = http://gitlab.app.yuchai.com/sky-tju-componentdesign/mc-design-nx.git
+	branch = dev
