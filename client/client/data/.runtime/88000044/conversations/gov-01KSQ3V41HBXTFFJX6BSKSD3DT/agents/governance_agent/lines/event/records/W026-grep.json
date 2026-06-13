@@ -1,0 +1,91 @@
+{
+  "audience": [
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966251.4093673,
+  "created_at": 1779966251.3495047,
+  "data": {
+    "args": {
+      "limit": 10,
+      "query": "no task|zero|not found|empty",
+      "root": "runtime"
+    },
+    "call_id": "call_0qa092ba2wi0a9d8kvfjpg62",
+    "call_index": 0,
+    "elapsed_ms": 45,
+    "error_message": "",
+    "error_type": "",
+    "lane": "io_parallel",
+    "metadata": {},
+    "name": "grep",
+    "observation": "runtime/artifacts/T001-f21a508d/L013-response.json:9: \"arguments\": \"{\\\"query\\\": \\\"no task|zero|not found|empty\\\", \\\"root\\\": \\\"runtime\\\", \\\"limit\\\": 10}\",\nruntime/lines/event/records/W025-llm.json:30: \"arguments\": \"{\\\"query\\\": \\\"no task|zero|not found|empty\\\", \\\"root\\\": \\\"runtime\\\", \\\"limit\\\": 10}\",\nruntime/lines/event/records/W026-grep.json:11: \"query\": \"no task|zero|not found|empty\",\nruntime/lines/mailbox/records/M014-agent.json:20: \"arguments\": \"{\\\"query\\\": \\\"no task|zero|not found|empty\\\", \\\"root\\\": \\\"runtime\\\", \\\"limit\\\": 10}\",",
+    "ok": true,
+    "output": "runtime/artifacts/T001-f21a508d/L013-response.json:9: \"arguments\": \"{\\\"query\\\": \\\"no task|zero|not found|empty\\\", \\\"root\\\": \\\"runtime\\\", \\\"limit\\\": 10}\",\nruntime/lines/event/records/W025-llm.json:30: \"arguments\": \"{\\\"query\\\": \\\"no task|zero|not found|empty\\\", \\\"root\\\": \\\"runtime\\\", \\\"limit\\\": 10}\",\nruntime/lines/event/records/W026-grep.json:11: \"query\": \"no task|zero|not found|empty\",\nruntime/lines/mailbox/records/M014-agent.json:20: \"arguments\": \"{\\\"query\\\": \\\"no task|zero|not found|empty\\\", \\\"root\\\": \\\"runtime\\\", \\\"limit\\\": 10}\",",
+    "progress": 100,
+    "result_ref": {
+      "bytes": 902,
+      "path": "artifacts/T001-f21a508d/W026-grep-grep-result.json",
+      "sha1": "bc3a2adbec0c6f3f716c2195a33581affd267c4a"
+    },
+    "retryable": false,
+    "round": 13,
+    "status": "success",
+    "turn_alias": "T001-f21a508d",
+    "turn_id": "turn-6d9ca0ccd9c64a5ba2ef1677f21a508d",
+    "visible": [
+      "bash",
+      "edit_file",
+      "export_file",
+      "glob",
+      "gov_agent_test",
+      "gov_asset_diff",
+      "gov_asset_list",
+      "gov_asset_stage",
+      "gov_asset_validate",
+      "gov_auto_review_run",
+      "gov_capability_list",
+      "gov_cli",
+      "gov_governable_list",
+      "gov_model_get",
+      "gov_model_probe",
+      "gov_model_set",
+      "gov_policy_get",
+      "gov_policy_set",
+      "gov_runtime_refresh",
+      "gov_schema_policy_diff",
+      "gov_schema_policy_get",
+      "gov_schema_policy_stage",
+      "gov_schema_policy_validate",
+      "gov_tool_adapter_stage",
+      "grep",
+      "load_skill",
+      "local_time",
+      "read_file",
+      "todo",
+      "write_file"
+    ],
+    "work_type": "tool"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "W026-grep",
+  "record_type": "work",
+  "refs": [
+    {
+      "bytes": 902,
+      "path": "artifacts/T001-f21a508d/W026-grep-grep-result.json",
+      "sha1": "bc3a2adbec0c6f3f716c2195a33581affd267c4a"
+    }
+  ],
+  "rev": 3,
+  "schema": 1,
+  "status": "completed",
+  "text": "",
+  "title": "tool grep",
+  "updated_at": 1779966251.4093673
+}

@@ -1,0 +1,37 @@
+{
+  "audience": [
+    "user",
+    "agent:design_agent",
+    "audit"
+  ],
+  "closed_at": 1779966043.4999523,
+  "created_at": 1779966029.329504,
+  "data": {
+    "finish_reason": "stop",
+    "from": "agent:design_agent",
+    "message_type": "agent",
+    "round": 2,
+    "to": [
+      "user"
+    ],
+    "tool_calls": [],
+    "turn_alias": "T001-f89b8d11",
+    "turn_id": "turn-8f4a62012e9c4eae9ca3728bf89b8d11",
+    "work_id": "W003-llm"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "design_agent",
+    "id": "design_agent",
+    "type": "agent"
+  },
+  "record_id": "M003-agent",
+  "record_type": "message",
+  "refs": [],
+  "rev": 3,
+  "schema": 1,
+  "status": "posted",
+  "text": "根据IPM查询结果，未找到未完成的k08项目连杆设计任务。\n如果你需要调整搜索条件（比如修改项目编码、任务名称关键词或状态），可以告诉我重新查询。",
+  "title": "agent reply",
+  "updated_at": 1779966043.4999523
+}

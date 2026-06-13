@@ -1,0 +1,90 @@
+{
+  "audience": [
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966203.6440384,
+  "created_at": 1779966203.3686216,
+  "data": {
+    "args": {
+      "command": "ls -la E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT"
+    },
+    "call_id": "call_mao31ck8parwryy6wy9c6v0c",
+    "call_index": 0,
+    "elapsed_ms": 258,
+    "error_message": "",
+    "error_type": "",
+    "lane": "workspace_serial",
+    "metadata": {},
+    "name": "gov_cli",
+    "observation": "total 0\ndrwxr-xr-x 1 ASUS 197609 0 May 28 19:00 .\ndrwxr-xr-x 1 ASUS 197609 0 May 28 19:02 ..\ndrwxr-xr-x 1 ASUS 197609 0 May 28 19:00 agents\n",
+    "ok": true,
+    "output": "total 0\ndrwxr-xr-x 1 ASUS 197609 0 May 28 19:00 .\ndrwxr-xr-x 1 ASUS 197609 0 May 28 19:02 ..\ndrwxr-xr-x 1 ASUS 197609 0 May 28 19:00 agents\n",
+    "progress": 100,
+    "result_ref": {
+      "bytes": 512,
+      "path": "artifacts/T001-f21a508d/W008-gov_cli-gov_cli-result.json",
+      "sha1": "0725d7c6b50f29e07b5d1de9aaa9ceb3a5915b98"
+    },
+    "retryable": false,
+    "round": 4,
+    "status": "success",
+    "turn_alias": "T001-f21a508d",
+    "turn_id": "turn-6d9ca0ccd9c64a5ba2ef1677f21a508d",
+    "visible": [
+      "bash",
+      "edit_file",
+      "export_file",
+      "glob",
+      "gov_agent_test",
+      "gov_asset_diff",
+      "gov_asset_list",
+      "gov_asset_read",
+      "gov_asset_stage",
+      "gov_asset_validate",
+      "gov_auto_review_run",
+      "gov_capability_list",
+      "gov_cli",
+      "gov_governable_list",
+      "gov_model_get",
+      "gov_model_probe",
+      "gov_model_set",
+      "gov_policy_get",
+      "gov_policy_set",
+      "gov_runtime_refresh",
+      "gov_schema_policy_diff",
+      "gov_schema_policy_get",
+      "gov_schema_policy_stage",
+      "gov_schema_policy_validate",
+      "gov_tool_adapter_stage",
+      "grep",
+      "load_skill",
+      "local_time",
+      "read_file",
+      "todo",
+      "write_file"
+    ],
+    "work_type": "tool"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "W008-gov_cli",
+  "record_type": "work",
+  "refs": [
+    {
+      "bytes": 512,
+      "path": "artifacts/T001-f21a508d/W008-gov_cli-gov_cli-result.json",
+      "sha1": "0725d7c6b50f29e07b5d1de9aaa9ceb3a5915b98"
+    }
+  ],
+  "rev": 3,
+  "schema": 1,
+  "status": "completed",
+  "text": "",
+  "title": "tool gov_cli",
+  "updated_at": 1779966203.6440384
+}

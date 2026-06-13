@@ -1,0 +1,37 @@
+{
+  "audience": [
+    "user",
+    "agent:design_agent",
+    "audit"
+  ],
+  "closed_at": 1779963697.8740673,
+  "created_at": 1779963697.8621716,
+  "data": {
+    "finish_reason": "stop",
+    "from": "agent:design_agent",
+    "message_type": "agent",
+    "round": 1,
+    "to": [
+      "user"
+    ],
+    "tool_calls": [],
+    "turn_alias": "T001-turn",
+    "turn_id": "turn-check",
+    "work_id": "W001-llm"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "design_agent",
+    "id": "design_agent",
+    "type": "agent"
+  },
+  "record_id": "M001-agent",
+  "record_type": "message",
+  "refs": [],
+  "rev": 3,
+  "schema": 1,
+  "status": "posted",
+  "text": "done",
+  "title": "agent reply",
+  "updated_at": 1779963697.8740673
+}

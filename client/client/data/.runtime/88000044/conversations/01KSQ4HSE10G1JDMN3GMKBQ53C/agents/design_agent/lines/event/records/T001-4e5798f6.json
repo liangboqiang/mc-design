@@ -1,0 +1,35 @@
+{
+  "audience": [
+    "user",
+    "agent:design_agent",
+    "audit"
+  ],
+  "closed_at": 1779966760.51641,
+  "created_at": 1779966738.3206236,
+  "data": {
+    "agent_id": "design_agent",
+    "files": [],
+    "node_id": "lead",
+    "query_preview": "请你在IPM上查询未完成的k08项目连杆设计任务。",
+    "result": "查询结果显示：未找到符合条件（项目名称含k08、任务名称含连杆设计、默认未完成状态）的IPM任务。\n\n可能的原因：\n1. 项目名称/任务名称关键词不匹配\n2. 该任务已经完成，不在默认查询状态范围内\n3. 项目编码不正确\n\n请你确认更准确的项目编码、任务名称或任务状态，我可以重新为你查询。",
+    "round": 2,
+    "rounds": 2,
+    "turn_alias": "T001-4e5798f6",
+    "turn_id": "turn-8286590f9e044af69216779a4e5798f6"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "bridge",
+    "id": "bridge.client",
+    "type": "system"
+  },
+  "record_id": "T001-4e5798f6",
+  "record_type": "turn",
+  "refs": [],
+  "rev": 5,
+  "schema": 1,
+  "status": "completed",
+  "text": "",
+  "title": "T001-4e5798f6",
+  "updated_at": 1779966760.51641
+}

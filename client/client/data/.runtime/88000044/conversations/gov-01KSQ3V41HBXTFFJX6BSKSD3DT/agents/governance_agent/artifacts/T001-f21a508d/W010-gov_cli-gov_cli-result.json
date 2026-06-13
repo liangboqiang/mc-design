@@ -1,0 +1,14 @@
+{
+  "args": {
+    "command": "find E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT -type f"
+  },
+  "elapsed_ms": 41,
+  "error_message": null,
+  "error_type": null,
+  "metadata": {},
+  "name": "gov_cli",
+  "ok": true,
+  "output": "FIND: 参数格式不正确\n",
+  "status": "success",
+  "work_id": "W010-gov_cli"
+}

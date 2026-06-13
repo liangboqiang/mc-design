@@ -1,0 +1,96 @@
+{
+  "audience": [
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966538.9011438,
+  "created_at": 1779966538.4287457,
+  "data": {
+    "args": {
+      "description_patch": "优化查询策略：当参数值不明确时，不传递不确定的可选参数，以扩大搜索范围，提高查询成功率。",
+      "hide_parameters": [],
+      "strip_hidden_on_call": false,
+      "tool": "query_ipm_list",
+      "tool_ref": "tool.external"
+    },
+    "call_id": "call_2xvouh5d826fdq51zbjcg21j",
+    "call_index": 0,
+    "elapsed_ms": 454,
+    "error_message": "",
+    "error_type": "",
+    "lane": "workspace_serial",
+    "metadata": {
+      "ok": true
+    },
+    "name": "gov_schema_policy_stage",
+    "observation": "{\n  \"next\": \"请运行 gov_schema_policy_diff 和 gov_schema_policy_validate；用户输入 /confirm 后才生效。\",\n  \"ok\": true,\n  \"pending_change_id\": \"GCH-1779966538895-35ba66c1\",\n  \"policy\": {\n    \"@status\": \"active\",\n    \"@type\": \"tool_schema_policy\",\n    \"description_patch\": \"优化查询策略：当参数值不明确时，不传递不确定的可选参数，以扩大搜索范围，提高查询成功率。\",\n    \"hide_parameters\": [],\n    \"strip_hidden_on_call\": false,\n    \"tool\": \"query_ipm_list\"\n  },\n  \"staged\": \"tools/tool.external/schemas/query_ipm_list.schema.policy.json\"\n}",
+    "ok": true,
+    "output": "{\n  \"next\": \"请运行 gov_schema_policy_diff 和 gov_schema_policy_validate；用户输入 /confirm 后才生效。\",\n  \"ok\": true,\n  \"pending_change_id\": \"GCH-1779966538895-35ba66c1\",\n  \"policy\": {\n    \"@status\": \"active\",\n    \"@type\": \"tool_schema_policy\",\n    \"description_patch\": \"优化查询策略：当参数值不明确时，不传递不确定的可选参数，以扩大搜索范围，提高查询成功率。\",\n    \"hide_parameters\": [],\n    \"strip_hidden_on_call\": false,\n    \"tool\": \"query_ipm_list\"\n  },\n  \"staged\": \"tools/tool.external/schemas/query_ipm_list.schema.policy.json\"\n}",
+    "progress": 100,
+    "result_ref": {
+      "bytes": 1187,
+      "path": "artifacts/T001-85386524/W066-gov_schema_policy_stage-gov_schema_policy_stage-result.json",
+      "sha1": "fa982291f37adc9100c5b189532d23b4c365622c"
+    },
+    "retryable": false,
+    "round": 2,
+    "status": "success",
+    "turn_alias": "T001-85386524",
+    "turn_id": "turn-c713bf5a0fa440d2a54ba30c85386524",
+    "visible": [
+      "bash",
+      "edit_file",
+      "export_file",
+      "glob",
+      "gov_agent_test",
+      "gov_asset_diff",
+      "gov_asset_list",
+      "gov_asset_read",
+      "gov_asset_stage",
+      "gov_asset_validate",
+      "gov_auto_review_run",
+      "gov_capability_list",
+      "gov_cli",
+      "gov_governable_list",
+      "gov_model_get",
+      "gov_model_probe",
+      "gov_model_set",
+      "gov_policy_get",
+      "gov_policy_set",
+      "gov_runtime_refresh",
+      "gov_schema_policy_diff",
+      "gov_schema_policy_get",
+      "gov_schema_policy_stage",
+      "gov_schema_policy_validate",
+      "gov_tool_adapter_stage",
+      "grep",
+      "load_skill",
+      "local_time",
+      "read_file",
+      "todo",
+      "write_file"
+    ],
+    "work_type": "tool"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "W066-gov_schema_policy_stage",
+  "record_type": "work",
+  "refs": [
+    {
+      "bytes": 1187,
+      "path": "artifacts/T001-85386524/W066-gov_schema_policy_stage-gov_schema_policy_stage-result.json",
+      "sha1": "fa982291f37adc9100c5b189532d23b4c365622c"
+    }
+  ],
+  "rev": 3,
+  "schema": 1,
+  "status": "completed",
+  "text": "",
+  "title": "tool gov_schema_policy_stage",
+  "updated_at": 1779966538.9011438
+}

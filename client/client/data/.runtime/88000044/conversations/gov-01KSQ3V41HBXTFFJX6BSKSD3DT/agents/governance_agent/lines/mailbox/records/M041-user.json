@@ -1,0 +1,35 @@
+{
+  "audience": [
+    "user",
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": null,
+  "created_at": 1779966622.9253128,
+  "data": {
+    "agent_id": "design_agent",
+    "conversation_id": "01KSQ3V41HBXTFFJX6BSKSD3DT",
+    "files": [],
+    "from": "user",
+    "message_type": "user",
+    "to": [
+      "agent:governance_agent"
+    ],
+    "user_id": "88000044"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "user",
+    "id": "88000044",
+    "type": "user"
+  },
+  "record_id": "M041-user",
+  "record_type": "message",
+  "refs": [],
+  "rev": 1,
+  "schema": 1,
+  "status": "posted",
+  "text": "你打算进行哪些优化，具体会产生什么变化。",
+  "title": "user message",
+  "updated_at": 1779966622.9253128
+}

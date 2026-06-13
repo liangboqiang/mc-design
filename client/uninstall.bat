@@ -3,15 +3,12 @@ setlocal EnableExtensions EnableDelayedExpansion
 
 if /i not "%MC_DESIGN_UNINSTALL_CHILD%"=="1" (
   if "%~1"=="" (
-    if defined LOCALAPPDATA (
-      set "CLEANUP_INSTALL_DIR=%LOCALAPPDATA%\McDesign"
-    ) else (
-      set "CLEANUP_INSTALL_DIR=%USERPROFILE%\Local Settings\Application Data\McDesign"
-    )
+    set "CLEANUP_INSTALL_DIR=%~dp0"
   ) else (
     set "CLEANUP_INSTALL_DIR=%~1"
   )
   for %%I in ("!CLEANUP_INSTALL_DIR!") do set "CLEANUP_INSTALL_DIR=%%~fI"
+  if "!CLEANUP_INSTALL_DIR:~-1!"=="\" set "CLEANUP_INSTALL_DIR=!CLEANUP_INSTALL_DIR:~0,-1!"
   set "SELF_COPY=%TEMP%\mc-design-uninstall-%RANDOM%.bat"
   copy /Y "%~f0" "!SELF_COPY!" >nul
   if errorlevel 1 (
@@ -24,37 +21,23 @@ if /i not "%MC_DESIGN_UNINSTALL_CHILD%"=="1" (
     exit /b 5
   )
   set "MC_DESIGN_UNINSTALL_CHILD=1"
-  call "!SELF_COPY!" %*
+  call "!SELF_COPY!" "!CLEANUP_INSTALL_DIR!"
   set "RC=!ERRORLEVEL!"
+  del /Q "!SELF_COPY!" >nul 2>nul
   if "!RC!"=="0" (
-    set "CLEANUP=%TEMP%\mc-design-cleanup-%RANDOM%.bat"
-    > "!CLEANUP!" echo @echo off
-    >> "!CLEANUP!" echo "%SystemRoot%\System32\ping.exe" 127.0.0.1 -n 61 ^>nul
-    >> "!CLEANUP!" echo for /L %%%%R in ^(1,1,10^) do ^(
-    >> "!CLEANUP!" echo   rmdir /S /Q "!CLEANUP_INSTALL_DIR!" 2^>nul
-    >> "!CLEANUP!" echo   if not exist "!CLEANUP_INSTALL_DIR!" exit /b 0
-    >> "!CLEANUP!" echo   "%SystemRoot%\System32\ping.exe" 127.0.0.1 -n 3 ^>nul
-    >> "!CLEANUP!" echo ^)
-    if exist "%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" (
-      "%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -WindowStyle Hidden -Command "Start-Process -WindowStyle Hidden -FilePath $env:ComSpec -ArgumentList @('/d','/c','""!CLEANUP!""')"
-    ) else (
-      start "" /min cmd /d /c "!CLEANUP!"
-    )
-    echo [mc-design] Install directory cleanup scheduled.
+    call :remove_install_dir "!CLEANUP_INSTALL_DIR!"
+    set "RC=!ERRORLEVEL!"
   )
   exit /b !RC!
 )
 
 if "%~1"=="" (
-  if defined LOCALAPPDATA (
-    set "INSTALL_DIR=%LOCALAPPDATA%\McDesign"
-  ) else (
-    set "INSTALL_DIR=%USERPROFILE%\Local Settings\Application Data\McDesign"
-  )
+  set "INSTALL_DIR=%~dp0"
 ) else (
   set "INSTALL_DIR=%~1"
 )
 for %%I in ("%INSTALL_DIR%") do set "INSTALL_DIR=%%~fI"
+if "%INSTALL_DIR:~-1%"=="\" set "INSTALL_DIR=%INSTALL_DIR:~0,-1%"
 
 echo [mc-design] Uninstall dir: %INSTALL_DIR%
 
@@ -111,3 +94,25 @@ if /i not "%MC_DESIGN_UNINSTALL_NO_PAUSE%"=="1" (
   pause >nul
 )
 exit /b %HELPER_RC%
+
+:remove_install_dir
+set "TARGET=%~1"
+if "%TARGET%"=="" exit /b 8
+for %%I in ("%TARGET%") do set "TARGET=%%~fI"
+cd /d "%TEMP%" >nul 2>nul
+for /L %%R in (1,1,20) do (
+  rmdir /S /Q "%TARGET%" 2>nul
+  if not exist "%TARGET%" (
+    set "TARGET_REMOVED=1"
+    goto remove_install_dir_done
+  )
+  "%SystemRoot%\System32\ping.exe" 127.0.0.1 -n 2 >nul
+)
+:remove_install_dir_done
+if "%TARGET_REMOVED%"=="1" (
+  echo [mc-design] Install directory removed.
+  exit /b 0
+)
+echo [mc-design] Failed to remove install directory: %TARGET%
+echo [mc-design] Close processes or consoles under that directory and run uninstall again.
+exit /b 8

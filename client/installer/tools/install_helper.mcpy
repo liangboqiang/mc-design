@@ -597,6 +597,7 @@ def render_minimal_config(values):
         "",
         "[client]",
         "user_id = " + quote_config(pick("client.user_id", "local")),
+        "user_name = " + quote_config(pick("client.user_name", "")),
         "",
         "[runtime]",
         "port = " + str(pick("runtime.port", "8765") or "8765"),

@@ -1,0 +1,46 @@
+{
+  "audience": [
+    "user",
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966538.4143496,
+  "created_at": 1779966525.3634188,
+  "data": {
+    "finish_reason": "tool_calls",
+    "from": "agent:governance_agent",
+    "message_type": "agent",
+    "round": 2,
+    "to": [
+      "user"
+    ],
+    "tool_calls": [
+      {
+        "function": {
+          "arguments": "{\"tool\": \"query_ipm_list\", \"tool_ref\": \"tool.external\", \"description_patch\": \"优化查询策略：当参数值不明确时，不传递不确定的可选参数，以扩大搜索范围，提高查询成功率。\", \"strip_hidden_on_call\": false, \"hide_parameters\": []}",
+          "name": "gov_schema_policy_stage"
+        },
+        "id": "call_2xvouh5d826fdq51zbjcg21j",
+        "type": "function"
+      }
+    ],
+    "turn_alias": "T001-85386524",
+    "turn_id": "turn-c713bf5a0fa440d2a54ba30c85386524",
+    "work_id": "W065-llm"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "M037-agent",
+  "record_type": "message",
+  "refs": [],
+  "rev": 2,
+  "schema": 1,
+  "status": "posted",
+  "text": "",
+  "title": "agent reply",
+  "updated_at": 1779966538.4143496
+}

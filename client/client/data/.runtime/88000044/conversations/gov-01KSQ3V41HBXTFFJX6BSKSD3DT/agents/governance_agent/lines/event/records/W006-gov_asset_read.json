@@ -1,0 +1,93 @@
+{
+  "audience": [
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966198.7930763,
+  "created_at": 1779966198.7743096,
+  "data": {
+    "args": {
+      "path": "artifacts/GOV/auto-governance-evidence.json",
+      "root": "runtime"
+    },
+    "call_id": "call_vpumnmx67bcvnr1xg24w9azi",
+    "call_index": 0,
+    "elapsed_ms": 0,
+    "error_message": "file not found",
+    "error_type": "remote_error",
+    "lane": "workspace_serial",
+    "metadata": {
+      "ok": false
+    },
+    "name": "gov_asset_read",
+    "observation": "file not found",
+    "ok": false,
+    "output": "{\n  \"message\": \"file not found\",\n  \"ok\": false,\n  \"path\": \"artifacts/GOV/auto-governance-evidence.json\"\n}",
+    "progress": 100,
+    "result_ref": {
+      "bytes": 471,
+      "path": "artifacts/T001-f21a508d/W006-gov_asset_read-gov_asset_read-result.json",
+      "sha1": "0a389bf9dd471110ddf0db85477bcc62c1e3e034"
+    },
+    "retryable": true,
+    "round": 3,
+    "status": "execution_error",
+    "turn_alias": "T001-f21a508d",
+    "turn_id": "turn-6d9ca0ccd9c64a5ba2ef1677f21a508d",
+    "visible": [
+      "bash",
+      "edit_file",
+      "export_file",
+      "glob",
+      "gov_agent_test",
+      "gov_asset_diff",
+      "gov_asset_list",
+      "gov_asset_read",
+      "gov_asset_stage",
+      "gov_asset_validate",
+      "gov_auto_review_run",
+      "gov_capability_list",
+      "gov_cli",
+      "gov_governable_list",
+      "gov_model_get",
+      "gov_model_probe",
+      "gov_model_set",
+      "gov_policy_get",
+      "gov_policy_set",
+      "gov_runtime_refresh",
+      "gov_schema_policy_diff",
+      "gov_schema_policy_get",
+      "gov_schema_policy_stage",
+      "gov_schema_policy_validate",
+      "gov_tool_adapter_stage",
+      "grep",
+      "load_skill",
+      "local_time",
+      "read_file",
+      "todo",
+      "write_file"
+    ],
+    "work_type": "tool"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "W006-gov_asset_read",
+  "record_type": "work",
+  "refs": [
+    {
+      "bytes": 471,
+      "path": "artifacts/T001-f21a508d/W006-gov_asset_read-gov_asset_read-result.json",
+      "sha1": "0a389bf9dd471110ddf0db85477bcc62c1e3e034"
+    }
+  ],
+  "rev": 3,
+  "schema": 1,
+  "status": "failed",
+  "text": "",
+  "title": "tool gov_asset_read",
+  "updated_at": 1779966198.7930763
+}

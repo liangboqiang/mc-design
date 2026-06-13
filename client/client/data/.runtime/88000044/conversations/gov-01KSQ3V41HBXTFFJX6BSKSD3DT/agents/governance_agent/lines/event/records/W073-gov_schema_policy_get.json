@@ -1,0 +1,92 @@
+{
+  "audience": [
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966629.6715293,
+  "created_at": 1779966629.2123623,
+  "data": {
+    "args": {
+      "tool": "query_ipm_list"
+    },
+    "call_id": "call_wv17jvcp1zawdae9pfvz7fzf",
+    "call_index": 0,
+    "elapsed_ms": 442,
+    "error_message": "",
+    "error_type": "",
+    "lane": "workspace_serial",
+    "metadata": {
+      "ok": true
+    },
+    "name": "gov_schema_policy_get",
+    "observation": "{\n  \"active_policies\": [],\n  \"hidden_parameters\": [],\n  \"ok\": true,\n  \"raw_schema\": {\n    \"additionalProperties\": false,\n    \"properties\": {\n      \"confirmStatusList\": {\n        \"description\": \"确认状态；默认未提交、不通过、已确认。\",\n        \"items\": {\n          \"type\": \"string\"\n        },\n        \"type\": \"array\"\n      },\n      \"endTime\": {\n        \"description\": \"计划完成时间止。\",\n        \"type\": \"string\"\n      },\n      \"page\": {\n        \"description\": \"分页页码。\",\n        \"type\": \"number\"\n      },\n      \"pageSize\": {\n        \"description\": \"每页数量。\",\n        \"type\": \"number\"\n      },\n      \"principle\": {\n        \"description\": \"业务主责人工号；不传时使用运行时 user_id。\",\n        \"type\": \"string\"\n      },\n      \"principleName\": {\n        \"description\": \"主责人中文姓名；不传时使用运行时 user_name。\",\n        \"type\": \"string\"\n      },\n      \"projectCode\": {\n        \"description\": \"项目编码。\",\n        \"type\": \"string\"\n      },\n      \"projectName\": {\n        \"description\": \"项目名称。\",\n        \"type\": \"string\"\n      },\n      \"startTime\": {\n        \"description\": \"计划完成时间起。\",\n        \"type\": \"string\"\n      },\n      \"taskName\": {\n        \"description\": \"计划/任务名称。\",\n        \"type\": \"string\"\n      },\n      \"workTypeList\": {\n        \"description\": \"项目类型。\",\n        \"items\": {\n          \"type\": \"string\"\n        },\n        \"type\": \"array\"\n      }\n    },\n    \"required\": [],\n    \"type\": \"object\"\n  },\n  \"staged_policy\": {\n    \"@status\": \"active\",\n    \"@type\": \"tool_schema_policy\",\n    \"description_patch\": \"优化查询策略：当参数值不明确时，不传递不确定的可选参数，以扩大搜索范围，提高查询成功率。\",\n    \"hide_parameters\": [],\n    \"strip_hidden_on_call\": false,\n    \"tool\": \"query_ipm_list\"\n  },\n  \"tool\": \"query_ipm_list\",\n  \"tool_ref\": \"tool.external\",\n  \"visible_schema\": {\n    \"additionalProperties\": false,\n    \"properties\": {\n      \"confirmStatusList\": {\n        \"description\": \"确认状态；默认未提交、不通过、已确认。\",\n        \"items\": {\n          \"type\": \"string\"\n        },\n        \"type\": \"array\"\n      },\n      \"endTime\": {\n        \"description\": \"计划完成时间止。\",\n        \"type\": \"string\"\n      },\n      \"page\": {\n        \"description\": \"分页页码。\",\n        \"type\": \"number\"\n      },\n      \"pageSize\": {\n        \"description\": \"每页数量。\",\n        \"type\": \"number\"\n      },\n      \"principle\": {\n        \"description\": \"业务主责人工号；不传时使用运行时 user_id。\",\n        \"type\": \"string\"\n      },\n      \"principleName\": {\n        \"description\": \"主责人中文姓名；不传时使用运行时 user_name。\",\n        \"type\": \"string\"\n      },\n      \"projectCode\": {\n        \"description\": \"项目编码。\",\n        \"type\": \"string\"\n      },\n      \"projectName\": {\n        \"description\": \"项目名称。\",\n        \"type\": \"string\"\n      },\n      \"startTime\": {\n        \"description\": \"计划完成时间起。\",\n        \"type\": \"string\"\n      },\n      \"taskName\": {\n        \"description\": \"计划/任务名称。\",\n        \"type\": \"string\"\n      },\n      \"workTypeList\": {\n        \"description\": \"项目类型。\",\n        \"items\": {\n          \"type\": \"string\"\n        },\n        \"type\": \"array\"\n      }\n    },\n    \"required\": [],\n    \"type\": \"object\"\n  },\n  \"warnings\": []\n}",
+    "ok": true,
+    "output": "{\n  \"active_policies\": [],\n  \"hidden_parameters\": [],\n  \"ok\": true,\n  \"raw_schema\": {\n    \"additionalProperties\": false,\n    \"properties\": {\n      \"confirmStatusList\": {\n        \"description\": \"确认状态；默认未提交、不通过、已确认。\",\n        \"items\": {\n          \"type\": \"string\"\n        },\n        \"type\": \"array\"\n      },\n      \"endTime\": {\n        \"description\": \"计划完成时间止。\",\n        \"type\": \"string\"\n      },\n      \"page\": {\n        \"description\": \"分页页码。\",\n        \"type\": \"number\"\n      },\n      \"pageSize\": {\n        \"description\": \"每页数量。\",\n        \"type\": \"number\"\n      },\n      \"principle\": {\n        \"description\": \"业务主责人工号；不传时使用运行时 user_id。\",\n        \"type\": \"string\"\n      },\n      \"principleName\": {\n        \"description\": \"主责人中文姓名；不传时使用运行时 user_name。\",\n        \"type\": \"string\"\n      },\n      \"projectCode\": {\n        \"description\": \"项目编码。\",\n        \"type\": \"string\"\n      },\n      \"projectName\": {\n        \"description\": \"项目名称。\",\n        \"type\": \"string\"\n      },\n      \"startTime\": {\n        \"description\": \"计划完成时间起。\",\n        \"type\": \"string\"\n      },\n      \"taskName\": {\n        \"description\": \"计划/任务名称。\",\n        \"type\": \"string\"\n      },\n      \"workTypeList\": {\n        \"description\": \"项目类型。\",\n        \"items\": {\n          \"type\": \"string\"\n        },\n        \"type\": \"array\"\n      }\n    },\n    \"required\": [],\n    \"type\": \"object\"\n  },\n  \"staged_policy\": {\n    \"@status\": \"active\",\n    \"@type\": \"tool_schema_policy\",\n    \"description_patch\": \"优化查询策略：当参数值不明确时，不传递不确定的可选参数，以扩大搜索范围，提高查询成功率。\",\n    \"hide_parameters\": [],\n    \"strip_hidden_on_call\": false,\n    \"tool\": \"query_ipm_list\"\n  },\n  \"tool\": \"query_ipm_list\",\n  \"tool_ref\": \"tool.external\",\n  \"visible_schema\": {\n    \"additionalProperties\": false,\n    \"properties\": {\n      \"confirmStatusList\": {\n        \"description\": \"确认状态；默认未提交、不通过、已确认。\",\n        \"items\": {\n          \"type\": \"string\"\n        },\n        \"type\": \"array\"\n      },\n      \"endTime\": {\n        \"description\": \"计划完成时间止。\",\n        \"type\": \"string\"\n      },\n      \"page\": {\n        \"description\": \"分页页码。\",\n        \"type\": \"number\"\n      },\n      \"pageSize\": {\n        \"description\": \"每页数量。\",\n        \"type\": \"number\"\n      },\n      \"principle\": {\n        \"description\": \"业务主责人工号；不传时使用运行时 user_id。\",\n        \"type\": \"string\"\n      },\n      \"principleName\": {\n        \"description\": \"主责人中文姓名；不传时使用运行时 user_name。\",\n        \"type\": \"string\"\n      },\n      \"projectCode\": {\n        \"description\": \"项目编码。\",\n        \"type\": \"string\"\n      },\n      \"projectName\": {\n        \"description\": \"项目名称。\",\n        \"type\": \"string\"\n      },\n      \"startTime\": {\n        \"description\": \"计划完成时间起。\",\n        \"type\": \"string\"\n      },\n      \"taskName\": {\n        \"description\": \"计划/任务名称。\",\n        \"type\": \"string\"\n      },\n      \"workTypeList\": {\n        \"description\": \"项目类型。\",\n        \"items\": {\n          \"type\": \"string\"\n        },\n        \"type\": \"array\"\n      }\n    },\n    \"required\": [],\n    \"type\": \"object\"\n  },\n  \"warnings\": []\n}",
+    "progress": 100,
+    "result_ref": {
+      "bytes": 4148,
+      "path": "artifacts/T001-d1edd2d8/W073-gov_schema_policy_get-gov_schema_policy_get-result.json",
+      "sha1": "e872d47267f4902038d561add0e5349c0eb82cc9"
+    },
+    "retryable": false,
+    "round": 1,
+    "status": "success",
+    "turn_alias": "T001-d1edd2d8",
+    "turn_id": "turn-4c93564a4c2140b89ce8083bd1edd2d8",
+    "visible": [
+      "bash",
+      "edit_file",
+      "export_file",
+      "glob",
+      "gov_agent_test",
+      "gov_asset_diff",
+      "gov_asset_list",
+      "gov_asset_read",
+      "gov_asset_stage",
+      "gov_asset_validate",
+      "gov_auto_review_run",
+      "gov_capability_list",
+      "gov_cli",
+      "gov_governable_list",
+      "gov_model_get",
+      "gov_model_probe",
+      "gov_model_set",
+      "gov_policy_get",
+      "gov_policy_set",
+      "gov_runtime_refresh",
+      "gov_schema_policy_diff",
+      "gov_schema_policy_get",
+      "gov_schema_policy_stage",
+      "gov_schema_policy_validate",
+      "gov_tool_adapter_stage",
+      "grep",
+      "load_skill",
+      "local_time",
+      "read_file",
+      "todo",
+      "write_file"
+    ],
+    "work_type": "tool"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "W073-gov_schema_policy_get",
+  "record_type": "work",
+  "refs": [
+    {
+      "bytes": 4148,
+      "path": "artifacts/T001-d1edd2d8/W073-gov_schema_policy_get-gov_schema_policy_get-result.json",
+      "sha1": "e872d47267f4902038d561add0e5349c0eb82cc9"
+    }
+  ],
+  "rev": 3,
+  "schema": 1,
+  "status": "completed",
+  "text": "",
+  "title": "tool gov_schema_policy_get",
+  "updated_at": 1779966629.6715293
+}

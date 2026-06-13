@@ -1,0 +1,17 @@
+{
+  "args": {
+    "projectName": "k08",
+    "taskName": "连杆设计"
+  },
+  "elapsed_ms": 300,
+  "error_message": null,
+  "error_type": null,
+  "metadata": {
+    "ok": true
+  },
+  "name": "query_ipm_list",
+  "ok": true,
+  "output": "{\n  \"ok\": true,\n  \"data\": \"{'code': 'ok', 'total': 0, 'table': [], 'requestid': '248ccacd223c40aab9aa8ef08727fcea'}\",\n  \"message\": \"调用成功\"\n}",
+  "status": "success",
+  "work_id": "W002-query_ipm_list"
+}

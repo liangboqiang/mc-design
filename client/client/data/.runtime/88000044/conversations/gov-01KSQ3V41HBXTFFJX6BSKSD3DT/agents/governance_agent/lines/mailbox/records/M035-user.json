@@ -1,0 +1,35 @@
+{
+  "audience": [
+    "user",
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": null,
+  "created_at": 1779966517.9901712,
+  "data": {
+    "agent_id": "design_agent",
+    "conversation_id": "01KSQ3V41HBXTFFJX6BSKSD3DT",
+    "files": [],
+    "from": "user",
+    "message_type": "user",
+    "to": [
+      "agent:governance_agent"
+    ],
+    "user_id": "88000044"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "user",
+    "id": "88000044",
+    "type": "user"
+  },
+  "record_id": "M035-user",
+  "record_type": "message",
+  "refs": [],
+  "rev": 1,
+  "schema": 1,
+  "status": "posted",
+  "text": "projectName、projectCode填写了错误入参导致的失败，你应该清楚，写的越多可能查询的范围越窄，越容易查询不到，所以查询不到时要放到搜索范围，同时不要去匹配你不确定的可选参数作为入参，你觉得我该如何改进？",
+  "title": "user message",
+  "updated_at": 1779966517.9901712
+}

@@ -1,0 +1,16 @@
+{
+  "content": "",
+  "finish_reason": "tool_calls",
+  "reasoning_content": "准备调用工具：gov_schema_policy_validate。",
+  "round": 4,
+  "tool_calls": [
+    {
+      "function": {
+        "arguments": "{\"tool\": \"query_ipm_list\"}",
+        "name": "gov_schema_policy_validate"
+      },
+      "id": "call_yrz93mkb46g7kxf46oob9fyd",
+      "type": "function"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "audience": [
+    "user",
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966559.3107376,
+  "created_at": 1779966519.4472618,
+  "data": {
+    "agent_id": "governance_agent",
+    "files": [],
+    "node_id": "lead",
+    "query_preview": "projectName、projectCode填写了错误入参导致的失败，你应该清楚，写的越多可能查询的范围越窄，越容易查询不到，所以查询不到时要放到搜索范围，同时不要去匹配你不确定的可选参数作为入参，你觉得我该如何改进？",
+    "result": "已根据你的分析完成优化草案，验证通过：\n\n## 改进内容\n为 `query_ipm_list` 工具添加了明确的查询策略指导：\n```\n优化查询策略：当参数值不明确时，不传递不确定的可选参数，以扩大搜索范围，提高查询成功率。\n```\n\n## 改进原理\n你分析得非常正确：\n- ❌ **问题根源**：Agent 总是试图猜测填入所有可见参数，即使 `projectName`/`projectCode` 等参数值不确定，错误入参缩小了查询范围，导致第一次查询失败\n- ✅ **改进方案**：明确要求当参数值不明确时，不传递不确定的可选参数，只使用确定参数查询，自然扩大搜索范围，提高第一次查询成功率\n\n## 当前状态\n- ✅ 变更已暂存到本地热治理层\n- ✅ 验证通过，无错误\n\n请输入 `/confirm` 确认后，此优化策略将立即生效。",
+    "round": 5,
+    "rounds": 5,
+    "turn_alias": "T001-85386524",
+    "turn_id": "turn-c713bf5a0fa440d2a54ba30c85386524"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "bridge",
+    "id": "bridge.client",
+    "type": "system"
+  },
+  "record_id": "T001-85386524",
+  "record_type": "turn",
+  "refs": [],
+  "rev": 8,
+  "schema": 1,
+  "status": "completed",
+  "text": "",
+  "title": "T001-85386524",
+  "updated_at": 1779966559.3107376
+}

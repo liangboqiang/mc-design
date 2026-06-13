@@ -1,7 +1,7 @@
 MC Design Client Installer
 ==========================
 
-Bundle version: turn-event-local
+Bundle version: dev-sync-20260528
 
 Install on Windows 7 + NX 11:
 
@@ -22,7 +22,7 @@ Install on Windows 7 + NX 11:
    - The legacy UGII_CUSTOM_DIRECTORY_FILE variable is removed so NX11 uses
      the standard custom_dirs.dat path.
 3. Edit configure\mc-design-client.config in the installed directory.
-    - Put real user_id, runtime port, NX plugin port, and tc_key there.
+    - Put real user_id, user_name, runtime port, NX plugin port, and tc_key there.
     - AI service route, API key, and AIWebForm URL are repository-owned values
       packaged into client\resources\mc-design-package.mcdpkg.
    - Local API host, asset paths, logs, workspace, and reconnect interval are

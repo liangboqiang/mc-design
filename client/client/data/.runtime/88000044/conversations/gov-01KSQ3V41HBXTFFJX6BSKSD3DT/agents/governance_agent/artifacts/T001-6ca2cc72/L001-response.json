@@ -1,0 +1,16 @@
+{
+  "content": "",
+  "finish_reason": "tool_calls",
+  "reasoning_content": "用户现在提出了一个具体查询任务，但我们现在在治理模式，用户是在测试改进后的效果吗？用户说\"请你在IPM上查询未完成的k08项目连杆设计任务。\"，其实我们现在是在治理智能体，应该要运行测试来看看优化后的效果对不对。所以我需要调用gov_agent_test工具，用当前治理后的agent来测试这个查询，看看效果如何。",
+  "round": 1,
+  "tool_calls": [
+    {
+      "function": {
+        "arguments": "{\"query\": \"请你在IPM上查询未完成的k08项目连杆设计任务。\", \"agent_id\": \"design_agent\"}",
+        "name": "gov_agent_test"
+      },
+      "id": "call_7qcfmotkxovyc5r9miix113t",
+      "type": "function"
+    }
+  ]
+}

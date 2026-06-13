@@ -1,0 +1,14 @@
+{
+  "lead": {
+    "id": "lead",
+    "agent_id": "design_agent",
+    "kind": "lead",
+    "source": "local_asset_package",
+    "parent": null,
+    "role": "lead",
+    "status": "active",
+    "children": [],
+    "created_at": 1779966376.4566867,
+    "archived_at": null
+  }
+}

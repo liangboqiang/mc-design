@@ -1,0 +1,46 @@
+{
+  "audience": [
+    "user",
+    "agent:design_agent",
+    "audit"
+  ],
+  "closed_at": 1779966077.5660222,
+  "created_at": 1779966064.1712039,
+  "data": {
+    "finish_reason": "tool_calls",
+    "from": "agent:design_agent",
+    "message_type": "agent",
+    "round": 1,
+    "to": [
+      "user"
+    ],
+    "tool_calls": [
+      {
+        "function": {
+          "arguments": "{\"projectName\": \"k08\", \"taskName\": \"连杆设计\"}",
+          "name": "query_ipm_list"
+        },
+        "id": "call_0tcr19ilrbn52wol3w2t0lox",
+        "type": "function"
+      }
+    ],
+    "turn_alias": "T001-b7cef793",
+    "turn_id": "turn-7461f0ad964843e6b8cdc1adb7cef793",
+    "work_id": "W004-llm"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "design_agent",
+    "id": "design_agent",
+    "type": "agent"
+  },
+  "record_id": "M005-agent",
+  "record_type": "message",
+  "refs": [],
+  "rev": 2,
+  "schema": 1,
+  "status": "posted",
+  "text": "",
+  "title": "agent reply",
+  "updated_at": 1779966077.5660222
+}

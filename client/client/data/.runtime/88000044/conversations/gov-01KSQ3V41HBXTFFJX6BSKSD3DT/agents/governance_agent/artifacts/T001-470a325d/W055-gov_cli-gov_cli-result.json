@@ -1,0 +1,14 @@
+{
+  "args": {
+    "command": "type \"E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-3399d3dd\\W008-query_ipm_list-query_ipm_list-result.json\""
+  },
+  "elapsed_ms": 19,
+  "error_message": "unsupported operand type(s) for +: 'NoneType' and 'str'",
+  "error_type": "handler_error",
+  "metadata": {},
+  "name": "gov_cli",
+  "ok": false,
+  "output": "",
+  "status": "execution_error",
+  "work_id": "W055-gov_cli"
+}

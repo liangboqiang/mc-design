@@ -1,0 +1,22 @@
+{
+  "args": {
+    "confirmStatusList": [
+      "未提交",
+      "不通过",
+      "已确认"
+    ],
+    "projectName": "K08",
+    "taskName": "连杆"
+  },
+  "elapsed_ms": 646,
+  "error_message": null,
+  "error_type": null,
+  "metadata": {
+    "ok": true
+  },
+  "name": "query_ipm_list",
+  "ok": true,
+  "output": "{\n  \"ok\": true,\n  \"data\": \"{'code': 'ok', 'total': 1, 'table': [{'id': 149354, 'projectName': 'YCK08-60项目2022版', 'projectCode': 'K202206Q', 'taskCode': '2024K15HSKQG6023T00015', 'label': '月院计划', 'targetManHour': '组织完成发图采购，下发采购流程。', 'taskName': 'K08系列机型曲轴进行了修改，K08_1004201_21_连杆体进行对应适配修改', 'plannedStartTime': '2026-04-01', 'plannedFinishTime': '2026-04-15', 'principle': '88000044', 'principleName': '宋明芮', 'confirmPer': '10052107', 'confirmPerName': '韦钻国', 'projectStatus': 'DEVELOPING', 'workType': 'PERFORMANCE', 'confirmStatus': '0', 'confirmStatusMeaning': '未提交', 'attachUrlList': []}], 'requestid': 'de3b9e63b91d4364bc618240c9cee397'}\",\n  \"message\": \"调用成功\"\n}",
+  "status": "success",
+  "work_id": "W008-query_ipm_list"
+}

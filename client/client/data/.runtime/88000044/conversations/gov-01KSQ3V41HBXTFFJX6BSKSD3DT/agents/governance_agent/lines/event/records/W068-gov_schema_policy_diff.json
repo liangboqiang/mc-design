@@ -1,0 +1,90 @@
+{
+  "audience": [
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966544.1294503,
+  "created_at": 1779966544.1054688,
+  "data": {
+    "args": {
+      "tool": "query_ipm_list"
+    },
+    "call_id": "call_zta2rqecckfl58c9m9pcdmf4",
+    "call_index": 0,
+    "elapsed_ms": 4,
+    "error_message": "",
+    "error_type": "",
+    "lane": "workspace_serial",
+    "metadata": {},
+    "name": "gov_schema_policy_diff",
+    "observation": "--- effective/tools/tool.external/schemas/query_ipm_list.schema.policy.json\n+++ staged/tools/tool.external/schemas/query_ipm_list.schema.policy.json\n@@ -0,0 +1,8 @@\n+{\n+  \"@status\": \"active\",\n+  \"@type\": \"tool_schema_policy\",\n+  \"description_patch\": \"优化查询策略：当参数值不明确时，不传递不确定的可选参数，以扩大搜索范围，提高查询成功率。\",\n+  \"hide_parameters\": [],\n+  \"strip_hidden_on_call\": false,\n+  \"tool\": \"query_ipm_list\"\n+}",
+    "ok": true,
+    "output": "--- effective/tools/tool.external/schemas/query_ipm_list.schema.policy.json\n+++ staged/tools/tool.external/schemas/query_ipm_list.schema.policy.json\n@@ -0,0 +1,8 @@\n+{\n+  \"@status\": \"active\",\n+  \"@type\": \"tool_schema_policy\",\n+  \"description_patch\": \"优化查询策略：当参数值不明确时，不传递不确定的可选参数，以扩大搜索范围，提高查询成功率。\",\n+  \"hide_parameters\": [],\n+  \"strip_hidden_on_call\": false,\n+  \"tool\": \"query_ipm_list\"\n+}",
+    "progress": 100,
+    "result_ref": {
+      "bytes": 772,
+      "path": "artifacts/T001-85386524/W068-gov_schema_policy_diff-gov_schema_policy_diff-result.json",
+      "sha1": "ab21558daacccf2d2bba753a939e19f0cfda576e"
+    },
+    "retryable": false,
+    "round": 3,
+    "status": "success",
+    "turn_alias": "T001-85386524",
+    "turn_id": "turn-c713bf5a0fa440d2a54ba30c85386524",
+    "visible": [
+      "bash",
+      "edit_file",
+      "export_file",
+      "glob",
+      "gov_agent_test",
+      "gov_asset_diff",
+      "gov_asset_list",
+      "gov_asset_read",
+      "gov_asset_stage",
+      "gov_asset_validate",
+      "gov_auto_review_run",
+      "gov_capability_list",
+      "gov_cli",
+      "gov_governable_list",
+      "gov_model_get",
+      "gov_model_probe",
+      "gov_model_set",
+      "gov_policy_get",
+      "gov_policy_set",
+      "gov_runtime_refresh",
+      "gov_schema_policy_diff",
+      "gov_schema_policy_get",
+      "gov_schema_policy_stage",
+      "gov_schema_policy_validate",
+      "gov_tool_adapter_stage",
+      "grep",
+      "load_skill",
+      "local_time",
+      "read_file",
+      "todo",
+      "write_file"
+    ],
+    "work_type": "tool"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "W068-gov_schema_policy_diff",
+  "record_type": "work",
+  "refs": [
+    {
+      "bytes": 772,
+      "path": "artifacts/T001-85386524/W068-gov_schema_policy_diff-gov_schema_policy_diff-result.json",
+      "sha1": "ab21558daacccf2d2bba753a939e19f0cfda576e"
+    }
+  ],
+  "rev": 3,
+  "schema": 1,
+  "status": "completed",
+  "text": "",
+  "title": "tool gov_schema_policy_diff",
+  "updated_at": 1779966544.1294503
+}

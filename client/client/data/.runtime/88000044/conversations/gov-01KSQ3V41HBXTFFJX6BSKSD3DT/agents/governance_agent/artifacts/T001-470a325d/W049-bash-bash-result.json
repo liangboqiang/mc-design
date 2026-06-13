@@ -1,0 +1,14 @@
+{
+  "args": {
+    "command": "ls -la runtime/agents/design_agent/artifacts/"
+  },
+  "elapsed_ms": 95,
+  "error_message": null,
+  "error_type": null,
+  "metadata": {},
+  "name": "bash",
+  "ok": true,
+  "output": "ls: cannot access 'runtime/agents/design_agent/artifacts/': No such file or directory",
+  "status": "success",
+  "work_id": "W049-bash"
+}

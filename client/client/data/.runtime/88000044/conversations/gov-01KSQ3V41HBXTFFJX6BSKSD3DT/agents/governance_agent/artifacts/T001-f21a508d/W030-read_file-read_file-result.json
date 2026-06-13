@@ -1,0 +1,14 @@
+{
+  "args": {
+    "path": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-3399d3dd\\W008-query_ipm_list-query_ipm_list-result.json"
+  },
+  "elapsed_ms": 0,
+  "error_message": "路径逃逸工作区：E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-3399d3dd\\W008-query_ipm_list-query_ipm_list-result.json",
+  "error_type": "handler_error",
+  "metadata": {},
+  "name": "read_file",
+  "ok": false,
+  "output": "",
+  "status": "execution_error",
+  "work_id": "W030-read_file"
+}

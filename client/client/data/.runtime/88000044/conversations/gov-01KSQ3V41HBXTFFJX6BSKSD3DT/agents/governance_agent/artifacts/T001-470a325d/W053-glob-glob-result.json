@@ -1,0 +1,15 @@
+{
+  "args": {
+    "pattern": "**/*query_ipm_list*.json",
+    "root": "runtime"
+  },
+  "elapsed_ms": 9,
+  "error_message": null,
+  "error_type": null,
+  "metadata": {},
+  "name": "glob",
+  "ok": true,
+  "output": "（无匹配）",
+  "status": "success",
+  "work_id": "W053-glob"
+}

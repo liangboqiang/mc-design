@@ -1,0 +1,29 @@
+{
+  "change_id": "GCH-1779966538895-35ba66c1",
+  "conversation_id": "01KSQ3V41HBXTFFJX6BSKSD3DT",
+  "created_at": 1779966538.8960989,
+  "kind": "schema_policy",
+  "payload": {
+    "path": "tools/tool.external/schemas/query_ipm_list.schema.policy.json",
+    "policy": {
+      "@status": "active",
+      "@type": "tool_schema_policy",
+      "description_patch": "优化查询策略：当参数值不明确时，不传递不确定的可选参数，以扩大搜索范围，提高查询成功率。",
+      "hide_parameters": [],
+      "strip_hidden_on_call": false,
+      "tool": "query_ipm_list"
+    },
+    "tool": "query_ipm_list"
+  },
+  "result": {
+    "applied": [
+      "tools/tool.external/schemas/query_ipm_list.schema.policy.json"
+    ],
+    "kind": "schema_policy",
+    "ok": true,
+    "overlay_revision": 1
+  },
+  "status": "applied",
+  "summary": "暂存工具 schema 策略：query_ipm_list",
+  "updated_at": 1779966669.431623
+}

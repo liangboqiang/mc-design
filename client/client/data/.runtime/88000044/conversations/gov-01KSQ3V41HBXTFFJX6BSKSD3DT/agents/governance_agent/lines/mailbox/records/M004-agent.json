@@ -1,0 +1,46 @@
+{
+  "audience": [
+    "user",
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966198.758453,
+  "created_at": 1779966194.5995748,
+  "data": {
+    "finish_reason": "tool_calls",
+    "from": "agent:governance_agent",
+    "message_type": "agent",
+    "round": 3,
+    "to": [
+      "user"
+    ],
+    "tool_calls": [
+      {
+        "function": {
+          "arguments": "{\"path\": \"artifacts/GOV/auto-governance-evidence.json\", \"root\": \"runtime\"}",
+          "name": "gov_asset_read"
+        },
+        "id": "call_vpumnmx67bcvnr1xg24w9azi",
+        "type": "function"
+      }
+    ],
+    "turn_alias": "T001-f21a508d",
+    "turn_id": "turn-6d9ca0ccd9c64a5ba2ef1677f21a508d",
+    "work_id": "W005-llm"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "M004-agent",
+  "record_type": "message",
+  "refs": [],
+  "rev": 2,
+  "schema": 1,
+  "status": "posted",
+  "text": "",
+  "title": "agent reply",
+  "updated_at": 1779966198.758453
+}

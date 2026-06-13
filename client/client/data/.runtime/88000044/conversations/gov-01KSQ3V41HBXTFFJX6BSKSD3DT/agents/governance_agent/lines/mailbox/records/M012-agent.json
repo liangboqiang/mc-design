@@ -1,0 +1,46 @@
+{
+  "audience": [
+    "user",
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966240.5039089,
+  "created_at": 1779966235.8414207,
+  "data": {
+    "finish_reason": "tool_calls",
+    "from": "agent:governance_agent",
+    "message_type": "agent",
+    "round": 11,
+    "to": [
+      "user"
+    ],
+    "tool_calls": [
+      {
+        "function": {
+          "arguments": "{\"root\": \"runtime\", \"pattern\": \"**/*.json\", \"limit\": 20}",
+          "name": "glob"
+        },
+        "id": "call_kdm5cfvkzca5sm3gxdpe16vb",
+        "type": "function"
+      }
+    ],
+    "turn_alias": "T001-f21a508d",
+    "turn_id": "turn-6d9ca0ccd9c64a5ba2ef1677f21a508d",
+    "work_id": "W021-llm"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "M012-agent",
+  "record_type": "message",
+  "refs": [],
+  "rev": 2,
+  "schema": 1,
+  "status": "posted",
+  "text": "",
+  "title": "agent reply",
+  "updated_at": 1779966240.5039089
+}

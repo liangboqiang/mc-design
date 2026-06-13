@@ -1,0 +1,35 @@
+{
+  "audience": [
+    "user",
+    "agent:design_agent",
+    "audit"
+  ],
+  "closed_at": null,
+  "created_at": 1779965929.5534093,
+  "data": {
+    "agent_id": "design_agent",
+    "conversation_id": "01KSQ3RMGABZWFPVAD63YZGFJP",
+    "files": [],
+    "from": "user",
+    "message_type": "user",
+    "to": [
+      "agent:design_agent"
+    ],
+    "user_id": "88000044"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "user",
+    "id": "88000044",
+    "type": "user"
+  },
+  "record_id": "M001-user",
+  "record_type": "message",
+  "refs": [],
+  "rev": 1,
+  "schema": 1,
+  "status": "posted",
+  "text": "请你在IPM上查询未完成的连杆设计任务。",
+  "title": "user message",
+  "updated_at": 1779965929.5534093
+}

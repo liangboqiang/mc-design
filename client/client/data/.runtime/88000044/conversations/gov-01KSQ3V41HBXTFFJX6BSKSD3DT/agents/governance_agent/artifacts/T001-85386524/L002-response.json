@@ -1,0 +1,16 @@
+{
+  "content": "",
+  "finish_reason": "tool_calls",
+  "reasoning_content": "我现在理解用户的问题了，用户说当projectName和projectCode填写错误参数时会导致查询范围太窄，查不到结果。用户希望改进策略，让Agent在查询不到的时候扩大搜索范围，并且不要随意填写不确定的可选参数。\n\n现在我看到query_ipm_list这个工具的schema，projectCode和projectName都是可选参数，没有必填。按照用户的建议，我们应该修改Agent对这些参数的使用规则：只有在用户明确提供了正确的projectCode和projectName时，才将它们作为查询参数；如果不确定或者用户没有明确给出，就不应该把这些参数带上，避免因为错误值缩小查询范围导致查不到结果。\n\n这正好可以通过schema策略治理来实现，我们可以更新description，明确说明这些参数只有在确定值的时候才传递，同时如果用户希望的话，也可以...不对，用户的要求是“不要去匹配你不确定的可选参数作为入参”，所以我们需要修改这些参数的描述，并且可以考虑...不，用户不是要隐藏参数，而是要改变使用策略，所以我们可以暂存一个schema策略，更新参数描述，明确使用规则：projectCode和projectName仅在明确获得准确值时填入，不确定时不传递该参数以扩大搜索范围。\n\n让我先做这个暂存。",
+  "round": 2,
+  "tool_calls": [
+    {
+      "function": {
+        "arguments": "{\"tool\": \"query_ipm_list\", \"tool_ref\": \"tool.external\", \"description_patch\": \"优化查询策略：当参数值不明确时，不传递不确定的可选参数，以扩大搜索范围，提高查询成功率。\", \"strip_hidden_on_call\": false, \"hide_parameters\": []}",
+        "name": "gov_schema_policy_stage"
+      },
+      "id": "call_2xvouh5d826fdq51zbjcg21j",
+      "type": "function"
+    }
+  ]
+}

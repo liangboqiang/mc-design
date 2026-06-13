@@ -1,0 +1,12 @@
+{
+  "id": "lead",
+  "agent_id": "governance_agent",
+  "kind": "lead",
+  "source": "local_asset_package",
+  "parent": null,
+  "role": "lead",
+  "status": "active",
+  "children": [],
+  "created_at": 1779966693.1052015,
+  "archived_at": null
+}

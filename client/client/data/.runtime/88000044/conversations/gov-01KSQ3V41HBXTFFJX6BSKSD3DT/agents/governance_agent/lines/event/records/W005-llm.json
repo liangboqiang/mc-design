@@ -1,0 +1,62 @@
+{
+  "audience": [
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966198.765232,
+  "created_at": 1779966194.580067,
+  "data": {
+    "content": "",
+    "field": "reasoning_content",
+    "finish_reason": "tool_calls",
+    "message_record_id": "M004-agent",
+    "progress": 100,
+    "prompt_record_id": "CTX003-prompt",
+    "reasoning_content": "自动复盘已经生成了证据文件，现在需要读取这个证据文件来查看具体的结果。",
+    "request_ref": {
+      "bytes": 41404,
+      "path": "artifacts/T001-f21a508d/L003-request.json",
+      "sha1": "e3fc7f4decd716af0a705bb938ca933f21870a34"
+    },
+    "response_ref": {
+      "bytes": 473,
+      "path": "artifacts/T001-f21a508d/L003-response.json",
+      "sha1": "1db0fbd5ecec94f0627b7c08f02aa7c51ef2b769"
+    },
+    "round": 3,
+    "tool_calls": [
+      {
+        "function": {
+          "arguments": "{\"path\": \"artifacts/GOV/auto-governance-evidence.json\", \"root\": \"runtime\"}",
+          "name": "gov_asset_read"
+        },
+        "id": "call_vpumnmx67bcvnr1xg24w9azi",
+        "type": "function"
+      }
+    ],
+    "turn_alias": "T001-f21a508d",
+    "turn_id": "turn-6d9ca0ccd9c64a5ba2ef1677f21a508d",
+    "work_type": "llm"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "W005-llm",
+  "record_type": "work",
+  "refs": [
+    {
+      "bytes": 473,
+      "path": "artifacts/T001-f21a508d/L003-response.json",
+      "sha1": "1db0fbd5ecec94f0627b7c08f02aa7c51ef2b769"
+    }
+  ],
+  "rev": 4,
+  "schema": 1,
+  "status": "completed",
+  "text": "自动复盘已经生成了证据文件，现在需要读取这个证据文件来查看具体的结果。",
+  "title": "llm round 3",
+  "updated_at": 1779966198.765232
+}

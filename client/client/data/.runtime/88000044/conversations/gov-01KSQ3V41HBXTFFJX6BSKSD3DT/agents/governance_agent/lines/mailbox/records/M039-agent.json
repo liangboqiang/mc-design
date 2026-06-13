@@ -1,0 +1,46 @@
+{
+  "audience": [
+    "user",
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966546.5449955,
+  "created_at": 1779966544.1991751,
+  "data": {
+    "finish_reason": "tool_calls",
+    "from": "agent:governance_agent",
+    "message_type": "agent",
+    "round": 4,
+    "to": [
+      "user"
+    ],
+    "tool_calls": [
+      {
+        "function": {
+          "arguments": "{\"tool\": \"query_ipm_list\"}",
+          "name": "gov_schema_policy_validate"
+        },
+        "id": "call_yrz93mkb46g7kxf46oob9fyd",
+        "type": "function"
+      }
+    ],
+    "turn_alias": "T001-85386524",
+    "turn_id": "turn-c713bf5a0fa440d2a54ba30c85386524",
+    "work_id": "W069-llm"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "M039-agent",
+  "record_type": "message",
+  "refs": [],
+  "rev": 2,
+  "schema": 1,
+  "status": "posted",
+  "text": "",
+  "title": "agent reply",
+  "updated_at": 1779966546.5449955
+}

@@ -1,0 +1,62 @@
+{
+  "audience": [
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966183.0844123,
+  "created_at": 1779966177.690782,
+  "data": {
+    "content": "",
+    "field": "reasoning_content",
+    "finish_reason": "tool_calls",
+    "message_record_id": "M002-agent",
+    "progress": 100,
+    "prompt_record_id": "CTX001-prompt",
+    "reasoning_content": "用户现在想分析这个会话为什么最开始没找到任务，首先需要先看看可治理的资产和当前的情况，首先应该列出可热治理的资产，用gov_governable_list工具，agent_id是design_agent，先看看有哪些资产，这样才能进一步检查问题。所以调用gov_governable_list，参数agent_id是design_agent，limit先设个100吧，看看所有可治理的项。",
+    "request_ref": {
+      "bytes": 20142,
+      "path": "artifacts/T001-f21a508d/L001-request.json",
+      "sha1": "8b8218e32f810b16b0f1ae8548aae570292db93a"
+    },
+    "response_ref": {
+      "bytes": 749,
+      "path": "artifacts/T001-f21a508d/L001-response.json",
+      "sha1": "fdbe9bb2038c4dbb0f23e4683616fc7c8e7e27ff"
+    },
+    "round": 1,
+    "tool_calls": [
+      {
+        "function": {
+          "arguments": "{\"agent_id\": \"design_agent\", \"limit\": 100}",
+          "name": "gov_governable_list"
+        },
+        "id": "call_r4ab0u4sddsjy054xzrjfq8c",
+        "type": "function"
+      }
+    ],
+    "turn_alias": "T001-f21a508d",
+    "turn_id": "turn-6d9ca0ccd9c64a5ba2ef1677f21a508d",
+    "work_type": "llm"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "W001-llm",
+  "record_type": "work",
+  "refs": [
+    {
+      "bytes": 749,
+      "path": "artifacts/T001-f21a508d/L001-response.json",
+      "sha1": "fdbe9bb2038c4dbb0f23e4683616fc7c8e7e27ff"
+    }
+  ],
+  "rev": 5,
+  "schema": 1,
+  "status": "completed",
+  "text": "用户现在想分析这个会话为什么最开始没找到任务，首先需要先看看可治理的资产和当前的情况，首先应该列出可热治理的资产，用gov_governable_list工具，agent_id是design_agent，先看看有哪些资产，这样才能进一步检查问题。所以调用gov_governable_list，参数agent_id是design_agent，limit先设个100吧，看看所有可治理的项。",
+  "title": "llm round 1",
+  "updated_at": 1779966183.0844123
+}

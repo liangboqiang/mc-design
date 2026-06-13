@@ -1,0 +1,15 @@
+{
+  "agent_id": "design_agent",
+  "context_records": 6,
+  "conversation_id": "01KSQ3V41HBXTFFJX6BSKSD3DT",
+  "created_at": 1779966376.967695,
+  "event_records": 13,
+  "failed_tools": [],
+  "loaded_skills": [],
+  "low_risk_applied": [],
+  "mailbox_records": 9,
+  "mode": "low_risk_auto",
+  "reason": "分析为什么最开始两次任务查询失败，第三次成功",
+  "session_alias": "S003-01KSQ3V41HBXTFFJX6BSKSD3DT",
+  "tool_events": 3
+}

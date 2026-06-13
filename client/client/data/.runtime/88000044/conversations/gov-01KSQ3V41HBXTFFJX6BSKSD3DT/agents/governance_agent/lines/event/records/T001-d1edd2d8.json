@@ -1,0 +1,35 @@
+{
+  "audience": [
+    "user",
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966648.5962613,
+  "created_at": 1779966624.3959827,
+  "data": {
+    "agent_id": "governance_agent",
+    "files": [],
+    "node_id": "lead",
+    "query_preview": "你打算进行哪些优化，具体会产生什么变化。",
+    "result": "我给你说明一下具体的优化方案和会产生的变化：\n\n## 具体优化内容\n我已经给 `query_ipm_list` 工具补充了明确的查询策略指导：\n> **优化查询策略：当参数值不明确时，不传递不确定的可选参数，以扩大搜索范围，提高查询成功率。**\n\n我们不会隐藏任何参数，只是从工具策略层面指导Agent的调用行为。\n\n## 具体变化\n### ✅ 改进后行为（优化后）\n1. 当你只提供了任务ID/任务名称等少量明确信息时，Agent**不会强行猜测填写不确定的 `projectName`/`projectCode`**，只传递你明确给出的参数\n2. 不确定的可选参数留空不传递，后端会自动忽略这些筛选条件，自然扩大搜索范围\n3. 避免了错误参数过滤掉正确结果，能大幅提高**第一次查询的成功率**，减少无效重试\n\n### ❌ 原有问题（改进前）\nAgent会尽量填满所有可见参数，即使 `projectName`/`projectCode` 的值不确定，也会尝试猜测填入。一旦猜测错误，就会错误缩小查询范围，直接导致第一次查询失败，需要多次重试才能找到正确结果。\n\n## 当前状态\n优化策略已经暂存到本地热治理层，等待你的确认。\n\n如果你同意这个改进方案，请输入 **`/confirm`**，优化就会立即生效。",
+    "round": 2,
+    "rounds": 2,
+    "turn_alias": "T001-d1edd2d8",
+    "turn_id": "turn-4c93564a4c2140b89ce8083bd1edd2d8"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "bridge",
+    "id": "bridge.client",
+    "type": "system"
+  },
+  "record_id": "T001-d1edd2d8",
+  "record_type": "turn",
+  "refs": [],
+  "rev": 5,
+  "schema": 1,
+  "status": "completed",
+  "text": "",
+  "title": "T001-d1edd2d8",
+  "updated_at": 1779966648.5962613
+}

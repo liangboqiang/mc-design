@@ -1,0 +1,41 @@
+{
+  "audience": [],
+  "closed_at": 1779963697.875573,
+  "created_at": 1779963697.8601723,
+  "data": {
+    "content": "done",
+    "field": "reasoning_content",
+    "finish_reason": "stop",
+    "message_record_id": "M001-agent",
+    "progress": 100,
+    "reasoning_content": "",
+    "request_ref": {
+      "bytes": 148,
+      "path": "artifacts/T001-turn/L001-request.json",
+      "sha1": "3a9f263219c5d06a36dafc1cf609b9820d49e12c"
+    },
+    "response_ref": {
+      "bytes": 112,
+      "path": "artifacts/T001-turn/L001-response.json",
+      "sha1": "88f40fbe80bd9d637428cd652d65ef96d9ec7138"
+    },
+    "tool_calls": []
+  },
+  "line": "event",
+  "owner": {},
+  "record_id": "W001-llm",
+  "record_type": "work",
+  "refs": [
+    {
+      "bytes": 112,
+      "path": "artifacts/T001-turn/L001-response.json",
+      "sha1": "88f40fbe80bd9d637428cd652d65ef96d9ec7138"
+    }
+  ],
+  "rev": 7,
+  "schema": 1,
+  "status": "completed",
+  "text": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "title": "",
+  "updated_at": 1779963697.875573
+}

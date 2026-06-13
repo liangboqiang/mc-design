@@ -1,0 +1,34 @@
+{
+  "audience": [
+    "user",
+    "agent:design_agent",
+    "audit"
+  ],
+  "closed_at": null,
+  "created_at": 1779966698.893402,
+  "data": {
+    "files": [],
+    "from": "user",
+    "message_type": "user",
+    "to": [
+      "agent:design_agent"
+    ],
+    "turn_alias": "T001-turn",
+    "turn_id": "gov-test-1779966698886"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "user",
+    "id": "88000044",
+    "type": "user"
+  },
+  "record_id": "M001-user",
+  "record_type": "message",
+  "refs": [],
+  "rev": 1,
+  "schema": 1,
+  "status": "posted",
+  "text": "请你在IPM上查询未完成的k08项目连杆设计任务。",
+  "title": "user message",
+  "updated_at": 1779966698.893402
+}

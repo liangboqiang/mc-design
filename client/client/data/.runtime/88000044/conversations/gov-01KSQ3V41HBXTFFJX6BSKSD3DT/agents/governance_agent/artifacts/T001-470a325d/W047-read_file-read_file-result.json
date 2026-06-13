@@ -1,0 +1,15 @@
+{
+  "args": {
+    "limit": 200,
+    "path": "agents/design_agent/artifacts/T001-3399d3dd/W008-query_ipm_list-query_ipm_list-result.json"
+  },
+  "elapsed_ms": 0,
+  "error_message": "[Errno 2] No such file or directory: 'E:\\\\A0_Projects\\\\A1_Dynamics_Design_LM\\\\mc-design\\\\client\\\\client\\\\data\\\\workspace\\\\agents\\\\design_agent\\\\artifacts\\\\T001-3399d3dd\\\\W008-query_ipm_list-query_ipm_list-result.json'",
+  "error_type": "handler_error",
+  "metadata": {},
+  "name": "read_file",
+  "ok": false,
+  "output": "",
+  "status": "execution_error",
+  "work_id": "W047-read_file"
+}

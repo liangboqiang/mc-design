@@ -1,0 +1,90 @@
+{
+  "audience": [
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966385.7088609,
+  "created_at": 1779966385.6897237,
+  "data": {
+    "args": {
+      "path": "artifacts/GOV/auto-governance-evidence.json"
+    },
+    "call_id": "call_i8qi5ecyl6t963v9c9ujck18",
+    "call_index": 0,
+    "elapsed_ms": 1,
+    "error_message": "[Errno 2] No such file or directory: 'E:\\\\A0_Projects\\\\A1_Dynamics_Design_LM\\\\mc-design\\\\client\\\\client\\\\data\\\\workspace\\\\artifacts\\\\GOV\\\\auto-governance-evidence.json'",
+    "error_type": "handler_error",
+    "lane": "io_parallel",
+    "metadata": {},
+    "name": "read_file",
+    "observation": "[Errno 2] No such file or directory: 'E:\\\\A0_Projects\\\\A1_Dynamics_Design_LM\\\\mc-design\\\\client\\\\client\\\\data\\\\workspace\\\\artifacts\\\\GOV\\\\auto-governance-evidence.json'\n工具 `read_file` 本 turn 累计失败 3 次，已临时禁用。",
+    "ok": false,
+    "output": "",
+    "progress": 100,
+    "result_ref": {
+      "bytes": 475,
+      "path": "artifacts/T001-470a325d/W061-read_file-read_file-result.json",
+      "sha1": "2deed154944fa9597641d8393e720d49c040ddbc"
+    },
+    "retryable": true,
+    "round": 14,
+    "status": "execution_error",
+    "turn_alias": "T001-470a325d",
+    "turn_id": "turn-c62fdecb7f2a4d91ad0af436470a325d",
+    "visible": [
+      "bash",
+      "edit_file",
+      "export_file",
+      "glob",
+      "gov_agent_test",
+      "gov_asset_diff",
+      "gov_asset_list",
+      "gov_asset_read",
+      "gov_asset_stage",
+      "gov_asset_validate",
+      "gov_auto_review_run",
+      "gov_capability_list",
+      "gov_cli",
+      "gov_governable_list",
+      "gov_model_get",
+      "gov_model_probe",
+      "gov_model_set",
+      "gov_policy_get",
+      "gov_policy_set",
+      "gov_runtime_refresh",
+      "gov_schema_policy_diff",
+      "gov_schema_policy_get",
+      "gov_schema_policy_stage",
+      "gov_schema_policy_validate",
+      "gov_tool_adapter_stage",
+      "grep",
+      "load_skill",
+      "local_time",
+      "read_file",
+      "todo",
+      "write_file"
+    ],
+    "work_type": "tool"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "W061-read_file",
+  "record_type": "work",
+  "refs": [
+    {
+      "bytes": 475,
+      "path": "artifacts/T001-470a325d/W061-read_file-read_file-result.json",
+      "sha1": "2deed154944fa9597641d8393e720d49c040ddbc"
+    }
+  ],
+  "rev": 3,
+  "schema": 1,
+  "status": "failed",
+  "text": "",
+  "title": "tool read_file",
+  "updated_at": 1779966385.7088609
+}

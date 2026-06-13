@@ -1,0 +1,18 @@
+{
+  "args": {
+    "agent_id": "design_agent",
+    "conversation_id": "01KSQ3V41HBXTFFJX6BSKSD3DT",
+    "reason": "检查会话最开始任务查找失败原因"
+  },
+  "elapsed_ms": 1339,
+  "error_message": null,
+  "error_type": null,
+  "metadata": {
+    "ok": true
+  },
+  "name": "gov_auto_review_run",
+  "ok": true,
+  "output": "{\n  \"artifact\": {\n    \"bytes\": 424,\n    \"path\": \"artifacts/GOV/auto-governance-evidence.json\",\n    \"sha1\": \"d88ed06e55379a7c103ce8364975add58e2e4a1b\"\n  },\n  \"evidence\": {\n    \"agent_id\": \"design_agent\",\n    \"context_records\": 6,\n    \"conversation_id\": \"01KSQ3V41HBXTFFJX6BSKSD3DT\",\n    \"created_at\": 1779966194.5200891,\n    \"event_records\": 12,\n    \"failed_tools\": [],\n    \"loaded_skills\": [],\n    \"low_risk_applied\": [],\n    \"mailbox_records\": 9,\n    \"mode\": \"low_risk_auto\",\n    \"reason\": \"检查会话最开始任务查找失败原因\",\n    \"session_alias\": \"S003-01KSQ3V41HBXTFFJX6BSKSD3DT\",\n    \"tool_events\": 3\n  },\n  \"ok\": true,\n  \"record_id\": \"W001-auto-governance\"\n}",
+  "status": "success",
+  "work_id": "W004-gov_auto_review_run"
+}

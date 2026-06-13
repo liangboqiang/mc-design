@@ -13,7 +13,7 @@
     "arch": "amd64",
     "source_type": "bundled_prepared_runtime",
     "archive": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\runtime\\python-3.8.10-embed-amd64-mcdesign-runtime.zip",
-    "prepared_at_epoch": 1779897869,
+    "prepared_at_epoch": 1779965111,
     "verification": {
       "python": "3.8.10 (tags/v3.8.10:3d8993a, May  3 2021, 11:48:03) [MSC v.1928 64 bit (AMD64)]",
       "version_info": [
@@ -50,18 +50,18 @@
   "asset_snapshot": {
     "source_boundary": "mc-design-nx/assets/source",
     "path": "client/resources/agent_assets.mcdpkg",
-    "bundle_version": "turn-event-local",
+    "bundle_version": "dev-sync-20260528",
     "agent_id": "design_agent",
     "min_client_version": "0.1.0",
-    "sha256": "ef51c52d10a326a3da0fa3e17b43f991511114c67eb5f5cfb0234dae61cda1c9",
-    "asset_package_sha256": "ef51c52d10a326a3da0fa3e17b43f991511114c67eb5f5cfb0234dae61cda1c9",
+    "sha256": "f1db847f8923856d75edc8ea724b43ffd12a66b38c94a7773862b4347ab75a9f",
+    "asset_package_sha256": "f1db847f8923856d75edc8ea724b43ffd12a66b38c94a7773862b4347ab75a9f",
     "agents": [
       "beya",
       "design_agent",
       "governance_agent",
       "reviewer"
     ],
-    "skill_count": 31,
+    "skill_count": 35,
     "skill_file_count": 1,
     "static_file_count": 0
   },
@@ -98,33 +98,24 @@
   ],
   "installer": {
     "name": "McDesignClientSetup",
-    "bundle_version": "turn-event-local",
+    "bundle_version": "dev-sync-20260528",
     "install_entrypoint": "install.bat",
     "uninstall_entrypoint": "uninstall.bat",
     "install_helper": "installer/tools/install_helper.mcpy",
     "install_state": "install-state.json",
     "smoke_test": "smoke-test.bat",
     "msbuild": {
-      "status": "built",
-      "returncode": 0,
-      "log": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\output\\logs\\build-core.log",
-      "required_artifacts_present": true,
-      "duration_seconds": 2.021
+      "status": "skipped",
+      "required_artifacts_present": true
     },
     "ui_build": {
-      "status": "built",
-      "returncode": 0,
-      "log": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\output\\logs\\build-ui.log",
-      "artifact_present": true,
-      "duration_seconds": 0.733
+      "status": "skipped_existing_artifacts_used",
+      "artifact_present": true
     },
     "launcher_build": {
-      "status": "built",
-      "returncode": 0,
-      "log": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\output\\logs\\build-launcher.log",
+      "status": "skipped_existing_artifacts_used",
       "artifact_present": true,
-      "artifact": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\client-launcher\\dist\\McDesignClient.exe",
-      "duration_seconds": 0.658
+      "artifact": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\client-launcher\\dist\\McDesignClient.exe"
     },
     "python_runtime_prepare": {
       "ok": true,
@@ -135,7 +126,7 @@
       "arch": "amd64",
       "source_type": "bundled_prepared_runtime",
       "archive": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\runtime\\python-3.8.10-embed-amd64-mcdesign-runtime.zip",
-      "prepared_at_epoch": 1779897869,
+      "prepared_at_epoch": 1779965111,
       "verification": {
         "python": "3.8.10 (tags/v3.8.10:3d8993a, May  3 2021, 11:48:03) [MSC v.1928 64 bit (AMD64)]",
         "version_info": [
@@ -149,9 +140,9 @@
       },
       "note": "Runtime is extracted from package/windows/runtime and copied into the customer package as client/python."
     },
-    "work_dir_kept": true,
-    "package_dir": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\output\\.work\\McDesignClientSetup-turn-event-local",
-    "payload_dir": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\output\\.work\\McDesignClientSetup-turn-event-local\\payload",
-    "archive": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\output\\installers\\McDesignClientSetup-turn-event-local.zip"
+    "work_dir_kept": false,
+    "package_dir": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\output\\.work\\McDesignClientSetup-dev-sync-20260528",
+    "payload_dir": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\output\\.work\\McDesignClientSetup-dev-sync-20260528\\payload",
+    "archive": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\package\\windows\\output\\installers\\McDesignClientSetup-dev-sync-20260528.zip"
   }
 }

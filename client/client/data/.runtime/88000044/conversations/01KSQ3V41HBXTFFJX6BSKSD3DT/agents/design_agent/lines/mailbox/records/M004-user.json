@@ -1,0 +1,35 @@
+{
+  "audience": [
+    "user",
+    "agent:design_agent",
+    "audit"
+  ],
+  "closed_at": null,
+  "created_at": 1779966062.645995,
+  "data": {
+    "agent_id": "design_agent",
+    "conversation_id": "01KSQ3V41HBXTFFJX6BSKSD3DT",
+    "files": [],
+    "from": "user",
+    "message_type": "user",
+    "to": [
+      "agent:design_agent"
+    ],
+    "user_id": "88000044"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "user",
+    "id": "88000044",
+    "type": "user"
+  },
+  "record_id": "M004-user",
+  "record_type": "message",
+  "refs": [],
+  "rev": 1,
+  "schema": 1,
+  "status": "posted",
+  "text": "请你仔细思考，我感觉你工具用的有问题。",
+  "title": "user message",
+  "updated_at": 1779966062.645995
+}

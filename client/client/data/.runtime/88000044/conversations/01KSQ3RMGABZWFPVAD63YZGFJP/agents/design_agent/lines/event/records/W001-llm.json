@@ -1,0 +1,39 @@
+{
+  "audience": [
+    "agent:design_agent",
+    "audit"
+  ],
+  "closed_at": 1779966111.8022711,
+  "created_at": 1779965931.7544255,
+  "data": {
+    "error_message": "",
+    "error_type": "TimeoutError",
+    "field": "reasoning_content",
+    "progress": 5,
+    "prompt_record_id": "CTX001-prompt",
+    "request_ref": {
+      "bytes": 73369,
+      "path": "artifacts/T001-32a43a17/L001-request.json",
+      "sha1": "7e159a7c78bf6ac44e44fad1aadbc6bee0db5922"
+    },
+    "round": 1,
+    "turn_alias": "T001-32a43a17",
+    "turn_id": "turn-0a755fd23b40463b87ef5cc332a43a17",
+    "work_type": "llm"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "design_agent",
+    "id": "design_agent",
+    "type": "agent"
+  },
+  "record_id": "W001-llm",
+  "record_type": "work",
+  "refs": [],
+  "rev": 5,
+  "schema": 1,
+  "status": "failed",
+  "text": "用户现在需要查询IPM上未完成的连杆设计任务，根据提供的工具，query_ipm_list可以查询IPM任务信息，默认confirmStatusList是未提交、不通过、已确认，也就是未完成的状态，taskName可以填“连杆设计”来筛选。那我直接调用query_ipm_list工具，参数里taskName设为连杆设计，confirmStatusList就用默认的，不需要额外改",
+  "title": "llm round 1",
+  "updated_at": 1779966111.8022711
+}

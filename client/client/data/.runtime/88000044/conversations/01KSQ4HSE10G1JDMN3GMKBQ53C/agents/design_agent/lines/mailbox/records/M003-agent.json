@@ -1,0 +1,37 @@
+{
+  "audience": [
+    "user",
+    "agent:design_agent",
+    "audit"
+  ],
+  "closed_at": 1779966760.503034,
+  "created_at": 1779966751.3957524,
+  "data": {
+    "finish_reason": "stop",
+    "from": "agent:design_agent",
+    "message_type": "agent",
+    "round": 2,
+    "to": [
+      "user"
+    ],
+    "tool_calls": [],
+    "turn_alias": "T001-4e5798f6",
+    "turn_id": "turn-8286590f9e044af69216779a4e5798f6",
+    "work_id": "W003-llm"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "design_agent",
+    "id": "design_agent",
+    "type": "agent"
+  },
+  "record_id": "M003-agent",
+  "record_type": "message",
+  "refs": [],
+  "rev": 3,
+  "schema": 1,
+  "status": "posted",
+  "text": "查询结果显示：未找到符合条件（项目名称含k08、任务名称含连杆设计、默认未完成状态）的IPM任务。\n\n可能的原因：\n1. 项目名称/任务名称关键词不匹配\n2. 该任务已经完成，不在默认查询状态范围内\n3. 项目编码不正确\n\n请你确认更准确的项目编码、任务名称或任务状态，我可以重新为你查询。",
+  "title": "agent reply",
+  "updated_at": 1779966760.503034
+}

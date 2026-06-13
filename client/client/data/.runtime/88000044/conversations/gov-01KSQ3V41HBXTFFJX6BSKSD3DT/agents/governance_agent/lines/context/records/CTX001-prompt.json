@@ -1,0 +1,76 @@
+{
+  "audience": [
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": null,
+  "created_at": 1779966177.6830459,
+  "data": {
+    "history_policy": "current_turn_tool_protocol_or_historical_assistant",
+    "message_count": 1,
+    "message_summary": [
+      {
+        "content_chars": 35,
+        "index": 1,
+        "name": "",
+        "preview": "请你看看我的这个会话，为什么最开始没有找到这个任务，是哪里出现了问题？",
+        "role": "user",
+        "tool_call_id": "",
+        "tool_calls": []
+      }
+    ],
+    "round": 1,
+    "system_chars": 1702,
+    "tool_count": 31,
+    "tool_names": [
+      "glob",
+      "grep",
+      "bash",
+      "local_time",
+      "read_file",
+      "write_file",
+      "export_file",
+      "edit_file",
+      "load_skill",
+      "todo",
+      "gov_asset_list",
+      "gov_asset_read",
+      "gov_asset_stage",
+      "gov_asset_diff",
+      "gov_asset_validate",
+      "gov_governable_list",
+      "gov_schema_policy_get",
+      "gov_schema_policy_stage",
+      "gov_schema_policy_diff",
+      "gov_schema_policy_validate",
+      "gov_tool_adapter_stage",
+      "gov_runtime_refresh",
+      "gov_model_get",
+      "gov_model_probe",
+      "gov_model_set",
+      "gov_policy_get",
+      "gov_policy_set",
+      "gov_capability_list",
+      "gov_auto_review_run",
+      "gov_cli",
+      "gov_agent_test"
+    ],
+    "turn_alias": "T001-f21a508d",
+    "turn_id": "turn-6d9ca0ccd9c64a5ba2ef1677f21a508d"
+  },
+  "line": "context",
+  "owner": {
+    "alias": "context",
+    "id": "context.governance_agent",
+    "type": "node"
+  },
+  "record_id": "CTX001-prompt",
+  "record_type": "prompt_input",
+  "refs": [],
+  "rev": 1,
+  "schema": 1,
+  "status": "ready",
+  "text": "# Prompt Input\n\n- Round: 1\n- System chars: 1702\n- Messages: 1\n- Visible tools: 31\n- History policy: current turn uses tool_call/tool_result; previous turns use assistant messages.\n\n## Messages\n- 1. user (chars=35): 请你看看我的这个会话，为什么最开始没有找到这个任务，是哪里出现了问题？\n\n## Visible Tools\nglob, grep, bash, local_time, read_file, write_file, export_file, edit_file, load_skill, todo, gov_asset_list, gov_asset_read, gov_asset_stage, gov_asset_diff, gov_asset_validate, gov_governable_list, gov_schema_policy_get, gov_schema_policy_stage, gov_schema_policy_diff, gov_schema_policy_validate, gov_tool_adapter_stage, gov_runtime_refresh, gov_model_get, gov_model_probe, gov_model_set, gov_policy_get, gov_policy_set, gov_capability_list, gov_auto_review_run, gov_cli, gov_agent_test",
+  "title": "round 1 prompt",
+  "updated_at": 1779966177.6830459
+}

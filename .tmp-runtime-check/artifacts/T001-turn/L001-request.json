@@ -1,0 +1,12 @@
+{
+  "messages": [
+    {
+      "content": "hi",
+      "role": "user"
+    }
+  ],
+  "round": 1,
+  "system": "sys",
+  "tool_names": [],
+  "tools": []
+}

@@ -1,0 +1,46 @@
+{
+  "audience": [
+    "user",
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966368.5215342,
+  "created_at": 1779966362.17226,
+  "data": {
+    "finish_reason": "tool_calls",
+    "from": "agent:governance_agent",
+    "message_type": "agent",
+    "round": 11,
+    "to": [
+      "user"
+    ],
+    "tool_calls": [
+      {
+        "function": {
+          "arguments": "{\"command\": \"type \\\"E:\\\\A0_Projects\\\\A1_Dynamics_Design_LM\\\\mc-design\\\\client\\\\client\\\\data\\\\.runtime\\\\88000044\\\\conversations\\\\01KSQ3V41HBXTFFJX6BSKSD3DT\\\\agents\\\\design_agent\\\\artifacts\\\\T001-3399d3dd\\\\W008-query_ipm_list-query_ipm_list-result.json\\\"\"}",
+          "name": "gov_cli"
+        },
+        "id": "call_t4mnmd3x2h05ao9cnczl1rn1",
+        "type": "function"
+      }
+    ],
+    "turn_alias": "T001-470a325d",
+    "turn_id": "turn-c62fdecb7f2a4d91ad0af436470a325d",
+    "work_id": "W054-llm"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "M030-agent",
+  "record_type": "message",
+  "refs": [],
+  "rev": 2,
+  "schema": 1,
+  "status": "posted",
+  "text": "",
+  "title": "agent reply",
+  "updated_at": 1779966368.5215342
+}

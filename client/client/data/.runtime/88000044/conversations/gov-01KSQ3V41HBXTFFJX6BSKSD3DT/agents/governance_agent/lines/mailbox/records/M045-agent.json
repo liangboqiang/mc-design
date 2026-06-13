@@ -1,0 +1,46 @@
+{
+  "audience": [
+    "user",
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966698.0366964,
+  "created_at": 1779966693.21915,
+  "data": {
+    "finish_reason": "tool_calls",
+    "from": "agent:governance_agent",
+    "message_type": "agent",
+    "round": 1,
+    "to": [
+      "user"
+    ],
+    "tool_calls": [
+      {
+        "function": {
+          "arguments": "{\"query\": \"请你在IPM上查询未完成的k08项目连杆设计任务。\", \"agent_id\": \"design_agent\"}",
+          "name": "gov_agent_test"
+        },
+        "id": "call_7qcfmotkxovyc5r9miix113t",
+        "type": "function"
+      }
+    ],
+    "turn_alias": "T001-6ca2cc72",
+    "turn_id": "turn-a73f85006a19418f97bb77b76ca2cc72",
+    "work_id": "W075-llm"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "M045-agent",
+  "record_type": "message",
+  "refs": [],
+  "rev": 2,
+  "schema": 1,
+  "status": "posted",
+  "text": "",
+  "title": "agent reply",
+  "updated_at": 1779966698.0366964
+}

@@ -1,0 +1,62 @@
+{
+  "audience": [
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966629.2037895,
+  "created_at": 1779966624.4554563,
+  "data": {
+    "content": "",
+    "field": "reasoning_content",
+    "finish_reason": "tool_calls",
+    "message_record_id": "M042-agent",
+    "progress": 100,
+    "prompt_record_id": "CTX038-prompt",
+    "reasoning_content": "用户现在问具体会进行哪些优化，以及具体变化。首先我需要先查看当前暂存的变更，或者查看当前schema策略，然后具体说明。首先调用gov_schema_policy_get来查看query_ipm_list工具当前的schema和策略，然后再说明具体的修改。",
+    "request_ref": {
+      "bytes": 24376,
+      "path": "artifacts/T001-d1edd2d8/L001-request.json",
+      "sha1": "697f5c3856febf95cab8da6bc657a3054acb89c4"
+    },
+    "response_ref": {
+      "bytes": 613,
+      "path": "artifacts/T001-d1edd2d8/L001-response.json",
+      "sha1": "38bc6763d9a9e8926eb79a2cdae9a3051abc8310"
+    },
+    "round": 1,
+    "tool_calls": [
+      {
+        "function": {
+          "arguments": "{\"tool\": \"query_ipm_list\"}",
+          "name": "gov_schema_policy_get"
+        },
+        "id": "call_wv17jvcp1zawdae9pfvz7fzf",
+        "type": "function"
+      }
+    ],
+    "turn_alias": "T001-d1edd2d8",
+    "turn_id": "turn-4c93564a4c2140b89ce8083bd1edd2d8",
+    "work_type": "llm"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "W072-llm",
+  "record_type": "work",
+  "refs": [
+    {
+      "bytes": 613,
+      "path": "artifacts/T001-d1edd2d8/L001-response.json",
+      "sha1": "38bc6763d9a9e8926eb79a2cdae9a3051abc8310"
+    }
+  ],
+  "rev": 5,
+  "schema": 1,
+  "status": "completed",
+  "text": "用户现在问具体会进行哪些优化，以及具体变化。首先我需要先查看当前暂存的变更，或者查看当前schema策略，然后具体说明。首先调用gov_schema_policy_get来查看query_ipm_list工具当前的schema和策略，然后再说明具体的修改。",
+  "title": "llm round 1",
+  "updated_at": 1779966629.2037895
+}

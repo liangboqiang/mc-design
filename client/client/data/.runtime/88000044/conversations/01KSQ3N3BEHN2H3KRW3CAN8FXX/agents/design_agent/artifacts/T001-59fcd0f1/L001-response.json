@@ -1,0 +1,16 @@
+{
+  "content": "",
+  "finish_reason": "tool_calls",
+  "reasoning_content": "用户让查询任务，根据提供的工具，查询IPM任务信息可以用query_ipm_list工具，参数可以默认使用运行时的principle和principleName，不需要额外指定，其他参数也留空，这样就能查询当前用户的任务了。所以调用query_ipm_list工具，参数都用默认的，不需要额外填其他。",
+  "round": 1,
+  "tool_calls": [
+    {
+      "function": {
+        "arguments": "{}",
+        "name": "query_ipm_list"
+      },
+      "id": "call_7iegzcj021xzk9p1m7svtd89",
+      "type": "function"
+    }
+  ]
+}

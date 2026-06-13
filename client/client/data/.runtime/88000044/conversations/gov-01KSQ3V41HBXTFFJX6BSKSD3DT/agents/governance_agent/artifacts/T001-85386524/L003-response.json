@@ -1,0 +1,16 @@
+{
+  "content": "",
+  "finish_reason": "tool_calls",
+  "reasoning_content": "现在已经暂存了策略修改，接下来需要查看diff和验证。先调用gov_schema_policy_diff查看diff，然后调用gov_schema_policy_validate验证。",
+  "round": 3,
+  "tool_calls": [
+    {
+      "function": {
+        "arguments": "{\"tool\": \"query_ipm_list\"}",
+        "name": "gov_schema_policy_diff"
+      },
+      "id": "call_zta2rqecckfl58c9m9pcdmf4",
+      "type": "function"
+    }
+  ]
+}

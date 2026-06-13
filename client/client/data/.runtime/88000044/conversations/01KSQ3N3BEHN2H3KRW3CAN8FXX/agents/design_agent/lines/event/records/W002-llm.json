@@ -1,0 +1,62 @@
+{
+  "audience": [
+    "agent:design_agent",
+    "audit"
+  ],
+  "closed_at": 1779965834.446538,
+  "created_at": 1779965825.6187427,
+  "data": {
+    "content": "",
+    "field": "reasoning_content",
+    "finish_reason": "tool_calls",
+    "message_record_id": "M004-agent",
+    "progress": 100,
+    "prompt_record_id": "CTX002-prompt",
+    "reasoning_content": "用户让查询任务，根据提供的工具，查询IPM任务信息可以用query_ipm_list工具，参数可以默认使用运行时的principle和principleName，不需要额外指定，其他参数也留空，这样就能查询当前用户的任务了。所以调用query_ipm_list工具，参数都用默认的，不需要额外填其他。",
+    "request_ref": {
+      "bytes": 73706,
+      "path": "artifacts/T001-59fcd0f1/L001-request.json",
+      "sha1": "d68c31a24159330d4e86f47ec71a7936f7658697"
+    },
+    "response_ref": {
+      "bytes": 632,
+      "path": "artifacts/T001-59fcd0f1/L001-response.json",
+      "sha1": "fe1d1497146448431739213995be3e256c3a0d9f"
+    },
+    "round": 1,
+    "tool_calls": [
+      {
+        "function": {
+          "arguments": "{}",
+          "name": "query_ipm_list"
+        },
+        "id": "call_7iegzcj021xzk9p1m7svtd89",
+        "type": "function"
+      }
+    ],
+    "turn_alias": "T001-59fcd0f1",
+    "turn_id": "turn-2d42cc55903645598d52d4aa59fcd0f1",
+    "work_type": "llm"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "design_agent",
+    "id": "design_agent",
+    "type": "agent"
+  },
+  "record_id": "W002-llm",
+  "record_type": "work",
+  "refs": [
+    {
+      "bytes": 632,
+      "path": "artifacts/T001-59fcd0f1/L001-response.json",
+      "sha1": "fe1d1497146448431739213995be3e256c3a0d9f"
+    }
+  ],
+  "rev": 5,
+  "schema": 1,
+  "status": "completed",
+  "text": "用户让查询任务，根据提供的工具，查询IPM任务信息可以用query_ipm_list工具，参数可以默认使用运行时的principle和principleName，不需要额外指定，其他参数也留空，这样就能查询当前用户的任务了。所以调用query_ipm_list工具，参数都用默认的，不需要额外填其他。",
+  "title": "llm round 1",
+  "updated_at": 1779965834.446538
+}

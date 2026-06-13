@@ -1,0 +1,62 @@
+{
+  "audience": [
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966382.0463746,
+  "created_at": 1779966377.045486,
+  "data": {
+    "content": "",
+    "field": "reasoning_content",
+    "finish_reason": "tool_calls",
+    "message_record_id": "M032-agent",
+    "progress": 100,
+    "prompt_record_id": "CTX030-prompt",
+    "reasoning_content": "自动治理复盘已经运行成功，现在我需要读取复盘结果，看看三次查询的具体情况。",
+    "request_ref": {
+      "bytes": 83911,
+      "path": "artifacts/T001-470a325d/L013-request.json",
+      "sha1": "ca72a01547cc65c9244b11f953c31c2a47a55f4b"
+    },
+    "response_ref": {
+      "bytes": 460,
+      "path": "artifacts/T001-470a325d/L013-response.json",
+      "sha1": "ce82edd4fb14f20251e8a17c2b548b0b8466df28"
+    },
+    "round": 13,
+    "tool_calls": [
+      {
+        "function": {
+          "arguments": "{\"path\": \"runtime/artifacts/GOV/auto-governance-evidence.json\"}",
+          "name": "read_file"
+        },
+        "id": "call_os6abv24hi0ap9p6vp7i7tmc",
+        "type": "function"
+      }
+    ],
+    "turn_alias": "T001-470a325d",
+    "turn_id": "turn-c62fdecb7f2a4d91ad0af436470a325d",
+    "work_type": "llm"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "W058-llm",
+  "record_type": "work",
+  "refs": [
+    {
+      "bytes": 460,
+      "path": "artifacts/T001-470a325d/L013-response.json",
+      "sha1": "ce82edd4fb14f20251e8a17c2b548b0b8466df28"
+    }
+  ],
+  "rev": 4,
+  "schema": 1,
+  "status": "completed",
+  "text": "自动治理复盘已经运行成功，现在我需要读取复盘结果，看看三次查询的具体情况。",
+  "title": "llm round 13",
+  "updated_at": 1779966382.0463746
+}

@@ -1,0 +1,37 @@
+{
+  "audience": [
+    "user",
+    "agent:design_agent",
+    "audit"
+  ],
+  "closed_at": 1779966130.9335954,
+  "created_at": 1779966119.3852103,
+  "data": {
+    "finish_reason": "stop",
+    "from": "agent:design_agent",
+    "message_type": "agent",
+    "round": 2,
+    "to": [
+      "user"
+    ],
+    "tool_calls": [],
+    "turn_alias": "T001-3399d3dd",
+    "turn_id": "turn-755be9a9122d4bfab5a3de903399d3dd",
+    "work_id": "W009-llm"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "design_agent",
+    "id": "design_agent",
+    "type": "agent"
+  },
+  "record_id": "M009-agent",
+  "record_type": "message",
+  "refs": [],
+  "rev": 3,
+  "schema": 1,
+  "status": "posted",
+  "text": "查询成功！找到1条符合条件的未完成任务：\n\n**任务ID**: 149354  \n**项目名称**: YCK08-60项目2022版  \n**项目编码**: K202206Q  \n**任务名称**: K08系列机型曲轴进行了修改，K08_1004201_21_连杆体进行对应适配修改  \n**计划开始时间**: 2026-04-01  \n**计划完成时间**: 2026-04-15  \n**主责人**: 宋明芮 (工号: 88000044)  \n**确认状态**: 未提交  \n**工作类型**: 性能开发  \n**项目状态**: 开发中",
+  "title": "agent reply",
+  "updated_at": 1779966130.9335954
+}

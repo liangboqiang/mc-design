@@ -1,0 +1,94 @@
+{
+  "audience": [
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966377.0008612,
+  "created_at": 1779966376.2676697,
+  "data": {
+    "args": {
+      "agent_id": "design_agent",
+      "conversation_id": "01KSQ3V41HBXTFFJX6BSKSD3DT",
+      "reason": "分析为什么最开始两次任务查询失败，第三次成功"
+    },
+    "call_id": "call_1m83fdqj1g0hcj73a3o103ed",
+    "call_index": 0,
+    "elapsed_ms": 717,
+    "error_message": "",
+    "error_type": "",
+    "lane": "workspace_serial",
+    "metadata": {
+      "ok": true
+    },
+    "name": "gov_auto_review_run",
+    "observation": "{\n  \"artifact\": {\n    \"bytes\": 444,\n    \"path\": \"artifacts/GOV/auto-governance-evidence.json\",\n    \"sha1\": \"f8ace9dcb049b2cff43ecd2cf3943b04ef024984\"\n  },\n  \"evidence\": {\n    \"agent_id\": \"design_agent\",\n    \"context_records\": 6,\n    \"conversation_id\": \"01KSQ3V41HBXTFFJX6BSKSD3DT\",\n    \"created_at\": 1779966376.967695,\n    \"event_records\": 13,\n    \"failed_tools\": [],\n    \"loaded_skills\": [],\n    \"low_risk_applied\": [],\n    \"mailbox_records\": 9,\n    \"mode\": \"low_risk_auto\",\n    \"reason\": \"分析为什么最开始两次任务查询失败，第三次成功\",\n    \"session_alias\": \"S003-01KSQ3V41HBXTFFJX6BSKSD3DT\",\n    \"tool_events\": 3\n  },\n  \"ok\": true,\n  \"record_id\": \"W001-auto-governance\"\n}",
+    "ok": true,
+    "output": "{\n  \"artifact\": {\n    \"bytes\": 444,\n    \"path\": \"artifacts/GOV/auto-governance-evidence.json\",\n    \"sha1\": \"f8ace9dcb049b2cff43ecd2cf3943b04ef024984\"\n  },\n  \"evidence\": {\n    \"agent_id\": \"design_agent\",\n    \"context_records\": 6,\n    \"conversation_id\": \"01KSQ3V41HBXTFFJX6BSKSD3DT\",\n    \"created_at\": 1779966376.967695,\n    \"event_records\": 13,\n    \"failed_tools\": [],\n    \"loaded_skills\": [],\n    \"low_risk_applied\": [],\n    \"mailbox_records\": 9,\n    \"mode\": \"low_risk_auto\",\n    \"reason\": \"分析为什么最开始两次任务查询失败，第三次成功\",\n    \"session_alias\": \"S003-01KSQ3V41HBXTFFJX6BSKSD3DT\",\n    \"tool_events\": 3\n  },\n  \"ok\": true,\n  \"record_id\": \"W001-auto-governance\"\n}",
+    "progress": 100,
+    "result_ref": {
+      "bytes": 1193,
+      "path": "artifacts/T001-470a325d/W057-gov_auto_review_run-gov_auto_review_run-result.json",
+      "sha1": "7f0945b080b6f9650b14693d5dac597677aabbc2"
+    },
+    "retryable": false,
+    "round": 12,
+    "status": "success",
+    "turn_alias": "T001-470a325d",
+    "turn_id": "turn-c62fdecb7f2a4d91ad0af436470a325d",
+    "visible": [
+      "bash",
+      "edit_file",
+      "export_file",
+      "glob",
+      "gov_agent_test",
+      "gov_asset_diff",
+      "gov_asset_list",
+      "gov_asset_read",
+      "gov_asset_stage",
+      "gov_asset_validate",
+      "gov_auto_review_run",
+      "gov_capability_list",
+      "gov_cli",
+      "gov_governable_list",
+      "gov_model_get",
+      "gov_model_probe",
+      "gov_model_set",
+      "gov_policy_get",
+      "gov_policy_set",
+      "gov_runtime_refresh",
+      "gov_schema_policy_diff",
+      "gov_schema_policy_get",
+      "gov_schema_policy_stage",
+      "gov_schema_policy_validate",
+      "gov_tool_adapter_stage",
+      "grep",
+      "load_skill",
+      "local_time",
+      "read_file",
+      "todo",
+      "write_file"
+    ],
+    "work_type": "tool"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "W057-gov_auto_review_run",
+  "record_type": "work",
+  "refs": [
+    {
+      "bytes": 1193,
+      "path": "artifacts/T001-470a325d/W057-gov_auto_review_run-gov_auto_review_run-result.json",
+      "sha1": "7f0945b080b6f9650b14693d5dac597677aabbc2"
+    }
+  ],
+  "rev": 3,
+  "schema": 1,
+  "status": "completed",
+  "text": "",
+  "title": "tool gov_auto_review_run",
+  "updated_at": 1779966377.0008612
+}

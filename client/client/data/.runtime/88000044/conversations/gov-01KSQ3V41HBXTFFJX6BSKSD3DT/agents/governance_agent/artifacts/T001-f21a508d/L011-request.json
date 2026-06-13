@@ -1,0 +1,862 @@
+{
+  "messages": [
+    {
+      "content": "请你看看我的这个会话，为什么最开始没有找到这个任务，是哪里出现了问题？",
+      "role": "user"
+    },
+    {
+      "content": "",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"agent_id\": \"design_agent\", \"limit\": 100}",
+            "name": "gov_governable_list"
+          },
+          "id": "call_r4ab0u4sddsjy054xzrjfq8c",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "content": "{\n  \"agent_id\": \"design_agent\",\n  \"ok\": true,\n  \"overlay_revision\": 0,\n  \"overlay_root\": \"E:\\\\A0_Projects\\\\A1_Dynamics_Design_LM\\\\mc-design\\\\client\\\\client\\\\data\\\\governance\\\\overlay\",\n  \"schema_policies\": [],\n  \"skills\": [\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"agent-collaboration\",\n      \"path\": \"skills/agent-collaboration/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.agent_collaboration\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"agent-builder\",\n      \"path\": \"skills/agentloop-core/agent-builder/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.agent_builder\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"code-review\",\n      \"path\": \"skills/agentloop-core/code-review/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.code_review\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"mcp-builder\",\n      \"path\": \"skills/agentloop-core/mcp-builder/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.mcp_builder\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"pdf\",\n      \"path\": \"skills/agentloop-core/pdf/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.pdf\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"agentloop_core\",\n      \"path\": \"skills/agentloop-core/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.agentloop_core\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"asset-governance\",\n      \"path\": \"skills/asset-governance/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.asset_governance\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"asset-graph-analysis\",\n      \"path\": \"skills/asset-graph-analysis/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.asset_graph_analysis\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"asset-soft-extraction\",\n      \"path\": \"skills/asset-soft-extraction/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.asset_soft_extraction\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"asset-write\",\n      \"path\": \"skills/asset-write/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.asset_write\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"camshaft-design\",\n      \"path\": \"skills/camshaft-design/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.camshaft_design\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"conrod-design\",\n      \"path\": \"skills/conrod-design/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.conrod_design\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"content-conflict-review\",\n      \"path\": \"skills/content-conflict-review/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.content_conflict_review\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"context-compact\",\n      \"path\": \"skills/context-compact/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.context_compact\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"context-governance\",\n      \"path\": \"skills/context-governance/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.context_governance\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"design-data-query\",\n      \"path\": \"skills/design-data-query/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.design_data_query\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"design-report\",\n      \"path\": \"skills/design-report/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.design_report\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"design-verification\",\n      \"path\": \"skills/design-verification/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.design_verification\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"dfmea-risk-review\",\n      \"path\": \"skills/dfmea-risk-review/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.dfmea_risk_review\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"external-connector-adapter\",\n      \"path\": \"skills/external-connector-adapter/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.external_connector_adapter\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"governance-test\",\n      \"path\": \"skills/governance-test/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.governance_test\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"nx-auto-drawing\",\n      \"path\": \"skills/nx-auto-drawing/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.nx_auto_drawing\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"nx-camshaft-modeling\",\n      \"path\": \"skills/nx-camshaft-modeling/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.nx_camshaft_modeling\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"nx-operation\",\n      \"path\": \"skills/nx-operation/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.nx_operation\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"nx-optimization\",\n      \"path\": \"skills/nx-optimization/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.nx_optimization\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"nx-parameter\",\n      \"path\": \"skills/nx-parameter/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.nx_parameter\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"nx-visual\",\n      \"path\": \"skills/nx-visual/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.nx_visual\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"parameter-mapping\",\n      \"path\": \"skills/parameter-mapping/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.parameter_mapping\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"part-design\",\n      \"path\": \"skills/part-design/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.part_design\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"skill-governance\",\n      \"path\": \"skills/skill-governance/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.skill_governance\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"task-decomposition\",\n      \"path\": \"skills/task-decomposition/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.task_decomposition\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"teamcenter-flow\",\n      \"path\": \"skills/teamcenter-flow/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.teamcenter_flow\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"name\": \"tool-governance\",\n      \"path\": \"skills/tool-governance/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.tool_governance\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"workspace-cli\",\n      \"path\": \"skills/workspace-cli/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.workspace_cli\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"name\": \"workspace-isolation\",\n      \"path\": \"skills/workspace-isolation/SKILL.md\",\n      \"public_status\": \"active\",\n      \"ref\": \"skill.workspace_isolation\",\n      \"user_override\": {}\n    }\n  ],\n  \"tool_adapters\": [],\n  \"tools\": [\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"public_status\": \"active\",\n      \"ref\": \"tool.builtin.compact\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"public_status\": \"active\",\n      \"ref\": \"tool.builtin.skills\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"public_status\": \"active\",\n      \"ref\": \"tool.builtin.todo\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"public_status\": \"active\",\n      \"ref\": \"tool.collaboration.agents\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"public_status\": \"active\",\n      \"ref\": \"tool.design_report\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"public_status\": \"active\",\n      \"ref\": \"tool.external\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"public_status\": \"active\",\n      \"ref\": \"tool.mysql\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"public_status\": \"active\",\n      \"ref\": \"tool.nx\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"public_status\": \"active\",\n      \"ref\": \"tool.teamcenter\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": true,\n      \"effective_enabled\": true,\n      \"public_status\": \"active\",\n      \"ref\": \"tool.workspace\",\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.asset\",\n      \"name\": \"gov_asset_list\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": false,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.asset\",\n      \"name\": \"gov_asset_read\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": false,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.write\",\n      \"name\": \"gov_asset_stage\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": false,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.asset\",\n      \"name\": \"gov_asset_diff\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": false,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.asset\",\n      \"name\": \"gov_asset_validate\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": false,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.asset\",\n      \"name\": \"gov_governable_list\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": false,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.asset\",\n      \"name\": \"gov_schema_policy_get\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": false,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.write\",\n      \"name\": \"gov_schema_policy_stage\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": false,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.asset\",\n      \"name\": \"gov_schema_policy_diff\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": false,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.asset\",\n      \"name\": \"gov_schema_policy_validate\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": false,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.write\",\n      \"name\": \"gov_tool_adapter_stage\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": false,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.policy\",\n      \"name\": \"gov_runtime_refresh\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": true,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.model\",\n      \"name\": \"gov_model_get\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": true,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.model\",\n      \"name\": \"gov_model_probe\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": true,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.model\",\n      \"name\": \"gov_model_set\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": true,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.policy\",\n      \"name\": \"gov_policy_get\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": true,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.policy\",\n      \"name\": \"gov_policy_set\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": true,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.policy\",\n      \"name\": \"gov_capability_list\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": true,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.policy\",\n      \"name\": \"gov_auto_review_run\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": true,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.cli\",\n      \"name\": \"gov_cli\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": false,\n      \"user_override\": {}\n    },\n    {\n      \"declared_by_target_agent\": false,\n      \"effective_enabled\": true,\n      \"group\": \"tool.governance.test\",\n      \"name\": \"gov_agent_test\",\n      \"owner\": \"tool.governance\",\n      \"public_status\": \"active\",\n      \"self_rescue\": false,\n      \"user_override\": {}\n    }\n  ]\n}",
+      "name": "gov_governable_list",
+      "role": "tool",
+      "tool_call_id": "call_r4ab0u4sddsjy054xzrjfq8c"
+    },
+    {
+      "content": "",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"agent_id\": \"design_agent\", \"conversation_id\": \"01KSQ3V41HBXTFFJX6BSKSD3DT\", \"reason\": \"检查会话最开始任务查找失败原因\"}",
+            "name": "gov_auto_review_run"
+          },
+          "id": "call_bx3c068j0yiwc4c9jwdep0p7",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "content": "{\n  \"artifact\": {\n    \"bytes\": 424,\n    \"path\": \"artifacts/GOV/auto-governance-evidence.json\",\n    \"sha1\": \"d88ed06e55379a7c103ce8364975add58e2e4a1b\"\n  },\n  \"evidence\": {\n    \"agent_id\": \"design_agent\",\n    \"context_records\": 6,\n    \"conversation_id\": \"01KSQ3V41HBXTFFJX6BSKSD3DT\",\n    \"created_at\": 1779966194.5200891,\n    \"event_records\": 12,\n    \"failed_tools\": [],\n    \"loaded_skills\": [],\n    \"low_risk_applied\": [],\n    \"mailbox_records\": 9,\n    \"mode\": \"low_risk_auto\",\n    \"reason\": \"检查会话最开始任务查找失败原因\",\n    \"session_alias\": \"S003-01KSQ3V41HBXTFFJX6BSKSD3DT\",\n    \"tool_events\": 3\n  },\n  \"ok\": true,\n  \"record_id\": \"W001-auto-governance\"\n}",
+      "name": "gov_auto_review_run",
+      "role": "tool",
+      "tool_call_id": "call_bx3c068j0yiwc4c9jwdep0p7"
+    },
+    {
+      "content": "",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"path\": \"artifacts/GOV/auto-governance-evidence.json\", \"root\": \"runtime\"}",
+            "name": "gov_asset_read"
+          },
+          "id": "call_vpumnmx67bcvnr1xg24w9azi",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "content": "file not found",
+      "name": "gov_asset_read",
+      "role": "tool",
+      "tool_call_id": "call_vpumnmx67bcvnr1xg24w9azi"
+    },
+    {
+      "content": "",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"command\": \"ls -la E:\\\\A0_Projects\\\\A1_Dynamics_Design_LM\\\\mc-design\\\\client\\\\client\\\\data\\\\.runtime\\\\88000044\\\\conversations\\\\01KSQ3V41HBXTFFJX6BSKSD3DT\"}",
+            "name": "gov_cli"
+          },
+          "id": "call_mao31ck8parwryy6wy9c6v0c",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "content": "total 0\ndrwxr-xr-x 1 ASUS 197609 0 May 28 19:00 .\ndrwxr-xr-x 1 ASUS 197609 0 May 28 19:02 ..\ndrwxr-xr-x 1 ASUS 197609 0 May 28 19:00 agents\n",
+      "name": "gov_cli",
+      "role": "tool",
+      "tool_call_id": "call_mao31ck8parwryy6wy9c6v0c"
+    },
+    {
+      "content": "",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"command\": \"find E:\\\\A0_Projects\\\\A1_Dynamics_Design_LM\\\\mc-design\\\\client\\\\client\\\\data\\\\.runtime\\\\88000044\\\\conversations\\\\01KSQ3V41HBXTFFJX6BSKSD3DT -type f\"}",
+            "name": "gov_cli"
+          },
+          "id": "call_ls1zcndtvlde3plv44kzj0v4",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "content": "FIND: 参数格式不正确\n",
+      "name": "gov_cli",
+      "role": "tool",
+      "tool_call_id": "call_ls1zcndtvlde3plv44kzj0v4"
+    },
+    {
+      "content": "",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"command\": \"dir /s /b \\\"E:\\\\A0_Projects\\\\A1_Dynamics_Design_LM\\\\mc-design\\\\client\\\\client\\\\data\\\\.runtime\\\\88000044\\\\conversations\\\\01KSQ3V41HBXTFFJX6BSKSD3DT\\\"\"}",
+            "name": "gov_cli"
+          },
+          "id": "call_rhdfg5fgcja1u1birojr8heo",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "content": "E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\aliases.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\session.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\snapshots\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\views\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_state\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\GOV\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-3399d3dd\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-b7cef793\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-f89b8d11\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\GOV\\auto-governance-evidence.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-3399d3dd\\L001-request.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-3399d3dd\\L001-response.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-3399d3dd\\L002-request.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-3399d3dd\\L002-response.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-3399d3dd\\W008-query_ipm_list-query_ipm_list-result.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-b7cef793\\L001-request.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-b7cef793\\L001-response.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-b7cef793\\L002-request.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-b7cef793\\L002-response.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-b7cef793\\W005-query_ipm_list-query_ipm_list-result.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-f89b8d11\\L001-request.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-f89b8d11\\L001-response.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-f89b8d11\\L002-request.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-f89b8d11\\L002-response.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\T001-f89b8d11\\W002-query_ipm_list-query_ipm_list-result.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\context\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\mailbox\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\context\\records\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\context\\updates\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\context\\records\\CTX001-prompt.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\context\\records\\CTX002-prompt.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\context\\records\\CTX003-prompt.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\context\\records\\CTX004-prompt.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\context\\records\\CTX005-prompt.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\context\\records\\CTX006-prompt.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\context\\updates\\context.design_agent.jsonl\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\records\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\updates\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\records\\T001-3399d3dd.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\records\\T001-b7cef793.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\records\\T001-f89b8d11.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\records\\W001-auto-governance.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\records\\W001-llm.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\records\\W002-query_ipm_list.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\records\\W003-llm.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\records\\W004-llm.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\records\\W005-query_ipm_list.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\records\\W006-llm.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\records\\W007-llm.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\records\\W008-query_ipm_list.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\records\\W009-llm.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\updates\\agent.design_agent.jsonl\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\updates\\bridge.client.jsonl\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\updates\\governance.auto.jsonl\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\updates\\llm.default.jsonl\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\event\\updates\\tool.runtime.jsonl\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\mailbox\\records\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\mailbox\\updates\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\mailbox\\records\\M001-user.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\mailbox\\records\\M002-agent.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\mailbox\\records\\M003-agent.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\mailbox\\records\\M004-user.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\mailbox\\records\\M005-agent.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\mailbox\\records\\M006-agent.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\mailbox\\records\\M007-user.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\mailbox\\records\\M008-agent.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\mailbox\\records\\M009-agent.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\mailbox\\updates\\bridge.ai_service.jsonl\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\lines\\mailbox\\updates\\llm.default.jsonl\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\snapshots\\agent-design_agent.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\views\\agent-design_agent.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\views\\audit.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\views\\conversation.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\agent-collaboration\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\agentloop-core\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\design-data-query\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\design-report\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\design-verification\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\dfmea-risk-review\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\external-connector-adapter\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\nx-auto-drawing\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\nx-camshaft-modeling\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\nx-operation\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\nx-optimization\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\nx-parameter\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\nx-visual\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\parameter-mapping\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\part-design\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\task-decomposition\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\teamcenter-flow\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\workspace-cli\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\workspace-isolation\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\agent-collaboration\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\agentloop-core\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\design-data-query\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\design-report\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\design-verification\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\dfmea-risk-review\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\external-connector-adapter\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\nx-auto-drawing\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\nx-camshaft-modeling\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\nx-operation\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\nx-optimization\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\nx-parameter\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\nx-visual\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\parameter-mapping\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\part-design\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\task-decomposition\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\teamcenter-flow\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\workspace-cli\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_internal\\skills_view\\workspace-isolation\\SKILL.md\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_state\\_internal\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_state\\_internal\\agents\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_state\\_internal\\agents.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_state\\_internal\\archive\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_state\\_internal\\agents\\lead\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_state\\_internal\\agents\\lead\\children.json\nE:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\_state\\_internal\\agents\\lead\\meta.json\n",
+      "name": "gov_cli",
+      "role": "tool",
+      "tool_call_id": "call_rhdfg5fgcja1u1birojr8heo"
+    },
+    {
+      "content": "",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"path\": \"E:\\\\A0_Projects\\\\A1_Dynamics_Design_LM\\\\mc-design\\\\client\\\\client\\\\data\\\\.runtime\\\\88000044\\\\conversations\\\\01KSQ3V41HBXTFFJX6BSKSD3DT\\\\agents\\\\design_agent\\\\artifacts\\\\GOV\\\\auto-governance-evidence.json\"}",
+            "name": "read_file"
+          },
+          "id": "call_uzlrknoksn9zh0u8r6ir3yd1",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "content": "路径逃逸工作区：E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\\agents\\design_agent\\artifacts\\GOV\\auto-governance-evidence.json",
+      "name": "read_file",
+      "role": "tool",
+      "tool_call_id": "call_uzlrknoksn9zh0u8r6ir3yd1"
+    },
+    {
+      "content": "",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"path\": \"agents/design_agent/artifacts/GOV/auto-governance-evidence.json\", \"root\": \"runtime\"}",
+            "name": "gov_asset_read"
+          },
+          "id": "call_5quo1k6nehvvzuvambt8gby9",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "content": "file not found",
+      "name": "gov_asset_read",
+      "role": "tool",
+      "tool_call_id": "call_5quo1k6nehvvzuvambt8gby9"
+    },
+    {
+      "content": "",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"path\": \"agents/design_agent/artifacts/T001-3399d3dd/W008-query_ipm_list-query_ipm_list-result.json\", \"root\": \"runtime\"}",
+            "name": "gov_asset_read"
+          },
+          "id": "call_k900jwxrbuygbo1o7rygf3cu",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "content": "file not found\n工具 `gov_asset_read` 本 turn 累计失败 3 次，已临时禁用。",
+      "name": "gov_asset_read",
+      "role": "tool",
+      "tool_call_id": "call_k900jwxrbuygbo1o7rygf3cu"
+    },
+    {
+      "content": "",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"path\": \"runtime/conversations/01KSQ3V41HBXTFFJX6BSKSD3DT/agents/design_agent/lines/mailbox/records/M001-user.json\"}",
+            "name": "read_file"
+          },
+          "id": "call_t80p4xi6af6m3i0aw2b6jfnv",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "content": "[Errno 2] No such file or directory: 'E:\\\\A0_Projects\\\\A1_Dynamics_Design_LM\\\\mc-design\\\\client\\\\client\\\\data\\\\.runtime\\\\88000044\\\\conversations\\\\gov-01KSQ3V41HBXTFFJX6BSKSD3DT\\\\agents\\\\governance_agent\\\\conversations\\\\01KSQ3V41HBXTFFJX6BSKSD3DT\\\\agents\\\\design_agent\\\\lines\\\\mailbox\\\\records\\\\M001-user.json'",
+      "name": "read_file",
+      "role": "tool",
+      "tool_call_id": "call_t80p4xi6af6m3i0aw2b6jfnv"
+    }
+  ],
+  "round": 11,
+  "system": "# 角色\n你是 Beya 治理智能体，只在 `/gov` 治理模式下工作。用户会用自然语言提出治理要求，你负责选择 `gov_*` 工具完成检查、草案、对比、验证和暂存。 默认治理对象是当前被治理 Agent 的本机热治理层，包括 Agent prompt/profile、Skill、Tool 说明、Tool schema 视图策略、Tool adapter、Context policy、模型偏好、auto gov 策略、Skill/Tool 用户级启停。公共资产包和打包投影只是基线，不是默认写入目标。使用工具解决任务。\n\n# 工作区\n- private/：当前用户私有工作区，读写；默认路径，未带前缀的文件路径等同于 private/。\n- public/：当前 Agent 公用工作区，只读。\n- skills/：当前 Agent 可见 Skill 投影，只读。\n- runtime/：当前会话运行态目录，只读。\n\n# 工作方式\n先直接处理当前用户问题；需要领域流程、方法、模板或长期步骤时，根据“技能”区的技能包和 SkillCard 选择 load_skill 加载对应 Skill。\n只调用当前可见工具，不要假设未显示的工具可用；工具结果以 tool_result 和文件证据为准。\nSkill 正文只有显式加载后才会出现在“已加载 Skill”上下文区块；资源、脚本、模板和示例不会自动进入上下文。\n复杂任务先说明阶段目标和需要确认的副作用动作；未经用户确认，不执行批量参数修改、正式优化、报告导出、图纸生成或 Teamcenter 写入。\n如果工具结果为空、失败或缺少关键字段，直接说明阻断原因和下一步需要的输入，不用默认假设补齐真实结果。\n\n# 治理模式\ngovernance_agent 正在处理治理请求。用户会用自然语言描述目标，你需要使用 gov_* 工具完成检查、草案、对比、验证和暂存。\n资产、工具 schema、adapter 和模型变更只能生成 pending change；必须提示用户输入 `/confirm` 后才会热加载生效。\n默认写入用户端本机 hot overlay，不直接写 asset_views、公共源码、runtime 历史、安装目录、云端工具 handler 或 NX 插件。\n工具 schema 治理只改变 Agent 可见 schema、说明和调用前参数剔除；adapter 只允许在本机调用前后做参数映射、默认值补齐、结果规整。\n用户级 Skill/Tool 启停可直接写 profile；资产级停用必须写 @status: disabled 或 disable marker，不允许物理删除。\n\n## 治理目标\n- target_agent_id: design_agent\n- target_conversation_id: 01KSQ3V41HBXTFFJX6BSKSD3DT\n- asset_source: E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\assets\\source\n- hot_overlay: E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\governance\\overlay\n- hot_overlay_revision: 0\n- runtime_conversation_root: E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\n- auto_governance_enabled: True\n- auto_governance_trigger: session_end\n- auto_governance_mode: low_risk_auto",
+  "tool_names": [
+    "glob",
+    "grep",
+    "bash",
+    "local_time",
+    "read_file",
+    "write_file",
+    "export_file",
+    "edit_file",
+    "load_skill",
+    "todo",
+    "gov_asset_list",
+    "gov_asset_stage",
+    "gov_asset_diff",
+    "gov_asset_validate",
+    "gov_governable_list",
+    "gov_schema_policy_get",
+    "gov_schema_policy_stage",
+    "gov_schema_policy_diff",
+    "gov_schema_policy_validate",
+    "gov_tool_adapter_stage",
+    "gov_runtime_refresh",
+    "gov_model_get",
+    "gov_model_probe",
+    "gov_model_set",
+    "gov_policy_get",
+    "gov_policy_set",
+    "gov_capability_list",
+    "gov_auto_review_run",
+    "gov_cli",
+    "gov_agent_test"
+  ],
+  "tools": [
+    {
+      "function": {
+        "description": "列出统一工作区文件。root 可为 private/public/skills/runtime/all，path 输出带对应前缀。",
+        "name": "glob",
+        "parameters": {
+          "properties": {
+            "limit": {
+              "type": "integer"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "root": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "在统一工作区文本文件中搜索关键词。root 可为 private/public/skills/runtime/all。",
+        "name": "grep",
+        "parameters": {
+          "properties": {
+            "limit": {
+              "type": "integer"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "query": {
+              "type": "string"
+            },
+            "root": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "在 private/ 工作区运行 shell 命令；仅做轻量危险字符串拦截，不等同强沙箱。",
+        "name": "bash",
+        "parameters": {
+          "properties": {
+            "command": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "command"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "读取客户机本地时间，固定按 Asia/Shanghai 返回日期、时间、ISO 时间和 UTC 偏移；用于回答当前时间或本地时区问题。",
+        "name": "local_time",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "读取统一工作区文本文件。路径可使用 private/、public/、skills/、runtime/ 前缀；无前缀默认 private/。",
+        "name": "read_file",
+        "parameters": {
+          "properties": {
+            "limit": {
+              "type": "integer"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "写入统一工作区文件。默认写入 private/；public/ 仅在 Agent 授权时可写；skills/ 和 runtime/ 只读。",
+        "name": "write_file",
+        "parameters": {
+          "properties": {
+            "content": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "content"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "把 private/public 工作区中的文件复制到服务下载区，并返回下载地址和 curl 命令；用于把私有空间生成的报告、截图、图纸等产物导出给用户。",
+        "name": "export_file",
+        "parameters": {
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "替换统一工作区文件中第一次出现的精确文本。默认 private/；public/ 仅在 Agent 授权时可写。",
+        "name": "edit_file",
+        "parameters": {
+          "properties": {
+            "new_text": {
+              "type": "string"
+            },
+            "old_text": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "old_text",
+            "new_text"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "按名称加载 Skill。加载后，完整 Skill 正文会进入下一轮“技能”区 L0 上下文，并固定保留 10 轮。",
+        "name": "load_skill",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "description": "要加载的 Skill 名称。",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "更新当前会话的 todo 计划列表。同一时间只保留一个 in_progress。注意：todo completed 只表示计划状态，不是建模、报告、上传、保存等业务执行完成证据。",
+        "name": "todo",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "items": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "activeForm": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "enum": [
+                      "pending",
+                      "in_progress",
+                      "completed"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "content",
+                  "status",
+                  "activeForm"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "items"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "列出资产基线、overlay、运行时或治理临时区文件。只读。",
+        "name": "gov_asset_list",
+        "parameters": {
+          "properties": {
+            "limit": {
+              "type": "integer"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "root": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "把资产修改暂存到本机 hot overlay，生成待确认变更；不会立即生效。",
+        "name": "gov_asset_stage",
+        "parameters": {
+          "properties": {
+            "content": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "content"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "查看暂存资产修改的 unified diff。",
+        "name": "gov_asset_diff",
+        "parameters": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "校验暂存或源资产的元数据、引用关系、adapter 安全边界。",
+        "name": "gov_asset_validate",
+        "parameters": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "列出可热治理的资产、schema policy、adapter 和当前 overlay revision。",
+        "name": "gov_governable_list",
+        "parameters": {
+          "properties": {
+            "agent_id": {
+              "type": "string"
+            },
+            "limit": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "查看指定工具的原始 schema、热治理策略和治理后的可见 schema。",
+        "name": "gov_schema_policy_get",
+        "parameters": {
+          "properties": {
+            "tool": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "tool"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "暂存工具 schema 视图策略，例如隐藏参数并在调用前剔除；不会立即生效。",
+        "name": "gov_schema_policy_stage",
+        "parameters": {
+          "properties": {
+            "description_patch": {
+              "type": "string"
+            },
+            "hide_parameters": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "strip_hidden_on_call": {
+              "type": "boolean"
+            },
+            "tool": {
+              "type": "string"
+            },
+            "tool_ref": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "tool"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "查看暂存工具 schema 策略的 diff。",
+        "name": "gov_schema_policy_diff",
+        "parameters": {
+          "properties": {
+            "tool": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "校验暂存工具 schema 策略。",
+        "name": "gov_schema_policy_validate",
+        "parameters": {
+          "properties": {
+            "tool": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "暂存本机工具 adapter hook 代码；只允许 adapt_schema/before_call/after_call。",
+        "name": "gov_tool_adapter_stage",
+        "parameters": {
+          "properties": {
+            "content": {
+              "type": "string"
+            },
+            "tool": {
+              "type": "string"
+            },
+            "tool_ref": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "tool",
+            "content"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "递增治理 overlay revision，使下一轮目标 Agent 重建运行时资产和工具 schema。",
+        "name": "gov_runtime_refresh",
+        "parameters": {
+          "properties": {
+            "reason": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "查看当前用户的模型偏好。",
+        "name": "gov_model_get",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "切换模型前探测目标模型是否可用。",
+        "name": "gov_model_probe",
+        "parameters": {
+          "properties": {
+            "model": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "model"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "探测成功后生成待确认模型变更；用户输入 /confirm 后下一轮生效。",
+        "name": "gov_model_set",
+        "parameters": {
+          "properties": {
+            "model": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "model"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "查看自动治理和用户级 Skill/Tool 启停策略。",
+        "name": "gov_policy_get",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "修改自动治理或当前用户的 Skill/Tool 启停策略。",
+        "name": "gov_policy_set",
+        "parameters": {
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "ref": {
+              "type": "string"
+            },
+            "target_type": {
+              "enum": [
+                "auto",
+                "skill",
+                "tool"
+              ],
+              "type": "string"
+            },
+            "trigger": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "target_type"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "列出当前 Agent 可治理的 Skill/Tool 及用户覆盖状态。",
+        "name": "gov_capability_list",
+        "parameters": {
+          "properties": {
+            "agent_id": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "显式运行一次会话自动治理复盘。",
+        "name": "gov_auto_review_run",
+        "parameters": {
+          "properties": {
+            "agent_id": {
+              "type": "string"
+            },
+            "conversation_id": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "只在治理临时区运行检查命令。",
+        "name": "gov_cli",
+        "parameters": {
+          "properties": {
+            "command": {
+              "type": "string"
+            },
+            "timeout": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "command"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "运行临时目标 Agent 测试，用于对比治理效果。",
+        "name": "gov_agent_test",
+        "parameters": {
+          "properties": {
+            "agent_id": {
+              "type": "string"
+            },
+            "query": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "audience": [
+    "agent:design_agent",
+    "audit"
+  ],
+  "closed_at": 1779966118.6584074,
+  "created_at": 1779966107.8423355,
+  "data": {
+    "content": "",
+    "field": "reasoning_content",
+    "finish_reason": "tool_calls",
+    "message_record_id": "M008-agent",
+    "progress": 100,
+    "prompt_record_id": "CTX005-prompt",
+    "reasoning_content": "用户说用最简单的入参查询就行，那我调用query_ipm_list工具，只保留必要的默认参数：confirmStatusList默认是未提交、不通过、已确认，也就是未完成的，不用指定principle，让它默认用运行时user_id，principleName默认用user_name，不填其他太多条件，只在taskName里填\"连杆\"，projectName填\"K08\"，这样简单的条件试试。",
+    "request_ref": {
+      "bytes": 74342,
+      "path": "artifacts/T001-3399d3dd/L001-request.json",
+      "sha1": "065d22cb803533ba38db190f76d67ba4714d6fb6"
+    },
+    "response_ref": {
+      "bytes": 813,
+      "path": "artifacts/T001-3399d3dd/L001-response.json",
+      "sha1": "f588cc7e313dae4a61916996a9c96d05b96560b5"
+    },
+    "round": 1,
+    "tool_calls": [
+      {
+        "function": {
+          "arguments": "{\"confirmStatusList\": [\"未提交\", \"不通过\", \"已确认\"], \"taskName\": \"连杆\", \"projectName\": \"K08\"}",
+          "name": "query_ipm_list"
+        },
+        "id": "call_v4hw86dii0qalxuqeogmtnmb",
+        "type": "function"
+      }
+    ],
+    "turn_alias": "T001-3399d3dd",
+    "turn_id": "turn-755be9a9122d4bfab5a3de903399d3dd",
+    "work_type": "llm"
+  },
+  "line": "event",
+  "owner": {
+    "alias": "design_agent",
+    "id": "design_agent",
+    "type": "agent"
+  },
+  "record_id": "W007-llm",
+  "record_type": "work",
+  "refs": [
+    {
+      "bytes": 813,
+      "path": "artifacts/T001-3399d3dd/L001-response.json",
+      "sha1": "f588cc7e313dae4a61916996a9c96d05b96560b5"
+    }
+  ],
+  "rev": 5,
+  "schema": 1,
+  "status": "completed",
+  "text": "用户说用最简单的入参查询就行，那我调用query_ipm_list工具，只保留必要的默认参数：confirmStatusList默认是未提交、不通过、已确认，也就是未完成的，不用指定principle，让它默认用运行时user_id，principleName默认用user_name，不填其他太多条件，只在taskName里填\"连杆\"，projectName填\"K08\"，这样简单的条件试试。",
+  "title": "llm round 1",
+  "updated_at": 1779966118.6584074
+}

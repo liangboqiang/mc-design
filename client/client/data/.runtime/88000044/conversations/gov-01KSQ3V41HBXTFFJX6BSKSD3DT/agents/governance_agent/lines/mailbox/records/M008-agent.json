@@ -1,0 +1,46 @@
+{
+  "audience": [
+    "user",
+    "agent:governance_agent",
+    "audit"
+  ],
+  "closed_at": 1779966220.8438506,
+  "created_at": 1779966215.7358775,
+  "data": {
+    "finish_reason": "tool_calls",
+    "from": "agent:governance_agent",
+    "message_type": "agent",
+    "round": 7,
+    "to": [
+      "user"
+    ],
+    "tool_calls": [
+      {
+        "function": {
+          "arguments": "{\"path\": \"E:\\\\A0_Projects\\\\A1_Dynamics_Design_LM\\\\mc-design\\\\client\\\\client\\\\data\\\\.runtime\\\\88000044\\\\conversations\\\\01KSQ3V41HBXTFFJX6BSKSD3DT\\\\agents\\\\design_agent\\\\artifacts\\\\GOV\\\\auto-governance-evidence.json\"}",
+          "name": "read_file"
+        },
+        "id": "call_uzlrknoksn9zh0u8r6ir3yd1",
+        "type": "function"
+      }
+    ],
+    "turn_alias": "T001-f21a508d",
+    "turn_id": "turn-6d9ca0ccd9c64a5ba2ef1677f21a508d",
+    "work_id": "W013-llm"
+  },
+  "line": "mailbox",
+  "owner": {
+    "alias": "governance_agent",
+    "id": "governance_agent",
+    "type": "agent"
+  },
+  "record_id": "M008-agent",
+  "record_type": "message",
+  "refs": [],
+  "rev": 2,
+  "schema": 1,
+  "status": "posted",
+  "text": "",
+  "title": "agent reply",
+  "updated_at": 1779966220.8438506
+}

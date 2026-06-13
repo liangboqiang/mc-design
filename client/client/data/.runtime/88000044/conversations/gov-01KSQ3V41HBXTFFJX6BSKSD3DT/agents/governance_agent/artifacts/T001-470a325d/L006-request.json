@@ -1,0 +1,795 @@
+{
+  "messages": [
+    {
+      "content": "请你看看我的这个会话，为什么最开始没有找到这个任务，是哪里出现了问题？",
+      "role": "user"
+    },
+    {
+      "content": "根据我对会话运行时数据的检查，发现了最开始任务查找失败的可能原因：\n\n## 问题分析\n\n1. **查询结果为空**：从会话事件记录来看，design_agent 在最开始进行了三次 `query_ipm_list` 任务查询，但都没有返回匹配的任务记录。\n\n2. **可能原因**：\n   - **任务ID/编号错误**：你提供的任务编号或标识可能不正确，导致数据库查询不到匹配结果\n   - **Teamcenter连接问题**：查询时数据库连接异常，无法获取任务数据\n   - **权限问题**：当前登录用户没有权限访问该任务\n   - **任务不存在**：该任务可能已经被删除或还未创建\n\n3. **会话状态**：目标会话已经创建，design_agent 技能和工具都已正常加载，只是在任务查询步骤没有找到数据。\n\n## 建议下一步排查方向\n\n1. 请确认你提供的任务编号是否正确\n2. 检查 Teamcenter 服务连接是否正常\n3. 确认当前用户是否有访问该任务的权限\n4. 如果任务确实存在，可以尝试重新发起查询\n\n需要我帮你进一步检查具体的查询参数或配置吗？",
+      "role": "assistant"
+    },
+    {
+      "content": "不对啊，第三次返回了查询成功了啊",
+      "role": "user"
+    },
+    {
+      "content": "",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"path\": \"01KSQ3V41HBXTFFJX6BSKSD3DT/events.log\", \"root\": \"runtime_conversation_root\"}",
+            "name": "gov_asset_read"
+          },
+          "id": "call_jf3x4geldgxaerqgn7gwlwb1",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "content": "root must be assets/source/overlay/runtime/scratch",
+      "name": "gov_asset_read",
+      "role": "tool",
+      "tool_call_id": "call_jf3x4geldgxaerqgn7gwlwb1"
+    },
+    {
+      "content": "",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"path\": \"01KSQ3V41HBXTFFJX6BSKSD3DT/events.log\", \"root\": \"runtime\"}",
+            "name": "gov_asset_read"
+          },
+          "id": "call_yj26ezd3sqqtp3rd8pus32mu",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "content": "file not found",
+      "name": "gov_asset_read",
+      "role": "tool",
+      "tool_call_id": "call_yj26ezd3sqqtp3rd8pus32mu"
+    },
+    {
+      "content": "",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"root\": \"runtime\", \"pattern\": \"**/*\"}",
+            "name": "glob"
+          },
+          "id": "call_oilmszfegppj563oq2yua533",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "content": "runtime/_internal/skills_view/\nruntime/_internal/skills_view/agentloop-core/\nruntime/_internal/skills_view/agentloop-core/SKILL.md\nruntime/_internal/skills_view/asset-governance/\nruntime/_internal/skills_view/asset-governance/SKILL.md\nruntime/_internal/skills_view/asset-write/\nruntime/_internal/skills_view/asset-write/SKILL.md\nruntime/_internal/skills_view/context-governance/\nruntime/_internal/skills_view/context-governance/SKILL.md\nruntime/_internal/skills_view/governance-test/\nruntime/_internal/skills_view/governance-test/SKILL.md\nruntime/_internal/skills_view/skill-governance/\nruntime/_internal/skills_view/skill-governance/SKILL.md\nruntime/_internal/skills_view/tool-governance/\nruntime/_internal/skills_view/tool-governance/SKILL.md\nruntime/_state/_internal/\nruntime/_state/_internal/agents/\nruntime/_state/_internal/agents/lead/\nruntime/_state/_internal/agents/lead/children.json\nruntime/_state/_internal/agents/lead/meta.json\nruntime/_state/_internal/agents/lead/trace.jsonl\nruntime/_state/_internal/agents.json\nruntime/_state/_internal/archive/\nruntime/artifacts/T001-470a325d/\nruntime/artifacts/T001-470a325d/L001-request.json\nruntime/artifacts/T001-470a325d/L001-response.json\nruntime/artifacts/T001-470a325d/L002-request.json\nruntime/artifacts/T001-470a325d/L002-response.json\nruntime/artifacts/T001-470a325d/L003-request.json\nruntime/artifacts/T001-470a325d/L003-response.json\nruntime/artifacts/T001-470a325d/W035-gov_asset_read-gov_asset_read-result.json\nruntime/artifacts/T001-470a325d/W037-gov_asset_read-gov_asset_read-result.json\nruntime/artifacts/T001-f21a508d/\nruntime/artifacts/T001-f21a508d/L001-request.json\nruntime/artifacts/T001-f21a508d/L001-response.json\nruntime/artifacts/T001-f21a508d/L002-request.json\nruntime/artifacts/T001-f21a508d/L002-response.json\nruntime/artifacts/T001-f21a508d/L003-request.json\nruntime/artifacts/T001-f21a508d/L003-response.json\nruntime/artifacts/T001-f21a508d/L004-request.json\nruntime/artifacts/T001-f21a508d/L004-response.json\nruntime/artifacts/T001-f21a508d/L005-request.json\nruntime/artifacts/T001-f21a508d/L005-response.json\nruntime/artifacts/T001-f21a508d/L006-request.json\nruntime/artifacts/T001-f21a508d/L006-response.json\nruntime/artifacts/T001-f21a508d/L007-request.json\nruntime/artifacts/T001-f21a508d/L007-response.json\nruntime/artifacts/T001-f21a508d/L008-request.json\nruntime/artifacts/T001-f21a508d/L008-response.json\nruntime/artifacts/T001-f21a508d/L009-request.json\nruntime/artifacts/T001-f21a508d/L009-response.json\nruntime/artifacts/T001-f21a508d/L010-request.json\nruntime/artifacts/T001-f21a508d/L010-response.json\nruntime/artifacts/T001-f21a508d/L011-request.json\nruntime/artifacts/T001-f21a508d/L011-response.json\nruntime/artifacts/T001-f21a508d/L012-request.json\nruntime/artifacts/T001-f21a508d/L012-response.json\nruntime/artifacts/T001-f21a508d/L013-request.json\nruntime/artifacts/T001-f21a508d/L013-response.json\nruntime/artifacts/T001-f21a508d/L014-request.json\nruntime/artifacts/T001-f21a508d/L014-response.json\nruntime/artifacts/T001-f21a508d/L015-request.json\nruntime/artifacts/T001-f21a508d/L015-response.json\nruntime/artifacts/T001-f21a508d/L016-request.json\nruntime/artifacts/T001-f21a508d/L016-response.json\nruntime/artifacts/T001-f21a508d/L017-request.json\nruntime/artifacts/T001-f21a508d/L017-response.json\nruntime/artifacts/T001-f21a508d/W002-gov_governable_list-gov_governable_list-result.json\nruntime/artifacts/T001-f21a508d/W004-gov_auto_review_run-gov_auto_review_run-result.json\nruntime/artifacts/T001-f21a508d/W006-gov_asset_read-gov_asset_read-result.json\nruntime/artifacts/T001-f21a508d/W008-gov_cli-gov_cli-result.json\nruntime/artifacts/T001-f21a508d/W010-gov_cli-gov_cli-result.json\nruntime/artifacts/T001-f21a508d/W012-gov_cli-gov_cli-result.json\nruntime/artifacts/T001-f21a508d/W014-read_file-read_file-result.json\nruntime/artifacts/T001-f21a508d/W016-gov_asset_read-gov_asset_read-result.json\nruntime/artifacts/T001-f21a508d/W018-gov_asset_read-gov_asset_read-result.json\nruntime/artifacts/T001-f21a508d/W020-read_file-read_file-result.json\nruntime/artifacts/T001-f21a508d/W022-glob-glob-result.json\nruntime/artifacts/T001-f21a508d/W024-read_file-read_file-result.json\nruntime/artifacts/T001-f21a508d/W026-grep-grep-result.json\nruntime/artifacts/T001-f21a508d/W028-grep-grep-result.json\nruntime/artifacts/T001-f21a508d/W030-read_file-read_file-result.json\nruntime/artifacts/T001-f21a508d/W032-gov_cli-gov_cli-result.json\nruntime/lines/context/\nruntime/lines/context/records/\nruntime/lines/context/records/CTX001-prompt.json\nruntime/lines/context/records/CTX002-prompt.json\nruntime/lines/context/records/CTX003-prompt.json\nruntime/lines/context/records/CTX004-prompt.json\nruntime/lines/context/records/CTX005-prompt.json\nruntime/lines/context/records/CTX006-prompt.json\nruntime/lines/context/records/CTX007-prompt.json\nruntime/lines/context/records/CTX008-prompt.json\nruntime/lines/context/records/CTX009-prompt.json\nruntime/lines/context/records/CTX010-prompt.json\nruntime/lines/context/records/CTX011-prompt.json\nruntime/lines/context/records/CTX012-prompt.json\nruntime/lines/context/records/CTX013-prompt.json\nruntime/lines/context/records/CTX014-prompt.json\nruntime/lines/context/records/CTX015-prompt.json\nruntime/lines/context/records/CTX016-prompt.json\nruntime/lines/context/records/CTX017-prompt.json\nruntime/lines/context/records/CTX018-prompt.json\nruntime/lines/context/records/CTX019-prompt.json\nruntime/lines/context/records/CTX020-prompt.json\nruntime/lines/context/updates/\nruntime/lines/context/updates/context.governance_agent.jsonl\nruntime/lines/event/\nruntime/lines/event/records/\nruntime/lines/event/records/T001-470a325d.json\nruntime/lines/event/records/T001-f21a508d.json\nruntime/lines/event/records/W001-llm.json\nruntime/lines/event/records/W002-gov_governable_list.json\nruntime/lines/event/records/W003-llm.json\nruntime/lines/event/records/W004-gov_auto_review_run.json\nruntime/lines/event/records/W005-llm.json\nruntime/lines/event/records/W006-gov_asset_read.json\nruntime/lines/event/records/W007-llm.json\nruntime/lines/event/records/W008-gov_cli.json\nruntime/lines/event/records/W009-llm.json\nruntime/lines/event/records/W010-gov_cli.json\nruntime/lines/event/records/W011-llm.json\nruntime/lines/event/records/W012-gov_cli.json\nruntime/lines/event/records/W013-llm.json\nruntime/lines/event/records/W014-read_file.json\nruntime/lines/event/records/W015-llm.json\nruntime/lines/event/records/W016-gov_asset_read.json\nruntime/lines/event/records/W017-llm.json\nruntime/lines/event/records/W018-gov_asset_read.json\nruntime/lines/event/records/W019-llm.json\nruntime/lines/event/records/W020-read_file.json\nruntime/lines/event/records/W021-llm.json\nruntime/lines/event/records/W022-glob.json\nruntime/lines/event/records/W023-llm.json\nruntime/lines/event/records/W024-read_file.json\nruntime/lines/event/records/W025-llm.json\nruntime/lines/event/records/W026-grep.json\nruntime/lines/event/records/W027-llm.json\nruntime/lines/event/records/W028-grep.json\nruntime/lines/event/records/W029-llm.json\nruntime/lines/event/records/W030-read_file.json\nruntime/lines/event/records/W031-llm.json\nruntime/lines/event/records/W032-gov_cli.json\nruntime/lines/event/records/W033-llm.json\nruntime/lines/event/records/W034-llm.json\nruntime/lines/event/records/W035-gov_asset_read.json\nruntime/lines/event/records/W036-llm.json\nruntime/lines/event/records/W037-gov_asset_read.json\nruntime/lines/event/records/W038-llm.json\nruntime/lines/event/records/W039-glob.json\nruntime/lines/event/updates/\nruntime/lines/event/updates/agent.governance_agent.jsonl\nruntime/lines/event/updates/bridge.client.jsonl\nruntime/lines/event/updates/llm.default.jsonl\nruntime/lines/event/updates/tool.runtime.jsonl\nruntime/lines/mailbox/\nruntime/lines/mailbox/records/\nruntime/lines/mailbox/records/M001-user.json\nruntime/lines/mailbox/records/M002-agent.json\nruntime/lines/mailbox/records/M003-agent.json\nruntime/lines/mailbox/records/M004-agent.json\nruntime/lines/mailbox/records/M005-agent.json\nruntime/lines/mailbox/records/M006-agent.json\nruntime/lines/mailbox/records/M007-agent.json\nruntime/lines/mailbox/records/M008-agent.json\nruntime/lines/mailbox/records/M009-agent.json\nruntime/lines/mailbox/records/M010-agent.json\nruntime/lines/mailbox/records/M011-agent.json\nruntime/lines/mailbox/records/M012-agent.json\nruntime/lines/mailbox/records/M013-agent.json\nruntime/lines/mailbox/records/M014-agent.json\nruntime/lines/mailbox/records/M015-agent.json\nruntime/lines/mailbox/records/M016-agent.json\nruntime/lines/mailbox/records/M017-agent.json\nruntime/lines/mailbox/records/M018-agent.json\nruntime/lines/mailbox/records/M019-user.json\nruntime/lines/mailbox/records/M020-agent.json\nruntime/lines/mailbox/records/M021-agent.json\nruntime/lines/mailbox/records/M022-agent.json\nruntime/lines/mailbox/updates/\nruntime/lines/mailbox/updates/bridge.ai_service.jsonl\nruntime/lines/mailbox/updates/llm.default.jsonl\nruntime/snapshots/agent-governance_agent.json\nruntime/views/agent-governance_agent.md\nruntime/views/audit.md\nruntime/views/conversation.md",
+      "name": "glob",
+      "role": "tool",
+      "tool_call_id": "call_oilmszfegppj563oq2yua533"
+    },
+    {
+      "content": "",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"path\": \"runtime/lines/event/records/T001-f21a508d.json\"}",
+            "name": "read_file"
+          },
+          "id": "call_bi7dhdwtfgh6x4sqcda4687a",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "content": "{\n  \"audience\": [\n    \"user\",\n    \"agent:governance_agent\",\n    \"audit\"\n  ],\n  \"closed_at\": 1779966280.8011463,\n  \"created_at\": 1779966177.6548731,\n  \"data\": {\n    \"agent_id\": \"governance_agent\",\n    \"files\": [],\n    \"node_id\": \"lead\",\n    \"query_preview\": \"请你看看我的这个会话，为什么最开始没有找到这个任务，是哪里出现了问题？\",\n    \"result\": \"根据我对会话运行时数据的检查，发现了最开始任务查找失败的可能原因：\\n\\n## 问题分析\\n\\n1. **查询结果为空**：从会话事件记录来看，design_agent 在最开始进行了三次 `query_ipm_list` 任务查询，但都没有返回匹配的任务记录。\\n\\n2. **可能原因**：\\n   - **任务ID/编号错误**：你提供的任务编号或标识可能不正确，导致数据库查询不到匹配结果\\n   - **Teamcenter连接问题**：查询时数据库连接异常，无法获取任务数据\\n   - **权限问题**：当前登录用户没有权限访问该任务\\n   - **任务不存在**：该任务可能已经被删除或还未创建\\n\\n3. **会话状态**：目标会话已经创建，design_agent 技能和工具都已正常加载，只是在任务查询步骤没有找到数据。\\n\\n## 建议下一步排查方向\\n\\n1. 请确认你提供的任务编号是否正确\\n2. 检查 Teamcenter 服务连接是否正常\\n3. 确认当前用户是否有访问该任务的权限\\n4. 如果任务确实存在，可以尝试重新发起查询\\n\\n需要我帮你进一步检查具体的查询参数或配置吗？\",\n    \"round\": 17,\n    \"rounds\": 17,\n    \"turn_alias\": \"T001-f21a508d\",\n    \"turn_id\": \"turn-6d9ca0ccd9c64a5ba2ef1677f21a508d\"\n  },\n  \"line\": \"event\",\n  \"owner\": {\n    \"alias\": \"bridge\",\n    \"id\": \"bridge.client\",\n    \"type\": \"system\"\n  },\n  \"record_id\": \"T001-f21a508d\",\n  \"record_type\": \"turn\",\n  \"refs\": [],\n  \"rev\": 20,\n  \"schema\": 1,\n  \"status\": \"completed\",\n  \"text\": \"\",\n  \"title\": \"T001-f21a508d\",\n  \"updated_at\": 1779966280.8011463\n}",
+      "name": "read_file",
+      "role": "tool",
+      "tool_call_id": "call_bi7dhdwtfgh6x4sqcda4687a"
+    },
+    {
+      "content": "",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "function": {
+            "arguments": "{\"path\": \"runtime/artifacts/T001-470a325d/L001-request.json\"}",
+            "name": "read_file"
+          },
+          "id": "call_o1g5pk6cy7jfj2d6fr073vup",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "content": "{\n  \"messages\": [\n    {\n      \"content\": \"请你看看我的这个会话，为什么最开始没有找到这个任务，是哪里出现了问题？\",\n      \"role\": \"user\"\n    },\n    {\n      \"content\": \"根据我对会话运行时数据的检查，发现了最开始任务查找失败的可能原因：\\n\\n## 问题分析\\n\\n1. **查询结果为空**：从会话事件记录来看，design_agent 在最开始进行了三次 `query_ipm_list` 任务查询，但都没有返回匹配的任务记录。\\n\\n2. **可能原因**：\\n   - **任务ID/编号错误**：你提供的任务编号或标识可能不正确，导致数据库查询不到匹配结果\\n   - **Teamcenter连接问题**：查询时数据库连接异常，无法获取任务数据\\n   - **权限问题**：当前登录用户没有权限访问该任务\\n   - **任务不存在**：该任务可能已经被删除或还未创建\\n\\n3. **会话状态**：目标会话已经创建，design_agent 技能和工具都已正常加载，只是在任务查询步骤没有找到数据。\\n\\n## 建议下一步排查方向\\n\\n1. 请确认你提供的任务编号是否正确\\n2. 检查 Teamcenter 服务连接是否正常\\n3. 确认当前用户是否有访问该任务的权限\\n4. 如果任务确实存在，可以尝试重新发起查询\\n\\n需要我帮你进一步检查具体的查询参数或配置吗？\",\n      \"role\": \"assistant\"\n    },\n    {\n      \"content\": \"不对啊，第三次返回了查询成功了啊\",\n      \"role\": \"user\"\n    }\n  ],\n  \"round\": 1,\n  \"system\": \"# 角色\\n你是 Beya 治理智能体，只在 `/gov` 治理模式下工作。用户会用自然语言提出治理要求，你负责选择 `gov_*` 工具完成检查、草案、对比、验证和暂存。 默认治理对象是当前被治理 Agent 的本机热治理层，包括 Agent prompt/profile、Skill、Tool 说明、Tool schema 视图策略、Tool adapter、Context policy、模型偏好、auto gov 策略、Skill/Tool 用户级启停。公共资产包和打包投影只是基线，不是默认写入目标。使用工具解决任务。\\n\\n# 工作区\\n- private/：当前用户私有工作区，读写；默认路径，未带前缀的文件路径等同于 private/。\\n- public/：当前 Agent 公用工作区，只读。\\n- skills/：当前 Agent 可见 Skill 投影，只读。\\n- runtime/：当前会话运行态目录，只读。\\n\\n# 工作方式\\n先直接处理当前用户问题；需要领域流程、方法、模板或长期步骤时，根据“技能”区的技能包和 SkillCard 选择 load_skill 加载对应 Skill。\\n只调用当前可见工具，不要假设未显示的工具可用；工具结果以 tool_result 和文件证据为准。\\nSkill 正文只有显式加载后才会出现在“已加载 Skill”上下文区块；资源、脚本、模板和示例不会自动进入上下文。\\n复杂任务先说明阶段目标和需要确认的副作用动作；未经用户确认，不执行批量参数修改、正式优化、报告导出、图纸生成或 Teamcenter 写入。\\n如果工具结果为空、失败或缺少关键字段，直接说明阻断原因和下一步需要的输入，不用默认假设补齐真实结果。\\n\\n# 治理模式\\ngovernance_agent 正在处理治理请求。用户会用自然语言描述目标，你需要使用 gov_* 工具完成检查、草案、对比、验证和暂存。\\n资产、工具 schema、adapter 和模型变更只能生成 pending change；必须提示用户输入 `/confirm` 后才会热加载生效。\\n默认写入用户端本机 hot overlay，不直接写 asset_views、公共源码、runtime 历史、安装目录、云端工具 handler 或 NX 插件。\\n工具 schema 治理只改变 Agent 可见 schema、说明和调用前参数剔除；adapter 只允许在本机调用前后做参数映射、默认值补齐、结果规整。\\n用户级 Skill/Tool 启停可直接写 profile；资产级停用必须写 @status: disabled 或 disable marker，不允许物理删除。\\n\\n## 治理目标\\n- target_agent_id: design_agent\\n- target_conversation_id: 01KSQ3V41HBXTFFJX6BSKSD3DT\\n- asset_source: E:\\\\A0_Projects\\\\A1_Dynamics_Design_LM\\\\mc-design\\\\mc-design-nx\\\\assets\\\\source\\n- hot_overlay: E:\\\\A0_Projects\\\\A1_Dynamics_Design_LM\\\\mc-design\\\\client\\\\client\\\\data\\\\governance\\\\overlay\\n- hot_overlay_revision: 0\\n- runtime_conversation_root: E:\\\\A0_Projects\\\\A1_Dynamics_Design_LM\\\\mc-design\\\\client\\\\client\\\\data\\\\.runtime\\\\88000044\\\\conversations\\\\01KSQ3V41HBXTFFJX6BSKSD3DT\\n- auto_governance_enabled: True\\n- auto_governance_trigger: session_end\\n- auto_governance_mode: low_risk_auto\",\n  \"tool_names\": [\n    \"glob\",\n    \"grep\",\n    \"bash\",\n    \"local_time\",\n    \"read_file\",\n    \"write_file\",\n    \"export_file\",\n    \"edit_file\",\n    \"load_skill\",\n    \"todo\",\n    \"gov_asset_list\",\n    \"gov_asset_read\",\n    \"gov_asset_stage\",\n    \"gov_asset_diff\",\n    \"gov_asset_validate\",\n    \"gov_governable_list\",\n    \"gov_schema_policy_get\",\n    \"gov_schema_policy_stage\",\n    \"gov_schema_policy_diff\",\n    \"gov_schema_policy_validate\",\n    \"gov_tool_adapter_stage\",\n    \"gov_runtime_refresh\",\n    \"gov_model_get\",\n    \"gov_model_probe\",\n    \"gov_model_set\",\n    \"gov_policy_get\",\n    \"gov_policy_set\",\n    \"gov_capability_list\",\n    \"gov_auto_review_run\",\n    \"gov_cli\",\n    \"gov_agent_test\"\n  ],\n  \"tools\": [\n    {\n      \"function\": {\n        \"description\": \"列出统一工作区文件。root 可为 private/public/skills/runtime/all，path 输出带对应前缀。\",\n        \"name\": \"glob\",\n        \"parameters\": {\n          \"properties\": {\n            \"limit\": {\n              \"type\": \"integer\"\n            },\n            \"pattern\": {\n              \"type\": \"string\"\n            },\n            \"root\": {\n              \"type\": \"string\"\n            }\n          },\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"在统一工作区文本文件中搜索关键词。root 可为 private/public/skills/runtime/all。\",\n        \"name\": \"grep\",\n        \"parameters\": {\n          \"properties\": {\n            \"limit\": {\n              \"type\": \"integer\"\n            },\n            \"pattern\": {\n              \"type\": \"string\"\n            },\n            \"query\": {\n              \"type\": \"string\"\n            },\n            \"root\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"query\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"在 private/ 工作区运行 shell 命令；仅做轻量危险字符串拦截，不等同强沙箱。\",\n        \"name\": \"bash\",\n        \"parameters\": {\n          \"properties\": {\n            \"command\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"command\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"读取客户机本地时间，固定按 Asia/Shanghai 返回日期、时间、ISO 时间和 UTC 偏移；用于回答当前时间或本地时区问题。\",\n        \"name\": \"local_time\",\n        \"parameters\": {\n          \"additionalProperties\": false,\n          \"properties\": {},\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"读取统一工作区文本文件。路径可使用 private/、public/、skills/、runtime/ 前缀；无前缀默认 private/。\",\n        \"name\": \"read_file\",\n        \"parameters\": {\n          \"properties\": {\n            \"limit\": {\n              \"type\": \"integer\"\n            },\n            \"path\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"path\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"写入统一工作区文件。默认写入 private/；public/ 仅在 Agent 授权时可写；skills/ 和 runtime/ 只读。\",\n        \"name\": \"write_file\",\n        \"parameters\": {\n          \"properties\": {\n            \"content\": {\n              \"type\": \"string\"\n            },\n            \"path\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"path\",\n            \"content\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"把 private/public 工作区中的文件复制到服务下载区，并返回下载地址和 curl 命令；用于把私有空间生成的报告、截图、图纸等产物导出给用户。\",\n        \"name\": \"export_file\",\n        \"parameters\": {\n          \"properties\": {\n            \"filename\": {\n              \"type\": \"string\"\n            },\n            \"path\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"path\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"替换统一工作区文件中第一次出现的精确文本。默认 private/；public/ 仅在 Agent 授权时可写。\",\n        \"name\": \"edit_file\",\n        \"parameters\": {\n          \"properties\": {\n            \"new_text\": {\n              \"type\": \"string\"\n            },\n            \"old_text\": {\n              \"type\": \"string\"\n            },\n            \"path\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"path\",\n            \"old_text\",\n            \"new_text\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"按名称加载 Skill。加载后，完整 Skill 正文会进入下一轮“技能”区 L0 上下文，并固定保留 10 轮。\",\n        \"name\": \"load_skill\",\n        \"parameters\": {\n          \"additionalProperties\": false,\n          \"properties\": {\n            \"name\": {\n              \"description\": \"要加载的 Skill 名称。\",\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"name\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"更新当前会话的 todo 计划列表。同一时间只保留一个 in_progress。注意：todo completed 只表示计划状态，不是建模、报告、上传、保存等业务执行完成证据。\",\n        \"name\": \"todo\",\n        \"parameters\": {\n          \"additionalProperties\": false,\n          \"properties\": {\n            \"items\": {\n              \"items\": {\n                \"additionalProperties\": false,\n                \"properties\": {\n                  \"activeForm\": {\n                    \"type\": \"string\"\n                  },\n                  \"content\": {\n                    \"type\": \"string\"\n                  },\n                  \"status\": {\n                    \"enum\": [\n                      \"pending\",\n                      \"in_progress\",\n                      \"completed\"\n                    ],\n                    \"type\": \"string\"\n                  }\n                },\n                \"required\": [\n                  \"content\",\n                  \"status\",\n                  \"activeForm\"\n                ],\n                \"type\": \"object\"\n              },\n              \"type\": \"array\"\n            }\n          },\n          \"required\": [\n            \"items\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"列出资产基线、overlay、运行时或治理临时区文件。只读。\",\n        \"name\": \"gov_asset_list\",\n        \"parameters\": {\n          \"properties\": {\n            \"limit\": {\n              \"type\": \"integer\"\n            },\n            \"pattern\": {\n              \"type\": \"string\"\n            },\n            \"root\": {\n              \"type\": \"string\"\n            }\n          },\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"读取资产、运行时或治理临时区的文本文件。\",\n        \"name\": \"gov_asset_read\",\n        \"parameters\": {\n          \"properties\": {\n            \"limit\": {\n              \"type\": \"integer\"\n            },\n            \"path\": {\n              \"type\": \"string\"\n            },\n            \"root\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"path\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"把资产修改暂存到本机 hot overlay，生成待确认变更；不会立即生效。\",\n        \"name\": \"gov_asset_stage\",\n        \"parameters\": {\n          \"properties\": {\n            \"content\": {\n              \"type\": \"string\"\n            },\n            \"path\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"path\",\n            \"content\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"查看暂存资产修改的 unified diff。\",\n        \"name\": \"gov_asset_diff\",\n        \"parameters\": {\n          \"properties\": {\n            \"path\": {\n              \"type\": \"string\"\n            }\n          },\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"校验暂存或源资产的元数据、引用关系、adapter 安全边界。\",\n        \"name\": \"gov_asset_validate\",\n        \"parameters\": {\n          \"properties\": {\n            \"path\": {\n              \"type\": \"string\"\n            }\n          },\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"列出可热治理的资产、schema policy、adapter 和当前 overlay revision。\",\n        \"name\": \"gov_governable_list\",\n        \"parameters\": {\n          \"properties\": {\n            \"agent_id\": {\n              \"type\": \"string\"\n            },\n            \"limit\": {\n              \"type\": \"integer\"\n            }\n          },\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"查看指定工具的原始 schema、热治理策略和治理后的可见 schema。\",\n        \"name\": \"gov_schema_policy_get\",\n        \"parameters\": {\n          \"properties\": {\n            \"tool\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"tool\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"暂存工具 schema 视图策略，例如隐藏参数并在调用前剔除；不会立即生效。\",\n        \"name\": \"gov_schema_policy_stage\",\n        \"parameters\": {\n          \"properties\": {\n            \"description_patch\": {\n              \"type\": \"string\"\n            },\n            \"hide_parameters\": {\n              \"items\": {\n                \"type\": \"string\"\n              },\n              \"type\": \"array\"\n            },\n            \"strip_hidden_on_call\": {\n              \"type\": \"boolean\"\n            },\n            \"tool\": {\n              \"type\": \"string\"\n            },\n            \"tool_ref\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"tool\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"查看暂存工具 schema 策略的 diff。\",\n        \"name\": \"gov_schema_policy_diff\",\n        \"parameters\": {\n          \"properties\": {\n            \"tool\": {\n              \"type\": \"string\"\n            }\n          },\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"校验暂存工具 schema 策略。\",\n        \"name\": \"gov_schema_policy_validate\",\n        \"parameters\": {\n          \"properties\": {\n            \"tool\": {\n              \"type\": \"string\"\n            }\n          },\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"暂存本机工具 adapter hook 代码；只允许 adapt_schema/before_call/after_call。\",\n        \"name\": \"gov_tool_adapter_stage\",\n        \"parameters\": {\n          \"properties\": {\n            \"content\": {\n              \"type\": \"string\"\n            },\n            \"tool\": {\n              \"type\": \"string\"\n            },\n            \"tool_ref\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"tool\",\n            \"content\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"递增治理 overlay revision，使下一轮目标 Agent 重建运行时资产和工具 schema。\",\n        \"name\": \"gov_runtime_refresh\",\n        \"parameters\": {\n          \"properties\": {\n            \"reason\": {\n              \"type\": \"string\"\n            }\n          },\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"查看当前用户的模型偏好。\",\n        \"name\": \"gov_model_get\",\n        \"parameters\": {\n          \"properties\": {},\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"切换模型前探测目标模型是否可用。\",\n        \"name\": \"gov_model_probe\",\n        \"parameters\": {\n          \"properties\": {\n            \"model\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"model\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"探测成功后生成待确认模型变更；用户输入 /confirm 后下一轮生效。\",\n        \"name\": \"gov_model_set\",\n        \"parameters\": {\n          \"properties\": {\n            \"model\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"model\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"查看自动治理和用户级 Skill/Tool 启停策略。\",\n        \"name\": \"gov_policy_get\",\n        \"parameters\": {\n          \"properties\": {},\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"修改自动治理或当前用户的 Skill/Tool 启停策略。\",\n        \"name\": \"gov_policy_set\",\n        \"parameters\": {\n          \"properties\": {\n            \"enabled\": {\n              \"type\": \"boolean\"\n            },\n            \"mode\": {\n              \"type\": \"string\"\n            },\n            \"reason\": {\n              \"type\": \"string\"\n            },\n            \"ref\": {\n              \"type\": \"string\"\n            },\n            \"target_type\": {\n              \"enum\": [\n                \"auto\",\n                \"skill\",\n                \"tool\"\n              ],\n              \"type\": \"string\"\n            },\n            \"trigger\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"target_type\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"列出当前 Agent 可治理的 Skill/Tool 及用户覆盖状态。\",\n        \"name\": \"gov_capability_list\",\n        \"parameters\": {\n          \"properties\": {\n            \"agent_id\": {\n              \"type\": \"string\"\n            }\n          },\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"显式运行一次会话自动治理复盘。\",\n        \"name\": \"gov_auto_review_run\",\n        \"parameters\": {\n          \"properties\": {\n            \"agent_id\": {\n              \"type\": \"string\"\n            },\n            \"conversation_id\": {\n              \"type\": \"string\"\n            },\n            \"reason\": {\n              \"type\": \"string\"\n            }\n          },\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"只在治理临时区运行检查命令。\",\n        \"name\": \"gov_cli\",\n        \"parameters\": {\n          \"properties\": {\n            \"command\": {\n              \"type\": \"string\"\n            },\n            \"timeout\": {\n              \"type\": \"integer\"\n            }\n          },\n          \"required\": [\n            \"command\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    },\n    {\n      \"function\": {\n        \"description\": \"运行临时目标 Agent 测试，用于对比治理效果。\",\n        \"name\": \"gov_agent_test\",\n        \"parameters\": {\n          \"properties\": {\n            \"agent_id\": {\n              \"type\": \"string\"\n            },\n            \"query\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\n            \"query\"\n          ],\n          \"type\": \"object\"\n        }\n      },\n      \"type\": \"function\"\n    }\n  ]\n}",
+      "name": "read_file",
+      "role": "tool",
+      "tool_call_id": "call_o1g5pk6cy7jfj2d6fr073vup"
+    }
+  ],
+  "round": 6,
+  "system": "# 角色\n你是 Beya 治理智能体，只在 `/gov` 治理模式下工作。用户会用自然语言提出治理要求，你负责选择 `gov_*` 工具完成检查、草案、对比、验证和暂存。 默认治理对象是当前被治理 Agent 的本机热治理层，包括 Agent prompt/profile、Skill、Tool 说明、Tool schema 视图策略、Tool adapter、Context policy、模型偏好、auto gov 策略、Skill/Tool 用户级启停。公共资产包和打包投影只是基线，不是默认写入目标。使用工具解决任务。\n\n# 工作区\n- private/：当前用户私有工作区，读写；默认路径，未带前缀的文件路径等同于 private/。\n- public/：当前 Agent 公用工作区，只读。\n- skills/：当前 Agent 可见 Skill 投影，只读。\n- runtime/：当前会话运行态目录，只读。\n\n# 工作方式\n先直接处理当前用户问题；需要领域流程、方法、模板或长期步骤时，根据“技能”区的技能包和 SkillCard 选择 load_skill 加载对应 Skill。\n只调用当前可见工具，不要假设未显示的工具可用；工具结果以 tool_result 和文件证据为准。\nSkill 正文只有显式加载后才会出现在“已加载 Skill”上下文区块；资源、脚本、模板和示例不会自动进入上下文。\n复杂任务先说明阶段目标和需要确认的副作用动作；未经用户确认，不执行批量参数修改、正式优化、报告导出、图纸生成或 Teamcenter 写入。\n如果工具结果为空、失败或缺少关键字段，直接说明阻断原因和下一步需要的输入，不用默认假设补齐真实结果。\n\n# 治理模式\ngovernance_agent 正在处理治理请求。用户会用自然语言描述目标，你需要使用 gov_* 工具完成检查、草案、对比、验证和暂存。\n资产、工具 schema、adapter 和模型变更只能生成 pending change；必须提示用户输入 `/confirm` 后才会热加载生效。\n默认写入用户端本机 hot overlay，不直接写 asset_views、公共源码、runtime 历史、安装目录、云端工具 handler 或 NX 插件。\n工具 schema 治理只改变 Agent 可见 schema、说明和调用前参数剔除；adapter 只允许在本机调用前后做参数映射、默认值补齐、结果规整。\n用户级 Skill/Tool 启停可直接写 profile；资产级停用必须写 @status: disabled 或 disable marker，不允许物理删除。\n\n## 治理目标\n- target_agent_id: design_agent\n- target_conversation_id: 01KSQ3V41HBXTFFJX6BSKSD3DT\n- asset_source: E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\mc-design-nx\\assets\\source\n- hot_overlay: E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\governance\\overlay\n- hot_overlay_revision: 0\n- runtime_conversation_root: E:\\A0_Projects\\A1_Dynamics_Design_LM\\mc-design\\client\\client\\data\\.runtime\\88000044\\conversations\\01KSQ3V41HBXTFFJX6BSKSD3DT\n- auto_governance_enabled: True\n- auto_governance_trigger: session_end\n- auto_governance_mode: low_risk_auto",
+  "tool_names": [
+    "glob",
+    "grep",
+    "bash",
+    "local_time",
+    "read_file",
+    "write_file",
+    "export_file",
+    "edit_file",
+    "load_skill",
+    "todo",
+    "gov_asset_list",
+    "gov_asset_read",
+    "gov_asset_stage",
+    "gov_asset_diff",
+    "gov_asset_validate",
+    "gov_governable_list",
+    "gov_schema_policy_get",
+    "gov_schema_policy_stage",
+    "gov_schema_policy_diff",
+    "gov_schema_policy_validate",
+    "gov_tool_adapter_stage",
+    "gov_runtime_refresh",
+    "gov_model_get",
+    "gov_model_probe",
+    "gov_model_set",
+    "gov_policy_get",
+    "gov_policy_set",
+    "gov_capability_list",
+    "gov_auto_review_run",
+    "gov_cli",
+    "gov_agent_test"
+  ],
+  "tools": [
+    {
+      "function": {
+        "description": "列出统一工作区文件。root 可为 private/public/skills/runtime/all，path 输出带对应前缀。",
+        "name": "glob",
+        "parameters": {
+          "properties": {
+            "limit": {
+              "type": "integer"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "root": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "在统一工作区文本文件中搜索关键词。root 可为 private/public/skills/runtime/all。",
+        "name": "grep",
+        "parameters": {
+          "properties": {
+            "limit": {
+              "type": "integer"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "query": {
+              "type": "string"
+            },
+            "root": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "在 private/ 工作区运行 shell 命令；仅做轻量危险字符串拦截，不等同强沙箱。",
+        "name": "bash",
+        "parameters": {
+          "properties": {
+            "command": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "command"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "读取客户机本地时间，固定按 Asia/Shanghai 返回日期、时间、ISO 时间和 UTC 偏移；用于回答当前时间或本地时区问题。",
+        "name": "local_time",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "读取统一工作区文本文件。路径可使用 private/、public/、skills/、runtime/ 前缀；无前缀默认 private/。",
+        "name": "read_file",
+        "parameters": {
+          "properties": {
+            "limit": {
+              "type": "integer"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "写入统一工作区文件。默认写入 private/；public/ 仅在 Agent 授权时可写；skills/ 和 runtime/ 只读。",
+        "name": "write_file",
+        "parameters": {
+          "properties": {
+            "content": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "content"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "把 private/public 工作区中的文件复制到服务下载区，并返回下载地址和 curl 命令；用于把私有空间生成的报告、截图、图纸等产物导出给用户。",
+        "name": "export_file",
+        "parameters": {
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "替换统一工作区文件中第一次出现的精确文本。默认 private/；public/ 仅在 Agent 授权时可写。",
+        "name": "edit_file",
+        "parameters": {
+          "properties": {
+            "new_text": {
+              "type": "string"
+            },
+            "old_text": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "old_text",
+            "new_text"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "按名称加载 Skill。加载后，完整 Skill 正文会进入下一轮“技能”区 L0 上下文，并固定保留 10 轮。",
+        "name": "load_skill",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "description": "要加载的 Skill 名称。",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "更新当前会话的 todo 计划列表。同一时间只保留一个 in_progress。注意：todo completed 只表示计划状态，不是建模、报告、上传、保存等业务执行完成证据。",
+        "name": "todo",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "items": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "activeForm": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "enum": [
+                      "pending",
+                      "in_progress",
+                      "completed"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "content",
+                  "status",
+                  "activeForm"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "items"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "列出资产基线、overlay、运行时或治理临时区文件。只读。",
+        "name": "gov_asset_list",
+        "parameters": {
+          "properties": {
+            "limit": {
+              "type": "integer"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "root": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "读取资产、运行时或治理临时区的文本文件。",
+        "name": "gov_asset_read",
+        "parameters": {
+          "properties": {
+            "limit": {
+              "type": "integer"
+            },
+            "path": {
+              "type": "string"
+            },
+            "root": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "把资产修改暂存到本机 hot overlay，生成待确认变更；不会立即生效。",
+        "name": "gov_asset_stage",
+        "parameters": {
+          "properties": {
+            "content": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "content"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "查看暂存资产修改的 unified diff。",
+        "name": "gov_asset_diff",
+        "parameters": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "校验暂存或源资产的元数据、引用关系、adapter 安全边界。",
+        "name": "gov_asset_validate",
+        "parameters": {
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "列出可热治理的资产、schema policy、adapter 和当前 overlay revision。",
+        "name": "gov_governable_list",
+        "parameters": {
+          "properties": {
+            "agent_id": {
+              "type": "string"
+            },
+            "limit": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "查看指定工具的原始 schema、热治理策略和治理后的可见 schema。",
+        "name": "gov_schema_policy_get",
+        "parameters": {
+          "properties": {
+            "tool": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "tool"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "暂存工具 schema 视图策略，例如隐藏参数并在调用前剔除；不会立即生效。",
+        "name": "gov_schema_policy_stage",
+        "parameters": {
+          "properties": {
+            "description_patch": {
+              "type": "string"
+            },
+            "hide_parameters": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "strip_hidden_on_call": {
+              "type": "boolean"
+            },
+            "tool": {
+              "type": "string"
+            },
+            "tool_ref": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "tool"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "查看暂存工具 schema 策略的 diff。",
+        "name": "gov_schema_policy_diff",
+        "parameters": {
+          "properties": {
+            "tool": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "校验暂存工具 schema 策略。",
+        "name": "gov_schema_policy_validate",
+        "parameters": {
+          "properties": {
+            "tool": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "暂存本机工具 adapter hook 代码；只允许 adapt_schema/before_call/after_call。",
+        "name": "gov_tool_adapter_stage",
+        "parameters": {
+          "properties": {
+            "content": {
+              "type": "string"
+            },
+            "tool": {
+              "type": "string"
+            },
+            "tool_ref": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "tool",
+            "content"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "递增治理 overlay revision，使下一轮目标 Agent 重建运行时资产和工具 schema。",
+        "name": "gov_runtime_refresh",
+        "parameters": {
+          "properties": {
+            "reason": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "查看当前用户的模型偏好。",
+        "name": "gov_model_get",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "切换模型前探测目标模型是否可用。",
+        "name": "gov_model_probe",
+        "parameters": {
+          "properties": {
+            "model": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "model"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "探测成功后生成待确认模型变更；用户输入 /confirm 后下一轮生效。",
+        "name": "gov_model_set",
+        "parameters": {
+          "properties": {
+            "model": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "model"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "查看自动治理和用户级 Skill/Tool 启停策略。",
+        "name": "gov_policy_get",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "修改自动治理或当前用户的 Skill/Tool 启停策略。",
+        "name": "gov_policy_set",
+        "parameters": {
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "ref": {
+              "type": "string"
+            },
+            "target_type": {
+              "enum": [
+                "auto",
+                "skill",
+                "tool"
+              ],
+              "type": "string"
+            },
+            "trigger": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "target_type"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "列出当前 Agent 可治理的 Skill/Tool 及用户覆盖状态。",
+        "name": "gov_capability_list",
+        "parameters": {
+          "properties": {
+            "agent_id": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "显式运行一次会话自动治理复盘。",
+        "name": "gov_auto_review_run",
+        "parameters": {
+          "properties": {
+            "agent_id": {
+              "type": "string"
+            },
+            "conversation_id": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "只在治理临时区运行检查命令。",
+        "name": "gov_cli",
+        "parameters": {
+          "properties": {
+            "command": {
+              "type": "string"
+            },
+            "timeout": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "command"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "运行临时目标 Agent 测试，用于对比治理效果。",
+        "name": "gov_agent_test",
+        "parameters": {
+          "properties": {
+            "agent_id": {
+              "type": "string"
+            },
+            "query": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    }
+  ]
+}

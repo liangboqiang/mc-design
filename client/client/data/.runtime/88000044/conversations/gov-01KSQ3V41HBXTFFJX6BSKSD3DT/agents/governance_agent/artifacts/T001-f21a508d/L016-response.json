@@ -1,0 +1,16 @@
+{
+  "content": "",
+  "finish_reason": "tool_calls",
+  "reasoning_content": "让我尝试使用gov_cli查看这个文件内容。",
+  "round": 16,
+  "tool_calls": [
+    {
+      "function": {
+        "arguments": "{\"command\": \"type \\\"E:\\\\A0_Projects\\\\A1_Dynamics_Design_LM\\\\mc-design\\\\client\\\\client\\\\data\\\\.runtime\\\\88000044\\\\conversations\\\\01KSQ3V41HBXTFFJX6BSKSD3DT\\\\agents\\\\design_agent\\\\artifacts\\\\T001-3399d3dd\\\\W008-query_ipm_list-query_ipm_list-result.json\\\"\"}",
+        "name": "gov_cli"
+      },
+      "id": "call_tkziig2axwpsr23565bc1nax",
+      "type": "function"
+    }
+  ]
+}

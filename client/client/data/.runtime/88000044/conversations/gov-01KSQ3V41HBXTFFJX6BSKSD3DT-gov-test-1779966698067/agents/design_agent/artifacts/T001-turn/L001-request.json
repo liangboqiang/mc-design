@@ -1,0 +1,2378 @@
+{
+  "messages": [
+    {
+      "content": "请你在IPM上查询未完成的k08项目连杆设计任务。",
+      "role": "user"
+    }
+  ],
+  "round": 1,
+  "system": "# 角色\n你是面向零部件设计任务的中文设计智能体，重点服务发动机零部件设计。保持单一业务身份：按需加载 Skill，调用被激活的原子工具完成任务。 默认设计路线是基于既有模板的参数化建模：先选择或打开可追溯的 NX 模板/TC 模板，再读取真实驱动参数，形成参数修改方案，用户确认后更新表达式并刷新模型。除凸轮轴专用建模工具明确要求外，不做创成式建模，不凭空创建未知特征，不把创建表达式当作模型特征创建成功。 批量参数修改、正式优化、报告导出、图纸生成、Teamcenter 写入等副作用动作必须先形成方案并交给用户确认，确认后再执行。设计报告必须加载 design-report 技能并走固定模板槽位路线，不做报告风格偏好设计。 只把已有工具成功结果或用户明确确认的事项称为已完成；工具失败、未执行、结果为空或缺少关键前提时，必须说明阻断原因和下一步需要确认的事项，不得用默认假设替代真实执行结果。使用工具解决任务。\n\n# 工作区\n- private/：当前用户私有工作区，读写；默认路径，未带前缀的文件路径等同于 private/。\n- public/：当前 Agent 公用工作区，只读。\n- skills/：当前 Agent 可见 Skill 投影，只读。\n- runtime/：当前会话运行态目录，只读。\n\n# 工作方式\n先直接处理当前用户问题；需要领域流程、方法、模板或长期步骤时，根据“技能”区的技能包和 SkillCard 选择 load_skill 加载对应 Skill。\n只调用当前可见工具，不要假设未显示的工具可用；工具结果以 tool_result 和文件证据为准。\nSkill 正文只有显式加载后才会出现在“已加载 Skill”上下文区块；资源、脚本、模板和示例不会自动进入上下文。\n复杂任务先说明阶段目标和需要确认的副作用动作；未经用户确认，不执行批量参数修改、正式优化、报告导出、图纸生成或 Teamcenter 写入。\n如果工具结果为空、失败或缺少关键字段，直接说明阻断原因和下一步需要的输入，不用默认假设补齐真实结果。",
+  "tool_names": [
+    "glob",
+    "grep",
+    "bash",
+    "local_time",
+    "read_file",
+    "write_file",
+    "export_file",
+    "edit_file",
+    "load_skill",
+    "todo",
+    "spawn_agent",
+    "list_agents",
+    "stop_agent",
+    "idle",
+    "nx_apply_pmi_inheritance_to_drawing_views",
+    "nx_batch_update_params",
+    "nx_build_cam_boss",
+    "nx_build_cam_lobe",
+    "nx_build_cam_lobe_array",
+    "nx_build_camshaft",
+    "nx_build_camshaft_one_click",
+    "nx_build_journal_face",
+    "nx_build_optimization_objective_expression",
+    "nx_build_or_update_cam_lobe_array",
+    "nx_build_or_update_cam_lobe_from_profile",
+    "nx_build_or_update_camshaft_detail_finish",
+    "nx_build_or_update_camshaft_mount_face",
+    "nx_build_or_update_camshaft_shaft",
+    "nx_build_or_update_camshaft_transition_zone",
+    "nx_build_or_update_end_boss",
+    "nx_create_auto_drawing_sheet",
+    "nx_create_auto_drawing_views",
+    "nx_create_image",
+    "nx_create_new_part",
+    "nx_create_param",
+    "nx_delete_drawing_sheets",
+    "nx_enter_drafting_environment",
+    "nx_exit_animation",
+    "nx_find_params",
+    "nx_fit_view",
+    "nx_fs_copy",
+    "nx_fs_exists",
+    "nx_fs_read_bytes",
+    "nx_fs_write_bytes",
+    "nx_get_all_params_list",
+    "nx_get_all_view_names",
+    "nx_get_auto_drawing_tool_guide",
+    "nx_get_drawing_sheet_name_list",
+    "nx_get_drive_params_list",
+    "nx_get_optimization_tool_guide",
+    "nx_get_view_style",
+    "nx_get_work_part_info",
+    "nx_high_light_dim",
+    "nx_import_cam_profile",
+    "nx_import_or_update_cam_profile_curve",
+    "nx_mount_boss_to_shaft",
+    "nx_mount_cam_lobes_to_shaft",
+    "nx_open_drawing_sheet",
+    "nx_open_part",
+    "nx_open_tcpart",
+    "nx_rotate_and_scale_view",
+    "nx_run_auto_drawing",
+    "nx_run_optimization_study",
+    "nx_set_view_style",
+    "nx_switch_view",
+    "nx_test",
+    "nx_update_param",
+    "nx_validate_auto_drawing_plan",
+    "nx_validate_optimization_study",
+    "mysql_query",
+    "connect_qpp",
+    "query_ecr_list",
+    "query_ipm_list",
+    "tc_call",
+    "teamcenter_copy_item_content_create",
+    "teamcenter_export_dataset_file",
+    "teamcenter_get_part_rev_children",
+    "teamcenter_get_part_rev_classification_attribute",
+    "teamcenter_get_parts_from_specified_folder",
+    "teamcenter_get_process_personnel_information",
+    "teamcenter_upload_file_function",
+    "design_report_create",
+    "design_report_update",
+    "design_report_detail",
+    "design_report_list",
+    "design_report_export",
+    "design_report_capture_image"
+  ],
+  "tools": [
+    {
+      "function": {
+        "description": "列出统一工作区文件。root 可为 private/public/skills/runtime/all，path 输出带对应前缀。",
+        "name": "glob",
+        "parameters": {
+          "properties": {
+            "limit": {
+              "type": "integer"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "root": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "在统一工作区文本文件中搜索关键词。root 可为 private/public/skills/runtime/all。",
+        "name": "grep",
+        "parameters": {
+          "properties": {
+            "limit": {
+              "type": "integer"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "query": {
+              "type": "string"
+            },
+            "root": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "在 private/ 工作区运行 shell 命令；仅做轻量危险字符串拦截，不等同强沙箱。",
+        "name": "bash",
+        "parameters": {
+          "properties": {
+            "command": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "command"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "读取客户机本地时间，固定按 Asia/Shanghai 返回日期、时间、ISO 时间和 UTC 偏移；用于回答当前时间或本地时区问题。",
+        "name": "local_time",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "读取统一工作区文本文件。路径可使用 private/、public/、skills/、runtime/ 前缀；无前缀默认 private/。",
+        "name": "read_file",
+        "parameters": {
+          "properties": {
+            "limit": {
+              "type": "integer"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "写入统一工作区文件。默认写入 private/；public/ 仅在 Agent 授权时可写；skills/ 和 runtime/ 只读。",
+        "name": "write_file",
+        "parameters": {
+          "properties": {
+            "content": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "content"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "把 private/public 工作区中的文件复制到服务下载区，并返回下载地址和 curl 命令；用于把私有空间生成的报告、截图、图纸等产物导出给用户。",
+        "name": "export_file",
+        "parameters": {
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "替换统一工作区文件中第一次出现的精确文本。默认 private/；public/ 仅在 Agent 授权时可写。",
+        "name": "edit_file",
+        "parameters": {
+          "properties": {
+            "new_text": {
+              "type": "string"
+            },
+            "old_text": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "old_text",
+            "new_text"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "按名称加载 Skill。加载后，完整 Skill 正文会进入下一轮“技能”区 L0 上下文，并固定保留 10 轮。",
+        "name": "load_skill",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "description": "要加载的 Skill 名称。",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "更新当前会话的 todo 计划列表。同一时间只保留一个 in_progress。注意：todo completed 只表示计划状态，不是建模、报告、上传、保存等业务执行完成证据。",
+        "name": "todo",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "items": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "activeForm": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "enum": [
+                      "pending",
+                      "in_progress",
+                      "completed"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "content",
+                  "status",
+                  "activeForm"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "items"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "补充一个同构 Agent；新 Agent 自己观察 Board / Mailbox / PublishLog 并运行同一个 AgentLoop。",
+        "name": "spawn_agent",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "prompt": {
+              "type": "string"
+            },
+            "role": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "role"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "列出当前 Agent 的子 Agent。",
+        "name": "list_agents",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "请求停止指定子 Agent。",
+        "name": "stop_agent",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "agent_id": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "agent_id"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "当前 Agent 无可推进任务时进入等待；收到 Board/Mailbox/Jobs/PublishLog 事件后会被唤醒。",
+        "name": "idle",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "将模型 PMI 继承到工程图视图；view_names 为空表示处理全部工程图视图，多个名称用逗号分隔。",
+        "name": "nx_apply_pmi_inheritance_to_drawing_views",
+        "parameters": {
+          "properties": {
+            "pmi_from_revolved": {
+              "description": "bool",
+              "type": "boolean"
+            },
+            "pmi_mode": {
+              "description": "string",
+              "type": "string"
+            },
+            "pmi_to_drawing": {
+              "description": "bool",
+              "type": "boolean"
+            },
+            "view_names": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "批量更新表达式参数值（每项包含 std_id/value）",
+        "name": "nx_batch_update_params",
+        "parameters": {
+          "properties": {
+            "expressions": {
+              "description": "List<ExpressionUpdateItem>",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "expressions"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：构建/更新端部凸台圆柱（特征名前缀 CAM_END_BOSS）",
+        "name": "nx_build_cam_boss",
+        "parameters": {
+          "properties": {
+            "CV_BOS_DIA": {
+              "description": "double?",
+              "type": "number"
+            },
+            "CV_BOS_LEN": {
+              "description": "double?",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：基于型线曲线构建/更新单个凸轮",
+        "name": "nx_build_cam_lobe",
+        "parameters": {
+          "properties": {
+            "CAM_T": {
+              "description": "double?",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：按气缸数生成/更新凸轮阵列（CAM_LOBE_ARRAY*）。",
+        "name": "nx_build_cam_lobe_array",
+        "parameters": {
+          "properties": {
+            "CYL_QTY": {
+              "description": "int?",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：构建/更新轴体圆柱（特征名前缀 CAM_SHAFT*）",
+        "name": "nx_build_camshaft",
+        "parameters": {
+          "properties": {
+            "CV_DIA": {
+              "description": "double?",
+              "type": "number"
+            },
+            "CV_LEN": {
+              "description": "double?",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：一键建模（导入型线→单凸轮→轴体→端部凸台→阵列+相位）。",
+        "name": "nx_build_camshaft_one_click",
+        "parameters": {
+          "properties": {
+            "boss_diameter": {
+              "description": "double",
+              "type": "number"
+            },
+            "boss_length": {
+              "description": "double",
+              "type": "number"
+            },
+            "cylinder_count": {
+              "description": "int",
+              "type": "integer"
+            },
+            "cylinder_pitch": {
+              "description": "double",
+              "type": "number"
+            },
+            "lobe_thickness": {
+              "description": "double",
+              "type": "number"
+            },
+            "profile_file_path": {
+              "description": "string",
+              "type": "string"
+            },
+            "shaft_diameter": {
+              "description": "double",
+              "type": "number"
+            },
+            "shaft_length": {
+              "description": "double",
+              "type": "number"
+            },
+            "user_id": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "user_id",
+            "profile_file_path",
+            "cylinder_count",
+            "cylinder_pitch",
+            "lobe_thickness",
+            "shaft_diameter",
+            "shaft_length",
+            "boss_diameter",
+            "boss_length"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：创建/更新凹陷轴颈（凸轮区用Linear阵列；端部各最多1个，干涉则跳过；仅使用 JF_LEN/JF_SIZE）",
+        "name": "nx_build_journal_face",
+        "parameters": {
+          "properties": {
+            "JF_LEN": {
+              "description": "double?",
+              "type": "number"
+            },
+            "JF_SIZE": {
+              "description": "double?",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "NX 优化目标表达式：将多个目标合成为加权 Objective_AI 表达式。write_to_part=true 会创建或更新表达式；false 只返回公式。",
+        "name": "nx_build_optimization_objective_expression",
+        "parameters": {
+          "properties": {
+            "expression_name": {
+              "description": "string",
+              "type": "string"
+            },
+            "objectives": {
+              "description": "List<OptimizerObjectiveItem>",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "write_to_part": {
+              "description": "bool",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "objectives"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：按气缸数与缸心距生成/更新凸轮阵列（CAM_LOBE_ARRAY*），并按发火顺序进行相位旋转。",
+        "name": "nx_build_or_update_cam_lobe_array",
+        "parameters": {
+          "properties": {
+            "cylinder_count": {
+              "description": "int",
+              "type": "integer"
+            },
+            "cylinder_pitch": {
+              "description": "double",
+              "type": "number"
+            },
+            "user_id": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "user_id",
+            "cylinder_count",
+            "cylinder_pitch"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：基于型线曲线构建/更新单个凸轮（特征名前缀 CAM_LOBE_01*）",
+        "name": "nx_build_or_update_cam_lobe_from_profile",
+        "parameters": {
+          "properties": {
+            "lobe_thickness": {
+              "description": "double",
+              "type": "number"
+            },
+            "user_id": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "user_id",
+            "lobe_thickness"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：细节收口（布尔合体兜底 + 倒圆/圆角）。不改变已有工具协议。",
+        "name": "nx_build_or_update_camshaft_detail_finish",
+        "parameters": {
+          "properties": {
+            "detail_fillet_radius": {
+              "description": "double",
+              "type": "number"
+            },
+            "user_id": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "user_id"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：安装面建模（下沉台阶按凸轮中心阵列）。不改变已有工具协议。",
+        "name": "nx_build_or_update_camshaft_mount_face",
+        "parameters": {
+          "properties": {
+            "seat_depth": {
+              "description": "double",
+              "type": "number"
+            },
+            "seat_flat_width": {
+              "description": "double",
+              "type": "number"
+            },
+            "seat_z_width": {
+              "description": "double",
+              "type": "number"
+            },
+            "shaft_diameter": {
+              "description": "double",
+              "type": "number"
+            },
+            "user_id": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "user_id"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：构建/更新轴体圆柱（特征名前缀 CAM_SHAFT*）",
+        "name": "nx_build_or_update_camshaft_shaft",
+        "parameters": {
+          "properties": {
+            "shaft_diameter": {
+              "description": "double",
+              "type": "number"
+            },
+            "shaft_length": {
+              "description": "double",
+              "type": "number"
+            },
+            "user_id": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "user_id",
+            "shaft_length",
+            "shaft_diameter"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：过渡区建模（布尔合体 + 过渡倒圆）。不改变已有工具协议。",
+        "name": "nx_build_or_update_camshaft_transition_zone",
+        "parameters": {
+          "properties": {
+            "transition_fillet_radius": {
+              "description": "double",
+              "type": "number"
+            },
+            "user_id": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "user_id"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：构建/更新端部凸台圆柱（特征名前缀 CAM_END_BOSS*）",
+        "name": "nx_build_or_update_end_boss",
+        "parameters": {
+          "properties": {
+            "boss_diameter": {
+              "description": "double",
+              "type": "number"
+            },
+            "boss_length": {
+              "description": "double",
+              "type": "number"
+            },
+            "user_id": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "user_id",
+            "boss_length",
+            "boss_diameter"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "创建自动出图图纸页：支持标准 A0/A1/A2/A3/A4 或 custom 尺寸，可选 NX 图纸模板。",
+        "name": "nx_create_auto_drawing_sheet",
+        "parameters": {
+          "properties": {
+            "projection_angle": {
+              "description": "string",
+              "type": "string"
+            },
+            "revision": {
+              "description": "string",
+              "type": "string"
+            },
+            "scale_denominator": {
+              "description": "double",
+              "type": "number"
+            },
+            "scale_numerator": {
+              "description": "double",
+              "type": "number"
+            },
+            "sheet_height": {
+              "description": "double",
+              "type": "number"
+            },
+            "sheet_length": {
+              "description": "double",
+              "type": "number"
+            },
+            "sheet_number": {
+              "description": "string",
+              "type": "string"
+            },
+            "sheet_size": {
+              "description": "string",
+              "type": "string"
+            },
+            "template_path": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "在指定或当前图纸页上自动创建工程图视图：基础视图 + 可选 top/right/left/bottom/back/trimetric/isometric。",
+        "name": "nx_create_auto_drawing_views",
+        "parameters": {
+          "properties": {
+            "base_view": {
+              "description": "string",
+              "type": "string"
+            },
+            "extra_views": {
+              "description": "string",
+              "type": "string"
+            },
+            "margin_between_views": {
+              "description": "double",
+              "type": "number"
+            },
+            "margin_to_border": {
+              "description": "double",
+              "type": "number"
+            },
+            "scale_denominator": {
+              "description": "double",
+              "type": "number"
+            },
+            "scale_numerator": {
+              "description": "double",
+              "type": "number"
+            },
+            "sheet_name": {
+              "description": "string",
+              "type": "string"
+            },
+            "show_center_lines": {
+              "description": "bool",
+              "type": "boolean"
+            },
+            "show_hidden_lines": {
+              "description": "bool",
+              "type": "boolean"
+            },
+            "show_silhouettes": {
+              "description": "bool",
+              "type": "boolean"
+            },
+            "show_view_labels": {
+              "description": "bool",
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "导出图片",
+        "name": "nx_create_image",
+        "parameters": {
+          "properties": {
+            "color": {
+              "description": "UFDisp.BackgroundColor",
+              "type": "object"
+            },
+            "filePath": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "filePath"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "创建一个新的空 prt 文件并切换为当前工作部件（WorkPart），用于后续凸轮轴建模",
+        "name": "nx_create_new_part",
+        "parameters": {
+          "properties": {
+            "folder_path": {
+              "description": "string",
+              "type": "string"
+            },
+            "overwrite": {
+              "description": "bool",
+              "type": "boolean"
+            },
+            "part_name": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "folder_path",
+            "part_name"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "创建表达式参数（std_id=value）",
+        "name": "nx_create_param",
+        "parameters": {
+          "properties": {
+            "std_id": {
+              "description": "string",
+              "type": "string"
+            },
+            "value": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "std_id",
+            "value"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "删除工程图图纸页。delete_all=true 删除全部图纸页；否则按 sheet_names 逗号分隔名称删除。破坏性工具，默认不删除。",
+        "name": "nx_delete_drawing_sheets",
+        "parameters": {
+          "properties": {
+            "delete_all": {
+              "description": "bool",
+              "type": "boolean"
+            },
+            "sheet_names": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "进入 NX Drafting 制图环境，并完成模板实例化标记与自定义符号刷新。",
+        "name": "nx_enter_drafting_environment",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "退场动画",
+        "name": "nx_exit_animation",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "按 std_id 查找表达式参数",
+        "name": "nx_find_params",
+        "parameters": {
+          "properties": {
+            "std_id": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "std_id"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "自动缩放视图以适应模型显示",
+        "name": "nx_fit_view",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "复制文件（可覆盖）",
+        "name": "nx_fs_copy",
+        "parameters": {
+          "properties": {
+            "dst_path": {
+              "description": "string",
+              "type": "string"
+            },
+            "overwrite": {
+              "description": "bool",
+              "type": "boolean"
+            },
+            "src_path": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "src_path",
+            "dst_path"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "检查文件是否存在",
+        "name": "nx_fs_exists",
+        "parameters": {
+          "properties": {
+            "path": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "读取文件并返回字节（base64）",
+        "name": "nx_fs_read_bytes",
+        "parameters": {
+          "properties": {
+            "path": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "写入文件字节（base64），覆盖写",
+        "name": "nx_fs_write_bytes",
+        "parameters": {
+          "properties": {
+            "base64": {
+              "description": "string",
+              "type": "string"
+            },
+            "path": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "base64"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "获取全部表达式参数列表",
+        "name": "nx_get_all_params_list",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "获取全部视图名称",
+        "name": "nx_get_all_view_names",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "NX 自动出图工具说明：返回智能体可用的调用顺序、参数规范、PMI 继承策略、示例入参和注意事项。",
+        "name": "nx_get_auto_drawing_tool_guide",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "读取当前工作部件所有图纸页名称",
+        "name": "nx_get_drawing_sheet_name_list",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "获取驱动参数表达式列表（基于 group_name 过滤：包含“驱动”或“driver”）",
+        "name": "nx_get_drive_params_list",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "NX 优化工具使用说明：返回智能体可用的输入 schema、调用顺序、示例、约束规则与推荐策略。先调用它可帮助智能体正确组织 RunOptimizationStudy 入参。",
+        "name": "nx_get_optimization_tool_guide",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "获取当前 NX 视图显示模式",
+        "name": "nx_get_view_style",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "读取 Work Part 信息",
+        "name": "nx_get_work_part_info",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "高亮表达式对应尺寸",
+        "name": "nx_high_light_dim",
+        "parameters": {
+          "properties": {
+            "expName": {
+              "description": "string",
+              "type": "string"
+            },
+            "isHighAssoOBjI": {
+              "description": "bool",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "expName",
+            "isHighAssoOBjI"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：导入/更新凸轮型线点并拟合生成型线曲线（命名为 CAM_PROFILE_CURVE*）",
+        "name": "nx_import_cam_profile",
+        "parameters": {
+          "properties": {
+            "profile_file_path": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：导入/更新凸轮型线点并拟合生成型线曲线（命名为 CAM_PROFILE_CURVE*）",
+        "name": "nx_import_or_update_cam_profile_curve",
+        "parameters": {
+          "properties": {
+            "profile_file_path": {
+              "description": "string",
+              "type": "string"
+            },
+            "user_id": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "user_id",
+            "profile_file_path"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴建模：将端部凸台（CAM_END_BOSS）与轴体（CAM_SHAFT_BODY）合并",
+        "name": "nx_mount_boss_to_shaft",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "凸轮轴装配：按发火顺序将凸轮沿轴向定位到凸轮轴上",
+        "name": "nx_mount_cam_lobes_to_shaft",
+        "parameters": {
+          "properties": {
+            "CAM_FIRST_OFFSET": {
+              "description": "double?",
+              "type": "number"
+            },
+            "CYL_PITCH": {
+              "description": "double?",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "打开指定名称的图纸页",
+        "name": "nx_open_drawing_sheet",
+        "parameters": {
+          "properties": {
+            "drawSheetName": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "drawSheetName"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "打开模型",
+        "name": "nx_open_part",
+        "parameters": {
+          "properties": {
+            "path": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "根据itemID和itemRev从TC中打开模型",
+        "name": "nx_open_tcpart",
+        "parameters": {
+          "properties": {
+            "itemID": {
+              "description": "string",
+              "type": "string"
+            },
+            "itemRev": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "itemID",
+            "itemRev"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "旋转缩放 NX 视图",
+        "name": "nx_rotate_and_scale_view",
+        "parameters": {
+          "properties": {
+            "pitchDeg": {
+              "description": "double",
+              "type": "number"
+            },
+            "rollDeg": {
+              "description": "double",
+              "type": "number"
+            },
+            "scaleRatio": {
+              "description": "double",
+              "type": "number"
+            },
+            "yawDeg": {
+              "description": "double",
+              "type": "number"
+            }
+          },
+          "required": [
+            "yawDeg",
+            "pitchDeg",
+            "rollDeg",
+            "scaleRatio"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "NX 自动出图一键闭环：进入制图、可选清理旧图纸、创建图纸页、自动布置视图、继承 PMI。dry_run=true 只预检不修改模型。",
+        "name": "nx_run_auto_drawing",
+        "parameters": {
+          "properties": {
+            "base_view": {
+              "description": "string",
+              "type": "string"
+            },
+            "delete_existing_sheets": {
+              "description": "bool",
+              "type": "boolean"
+            },
+            "dry_run": {
+              "description": "bool",
+              "type": "boolean"
+            },
+            "extra_views": {
+              "description": "string",
+              "type": "string"
+            },
+            "inherit_pmi": {
+              "description": "bool",
+              "type": "boolean"
+            },
+            "margin_between_views": {
+              "description": "double",
+              "type": "number"
+            },
+            "margin_to_border": {
+              "description": "double",
+              "type": "number"
+            },
+            "pmi_mode": {
+              "description": "string",
+              "type": "string"
+            },
+            "revision": {
+              "description": "string",
+              "type": "string"
+            },
+            "scale_denominator": {
+              "description": "double",
+              "type": "number"
+            },
+            "scale_numerator": {
+              "description": "double",
+              "type": "number"
+            },
+            "sheet_height": {
+              "description": "double",
+              "type": "number"
+            },
+            "sheet_length": {
+              "description": "double",
+              "type": "number"
+            },
+            "sheet_number": {
+              "description": "string",
+              "type": "string"
+            },
+            "sheet_size": {
+              "description": "string",
+              "type": "string"
+            },
+            "template_path": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "NX 优化研究一键执行：一次性设置变量、目标、约束、算法并运行优化。dry_run=true 只完成预检和配置摘要，不运行算法。",
+        "name": "nx_run_optimization_study",
+        "parameters": {
+          "properties": {
+            "algorithm": {
+              "description": "OptimizerAlgorithmOptions",
+              "type": "object"
+            },
+            "constraints": {
+              "description": "List<OptimizerConstraintItem>",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "dry_run": {
+              "description": "bool",
+              "type": "boolean"
+            },
+            "objectives": {
+              "description": "List<OptimizerObjectiveItem>",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "show_results": {
+              "description": "bool",
+              "type": "boolean"
+            },
+            "title": {
+              "description": "string",
+              "type": "string"
+            },
+            "variables": {
+              "description": "List<OptimizerVariableItem>",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "title",
+            "variables",
+            "objectives"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "设置 NX 视图显示模式",
+        "name": "nx_set_view_style",
+        "parameters": {
+          "properties": {
+            "style_type": {
+              "description": "int",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "style_type"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "切换 NX 视图",
+        "name": "nx_switch_view",
+        "parameters": {
+          "properties": {
+            "view_name": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "view_name"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "测试检查",
+        "name": "nx_test",
+        "parameters": {
+          "properties": {},
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "更新表达式参数值（按 std_id 定位）",
+        "name": "nx_update_param",
+        "parameters": {
+          "properties": {
+            "std_id": {
+              "description": "string",
+              "type": "string"
+            },
+            "value": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "std_id",
+            "value"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "NX 自动出图预检：校验图纸尺寸、比例、基础视图、模板路径、PMI 模式；不修改模型、不创建图纸。",
+        "name": "nx_validate_auto_drawing_plan",
+        "parameters": {
+          "properties": {
+            "base_view": {
+              "description": "string",
+              "type": "string"
+            },
+            "extra_views": {
+              "description": "string",
+              "type": "string"
+            },
+            "inherit_pmi": {
+              "description": "bool",
+              "type": "boolean"
+            },
+            "pmi_mode": {
+              "description": "string",
+              "type": "string"
+            },
+            "scale_denominator": {
+              "description": "double",
+              "type": "number"
+            },
+            "scale_numerator": {
+              "description": "double",
+              "type": "number"
+            },
+            "sheet_height": {
+              "description": "double",
+              "type": "number"
+            },
+            "sheet_length": {
+              "description": "double",
+              "type": "number"
+            },
+            "sheet_size": {
+              "description": "string",
+              "type": "string"
+            },
+            "template_path": {
+              "description": "string",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "NX 优化研究预检：校验变量、目标、约束、算法参数和表达式存在性；不修改模型、不运行优化。适合智能体在执行前排错。",
+        "name": "nx_validate_optimization_study",
+        "parameters": {
+          "properties": {
+            "algorithm": {
+              "description": "OptimizerAlgorithmOptions",
+              "type": "object"
+            },
+            "constraints": {
+              "description": "List<OptimizerConstraintItem>",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objectives": {
+              "description": "List<OptimizerObjectiveItem>",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "variables": {
+              "description": "List<OptimizerVariableItem>",
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "variables",
+            "objectives"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "Beya 统一数据库访问入口。执行 MySQL 查询/写入，输出固定为 query_result 和 sql_statement；若项目已有内置数据库能力，本工具就是该能力在 Agent 侧的唯一受控入口，不再拆分多个数据库工具。",
+        "name": "mysql_query",
+        "parameters": {
+          "properties": {
+            "params": {
+              "type": "array"
+            },
+            "sql_statement": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "sql_statement"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "查询 QPP 任务数据。URL 从 beya.toml 的 [external.qpp] 读取，POST {Worker, StartDate}；worker 不传时使用运行时 user_name。",
+        "name": "connect_qpp",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "StartDate": {
+              "description": "查询起始日期。",
+              "type": "string"
+            },
+            "worker": {
+              "description": "业务责任人中文姓名；不传时使用运行时 user_name。",
+              "type": "string"
+            }
+          },
+          "required": [
+            "StartDate"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "ECMS / ECR 信息查询接口。URL 从 beya.toml 的 [external.ecr] 读取。",
+        "name": "query_ecr_list",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "assignee": {
+              "description": "业务责任人工号。",
+              "type": "string"
+            },
+            "assignee_dept": {
+              "description": "责任人部门。",
+              "type": "string"
+            },
+            "change_reasion_desc": {
+              "description": "更改原因描述。",
+              "type": "string"
+            },
+            "change_topic": {
+              "description": "更改主题。",
+              "type": "string"
+            },
+            "completeEndTime": {
+              "description": "计划完成日期止。",
+              "type": "string"
+            },
+            "completeStartTime": {
+              "description": "计划完成日期起。",
+              "type": "string"
+            },
+            "createEndTime": {
+              "description": "创建日期止。",
+              "type": "string"
+            },
+            "createStartTime": {
+              "description": "创建日期起。",
+              "type": "string"
+            },
+            "creator": {
+              "description": "申请人。",
+              "type": "string"
+            },
+            "creator_dept": {
+              "description": "申请人部门。",
+              "type": "string"
+            },
+            "ecr_process_state": {
+              "description": "状态。",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "item_id": {
+              "description": "ECR 编号。",
+              "type": "string"
+            },
+            "module": {
+              "description": "模块。",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "product_platform": {
+              "description": "产品平台。",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "skip": {
+              "description": "分页起点。",
+              "type": "string"
+            },
+            "take": {
+              "description": "分页数量。",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "查询 IPM 任务信息。principle 不传时使用运行时 user_id；principleName 不传时使用运行时 user_name；confirmStatusList 不传时查询未提交、不通过、已确认。\n优化查询策略：当参数值不明确时，不传递不确定的可选参数，以扩大搜索范围，提高查询成功率。",
+        "name": "query_ipm_list",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "confirmStatusList": {
+              "description": "确认状态；默认未提交、不通过、已确认。",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "endTime": {
+              "description": "计划完成时间止。",
+              "type": "string"
+            },
+            "page": {
+              "description": "分页页码。",
+              "type": "number"
+            },
+            "pageSize": {
+              "description": "每页数量。",
+              "type": "number"
+            },
+            "principle": {
+              "description": "业务主责人工号；不传时使用运行时 user_id。",
+              "type": "string"
+            },
+            "principleName": {
+              "description": "主责人中文姓名；不传时使用运行时 user_name。",
+              "type": "string"
+            },
+            "projectCode": {
+              "description": "项目编码。",
+              "type": "string"
+            },
+            "projectName": {
+              "description": "项目名称。",
+              "type": "string"
+            },
+            "startTime": {
+              "description": "计划完成时间起。",
+              "type": "string"
+            },
+            "taskName": {
+              "description": "计划/任务名称。",
+              "type": "string"
+            },
+            "workTypeList": {
+              "description": "项目类型。",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "按 Teamcenter 链路调用远端工具：path 为 Beya Teamcenter 远端动作名称；payload 为请求体。支持显式传入 BEYA_TC_BASE_URL、user_id、owner_id 覆盖默认配置；写入类 TC 调用只有 user_id 与 owner_id 相同时才允许执行。 Teamcenter runtime credential is injected by the local client; do not ask the user for it.",
+        "name": "tc_call",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "BEYA_TC_BASE_URL": {
+              "description": "Teamcenter 服务基础地址覆盖项；不传时使用 beya.toml [teamcenter].api_path。示例：http://10.22.16.16:30314/mc-design/mcp-server/tc/mcp 或 http://localhost:8080/tcRestService/tcInterface",
+              "type": "string"
+            },
+            "owner_id": {
+              "description": "Teamcenter 零部件或文件夹的业务所有者，不等于 user_id。查询可指定任意有权访问的 owner_id；上传、复制、覆盖等修改动作仅允许 user_id 与 owner_id 相同。",
+              "type": "string"
+            },
+            "path": {
+              "description": "远端工具名，如 getPartsFromSpecifiedFolder、getPartRevChildren、exportDatasetFile。",
+              "type": "string"
+            },
+            "payload": {
+              "description": "Teamcenter 业务请求体。",
+              "type": "object"
+            },
+            "user_id": {
+              "description": "Teamcenter 使用者/当前操作人，不等于 owner_id；该字段为 Teamcenter 业务入参，不传时 Beya 会尝试使用运行态 user_id 兜底。",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "复制 item 包含的所有内容并重命名。该动作会修改 Teamcenter 数据，必须明确 user_id、owner_id；只有 user_id 与 owner_id 相同时才允许执行，否则只能查询或只读导出。 Teamcenter runtime credential is injected by the local client; do not ask the user for it.",
+        "name": "teamcenter_copy_item_content_create",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "BEYA_TC_BASE_URL": {
+              "description": "Teamcenter 服务基础地址覆盖项；不传时使用 beya.toml [teamcenter].api_path。示例：http://10.22.16.16:30314/mc-design/mcp-server/tc/mcp 或 http://localhost:8080/tcRestService/tcInterface",
+              "type": "string"
+            },
+            "item_id": {
+              "description": "原 ItemID",
+              "type": "string"
+            },
+            "item_rev_id": {
+              "description": "原版本号",
+              "type": "string"
+            },
+            "new_item_id": {
+              "description": "新 ItemID",
+              "type": "string"
+            },
+            "owner_id": {
+              "description": "Teamcenter 零部件或文件夹的业务所有者，不等于 user_id。查询可指定任意有权访问的 owner_id；上传、复制、覆盖等修改动作仅允许 user_id 与 owner_id 相同。",
+              "type": "string"
+            },
+            "user_id": {
+              "description": "Teamcenter 使用者/当前操作人，不等于 owner_id；该字段为 Teamcenter 业务入参，不传时 Beya 会尝试使用运行态 user_id 兜底。",
+              "type": "string"
+            }
+          },
+          "required": [
+            "item_id",
+            "item_rev_id",
+            "new_item_id",
+            "owner_id"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "按数据集 uid 调用 Teamcenter 导出文件。返回内容以 Teamcenter 接口响应为准；不承诺自动写入 Beya workspace。 Teamcenter runtime credential is injected by the local client; do not ask the user for it.",
+        "name": "teamcenter_export_dataset_file",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "BEYA_TC_BASE_URL": {
+              "description": "Teamcenter 服务基础地址覆盖项；不传时使用 beya.toml [teamcenter].api_path。示例：http://10.22.16.16:30314/mc-design/mcp-server/tc/mcp 或 http://localhost:8080/tcRestService/tcInterface",
+              "type": "string"
+            },
+            "owner_id": {
+              "description": "Teamcenter 零部件或文件夹的业务所有者，不等于 user_id。查询可指定任意有权访问的 owner_id；上传、复制、覆盖等修改动作仅允许 user_id 与 owner_id 相同。",
+              "type": "string"
+            },
+            "uid": {
+              "description": "数据集 uid",
+              "type": "string"
+            },
+            "user_id": {
+              "description": "Teamcenter 使用者/当前操作人，不等于 owner_id；该字段为 Teamcenter 业务入参，不传时 Beya 会尝试使用运行态 user_id 兜底。",
+              "type": "string"
+            }
+          },
+          "required": [
+            "uid"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "获取指定零组件版本的下级对象/子级结构，用于按 item_id + item_rev_id 浏览 Part Revision 关联内容。 Teamcenter runtime credential is injected by the local client; do not ask the user for it.",
+        "name": "teamcenter_get_part_rev_children",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "BEYA_TC_BASE_URL": {
+              "description": "Teamcenter 服务基础地址覆盖项；不传时使用 beya.toml [teamcenter].api_path。示例：http://10.22.16.16:30314/mc-design/mcp-server/tc/mcp 或 http://localhost:8080/tcRestService/tcInterface",
+              "type": "string"
+            },
+            "item_id": {
+              "description": "零组件图号",
+              "type": "string"
+            },
+            "item_rev_id": {
+              "description": "版本号",
+              "type": "string"
+            },
+            "owner_id": {
+              "description": "Teamcenter 零部件或文件夹的业务所有者，不等于 user_id。查询可指定任意有权访问的 owner_id；上传、复制、覆盖等修改动作仅允许 user_id 与 owner_id 相同。",
+              "type": "string"
+            },
+            "user_id": {
+              "description": "Teamcenter 使用者/当前操作人，不等于 owner_id；该字段为 Teamcenter 业务入参，不传时 Beya 会尝试使用运行态 user_id 兜底。",
+              "type": "string"
+            }
+          },
+          "required": [
+            "item_id",
+            "item_rev_id"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "获取指定 item_id + item_rev_id 的 Teamcenter 分类属性。 Teamcenter runtime credential is injected by the local client; do not ask the user for it.",
+        "name": "teamcenter_get_part_rev_classification_attribute",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "BEYA_TC_BASE_URL": {
+              "description": "Teamcenter 服务基础地址覆盖项；不传时使用 beya.toml [teamcenter].api_path。示例：http://10.22.16.16:30314/mc-design/mcp-server/tc/mcp 或 http://localhost:8080/tcRestService/tcInterface",
+              "type": "string"
+            },
+            "item_id": {
+              "description": "零组件图号",
+              "type": "string"
+            },
+            "item_rev_id": {
+              "description": "版本号",
+              "type": "string"
+            },
+            "owner_id": {
+              "description": "Teamcenter 零部件或文件夹的业务所有者，不等于 user_id。查询可指定任意有权访问的 owner_id；上传、复制、覆盖等修改动作仅允许 user_id 与 owner_id 相同。",
+              "type": "string"
+            },
+            "user_id": {
+              "description": "Teamcenter 使用者/当前操作人，不等于 owner_id；该字段为 Teamcenter 业务入参，不传时 Beya 会尝试使用运行态 user_id 兜底。",
+              "type": "string"
+            }
+          },
+          "required": [
+            "item_id",
+            "item_rev_id"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "按 owner_id 与 folder_name 查询 Teamcenter 文件夹内零件。folder_name 支持 `*关键词*` 通配符；用户未写通配符时，Beya 会按 `*关键词*` 方式补齐以提升召回。 Teamcenter runtime credential is injected by the local client; do not ask the user for it.",
+        "name": "teamcenter_get_parts_from_specified_folder",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "BEYA_TC_BASE_URL": {
+              "description": "Teamcenter 服务基础地址覆盖项；不传时使用 beya.toml [teamcenter].api_path。示例：http://10.22.16.16:30314/mc-design/mcp-server/tc/mcp 或 http://localhost:8080/tcRestService/tcInterface",
+              "type": "string"
+            },
+            "folder_name": {
+              "description": "文件夹名称，推荐使用通配符，例如：`*连杆*`、`*曲轴*`、`*K08*`、`*K08_1004201_21*`。",
+              "type": "string"
+            },
+            "owner_id": {
+              "description": "Teamcenter 文件夹所有者/零部件业务所有者，不等于 user_id；查询别人名下零部件时填零部件所有者。",
+              "type": "string"
+            },
+            "user_id": {
+              "description": "Teamcenter 使用者/当前操作人，不等于 owner_id；该字段为 Teamcenter 业务入参，不传时 Beya 会尝试使用运行态 user_id 兜底。",
+              "type": "string"
+            }
+          },
+          "required": [
+            "folder_name"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "获取指定 item_id + item_rev_id 流程中的校对、审核、标准化、批准审批人信息。 Teamcenter runtime credential is injected by the local client; do not ask the user for it.",
+        "name": "teamcenter_get_process_personnel_information",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "BEYA_TC_BASE_URL": {
+              "description": "Teamcenter 服务基础地址覆盖项；不传时使用 beya.toml [teamcenter].api_path。示例：http://10.22.16.16:30314/mc-design/mcp-server/tc/mcp 或 http://localhost:8080/tcRestService/tcInterface",
+              "type": "string"
+            },
+            "item_id": {
+              "description": "零组件图号",
+              "type": "string"
+            },
+            "item_rev_id": {
+              "description": "版本号",
+              "type": "string"
+            },
+            "owner_id": {
+              "description": "Teamcenter 零部件或文件夹的业务所有者，不等于 user_id。查询可指定任意有权访问的 owner_id；上传、复制、覆盖等修改动作仅允许 user_id 与 owner_id 相同。",
+              "type": "string"
+            },
+            "user_id": {
+              "description": "Teamcenter 使用者/当前操作人，不等于 owner_id；该字段为 Teamcenter 业务入参，不传时 Beya 会尝试使用运行态 user_id 兜底。",
+              "type": "string"
+            }
+          },
+          "required": [
+            "item_id",
+            "item_rev_id"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "上传设计说明书、FMEA 表等文件内容。该动作会修改 Teamcenter 数据，必须明确 user_id、owner_id；只有 user_id 与 owner_id 相同时才允许执行。file_content 必须是上游已准备好的 Teamcenter 接口所需文件流字符串，当前工具不从 workspace 自动读取或编码文件。 Teamcenter runtime credential is injected by the local client; do not ask the user for it.",
+        "name": "teamcenter_upload_file_function",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "BEYA_TC_BASE_URL": {
+              "description": "Teamcenter 服务基础地址覆盖项；不传时使用 beya.toml [teamcenter].api_path。示例：http://10.22.16.16:30314/mc-design/mcp-server/tc/mcp 或 http://localhost:8080/tcRestService/tcInterface",
+              "type": "string"
+            },
+            "file_content": {
+              "description": "文件流 json / byte[] 字符串",
+              "type": "string"
+            },
+            "file_name": {
+              "description": "文件名称 (doc/docx/xls/xlsx)",
+              "type": "string"
+            },
+            "item_id": {
+              "description": "零组件图号",
+              "type": "string"
+            },
+            "item_rev_id": {
+              "description": "版本号",
+              "type": "string"
+            },
+            "overwrite_or_not": {
+              "description": "是否覆盖（默认覆盖）",
+              "type": "string"
+            },
+            "owner_id": {
+              "description": "Teamcenter 零部件或文件夹的业务所有者，不等于 user_id。查询可指定任意有权访问的 owner_id；上传、复制、覆盖等修改动作仅允许 user_id 与 owner_id 相同。",
+              "type": "string"
+            },
+            "user_id": {
+              "description": "Teamcenter 使用者/当前操作人，不等于 owner_id；该字段为 Teamcenter 业务入参，不传时 Beya 会尝试使用运行态 user_id 兜底。",
+              "type": "string"
+            }
+          },
+          "required": [
+            "item_id",
+            "item_rev_id",
+            "file_name",
+            "file_content",
+            "owner_id"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "基于 DOCX 槽位模板创建设计报告状态。",
+        "name": "design_report_create",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "keywords": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "report_title": {
+              "type": "string"
+            },
+            "report_type": {
+              "type": "string"
+            },
+            "template_path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "template_path"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "按 slot_id 填充/更新报告槽位。",
+        "name": "design_report_update",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "content": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "report_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "report_id",
+            "content"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "读取报告详情，返回 outline、slots 和 validation.missing。",
+        "name": "design_report_detail",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "report_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "report_id"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "列出当前用户私有工作区内的报告摘要。",
+        "name": "design_report_list",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {},
+          "required": [],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "将报告槽位渲染回 DOCX；图片槽位按路径最佳努力插入，失败时返回错误而不是虚假成功。",
+        "name": "design_report_export",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "export_path": {
+              "type": "string"
+            },
+            "report_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "report_id"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    },
+    {
+      "function": {
+        "description": "调用用户侧 NX CreateImage 导出当前视图截图，可作为 image 槽位输入；当前 NXServer 按 image_path 后缀决定格式。",
+        "name": "design_report_capture_image",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "color": {
+              "type": "integer"
+            },
+            "image_path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image_path"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    }
+  ]
+}
