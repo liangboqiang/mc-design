@@ -10,3 +10,29 @@ __pycache__/
 .env
 .env.*
 !.env.example
+.tmp-runtime-check/
+.install-backup/
+.worktrees/
+
+# Root-level installed Windows payload/runtime data. Source lives under
+# mc-design-nx/client; a root client/ directory is never an active source entry.
+/client/
+
+# Task execution evidence can be large and may contain local runtime logs.
+/.tasks/archives/
+/.tasks/receipts/**/artifacts/
+/.tasks/receipts/**/logs/
+/.tasks/receipts/**/evidence/
+/.tasks/receipts/**/package*/
+/.tasks/receipts/**/smoke*/
+/.tasks/receipts/**/install*/
+/.tasks/receipts/**/build*/
+/.tasks/receipts/**/dist/
+
+# Commit task receipts as Markdown records; keep bulky evidence local unless a
+# specific review task explicitly asks to promote it.
+/.tasks/receipts/**
+!/.tasks/receipts/
+!/.tasks/receipts/*.md
+!/.tasks/receipts/*/
+!/.tasks/receipts/*/*.md

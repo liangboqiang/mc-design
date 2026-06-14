@@ -1,8 +1,0 @@
-{
-  "@status": "active",
-  "@type": "tool_schema_policy",
-  "description_patch": "优化查询策略：当参数值不明确时，不传递不确定的可选参数，以扩大搜索范围，提高查询成功率。",
-  "hide_parameters": [],
-  "strip_hidden_on_call": false,
-  "tool": "query_ipm_list"
-}

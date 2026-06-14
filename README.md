@@ -32,4 +32,6 @@ git commit -m "chore: update workspace submodules"
 - Client and NX runtime work starts in `mc-design-nx`.
 - The streaming AgentLoop upgrade plan is in `mc-design-nx/docs/runtime-streaming-agentloop-plan.md`.
 
-Do not use older local copies as implementation sources.
+Do not use older local copies as implementation sources. A root-level `client/`
+directory is an installed Windows payload/runtime-data shape, not source; it is
+ignored and must not be used as a code, test, asset, or packaging entry point.

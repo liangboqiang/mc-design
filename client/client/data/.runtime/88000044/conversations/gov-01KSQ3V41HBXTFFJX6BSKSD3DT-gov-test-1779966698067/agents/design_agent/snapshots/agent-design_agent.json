@@ -1,9 +1,0 @@
-{
-  "agent_id": "design_agent",
-  "node_id": "lead",
-  "runtime_status": "success",
-  "result": "根据查询结果，未在IPM中找到未完成的K08项目连杆设计任务。\n\n请确认项目名称、任务名称是否准确，或者提供任务负责人、计划时间范围等更多信息以便进一步查询。",
-  "mailbox_records": 4,
-  "context_records": 3,
-  "event_records": 6
-}
