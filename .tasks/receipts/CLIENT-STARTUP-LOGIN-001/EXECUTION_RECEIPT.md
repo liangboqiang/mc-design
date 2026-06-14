@@ -63,6 +63,8 @@ The startup sequence had two coupled defects:
 - Installer build:
   - `MC_DESIGN_NO_PAUSE=1 cmd /c mc-design-nx\package\windows\build-installer.bat --skip-msbuild`
   - Passed.
+- User confirmation:
+  - User reported the client connected successfully after the fix.
 
 ## Output Installer
 
