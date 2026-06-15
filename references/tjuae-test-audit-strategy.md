@@ -4,7 +4,7 @@
 
 ## 1. 基本原则
 
-测试不是终点。每次完成一项测试后，必须补做一次审查，判断测试暴露出的知识、规则、边界和可复用动作是否需要沉淀到项目能力中。
+测试不是终点。每次完成一项测试后，应补做一次审查，判断测试暴露出的知识、规则、边界和可复用动作是否需要沉淀到项目能力中。
 
 审查顺序固定为：
 
@@ -55,7 +55,7 @@ mc-design 当前集成方式：
 
 - 可重复执行的计算、转换、校验、模板填充、报告生成。
 - 需要精确输出 JSON、不能靠模型自由发挥的业务逻辑。
-- 脚本必须能由客户端内置 Python 运行，并优先使用标准库或已打包依赖。
+- 脚本应能由客户端内置 Python 运行，并优先使用标准库或已打包依赖。
 
 放到 `examples/`：
 
@@ -66,7 +66,7 @@ mc-design 当前集成方式：
 放到 `templates/`：
 
 - DOCX/XLSX 等稳定模板。
-- 模板必须有配套 schema、检查脚本或测试。
+- 模板应有配套 schema、检查脚本或测试。
 
 做成 Python 本地工具：
 
@@ -82,11 +82,11 @@ mc-design 当前集成方式：
 
 ## 4. 测试后审查清单
 
-每次测试完成后必须问：
+每次测试完成后建议审查：
 
 - 这次测试验证的是 tjuae 支持、mc-design adapter、客户端工具、skill 规则，还是外部系统可用性？
-- 是否走了正确入口，例如本地全链路必须走 `POST /api/runtime/test/agent-turn`？
-- `test_agent_turn` 是否模拟真实用户自然输入？不得为了让测试通过，在入口或测试 payload 中额外注入隐藏的 `allowed_tools`、`forbidden_tools` 或“必须调用某工具”的特制约束；如果确需做定向工具诊断，必须单独标记为工具诊断，不能记为真实用户闭环通过。
+- 是否走了合适入口，例如本地全链路优先走 `POST /api/runtime/agent-turn`；旧 `POST /api/runtime/test/agent-turn` 仅作为兼容入口。
+- `agent-turn` 是否模拟真实用户自然输入？不要为了让测试通过，在入口或测试 payload 中额外注入隐藏的 `allowed_tools`、`forbidden_tools` 或“必须调用某工具”的特制约束；如果确需做定向工具诊断，应单独标记为工具诊断，不能记为真实用户闭环通过。
 - 测试结论是否经过完整 JSONL 日志审计？会话 summary 只能快速判断工具事件，不能替代 JSONL 对工具输出、`conversation_id`、建模计划、阻断项和副作用门禁的深度检查。
 - 测试中使用的输入是否应沉淀成 `examples/*.json`？
 - 测试中验证的业务规则是否应沉淀成 `resources/*.json`？
@@ -101,7 +101,7 @@ mc-design 当前集成方式：
 新增或修改 business skill 能力时，至少满足：
 
 - asset 打包测试能证明新增 `resources/scripts/examples/templates` 被打入 `agent_assets.mcdpkg`。
-- 本地 `test_agent_turn` 测试能证明投影并同步到 `.tjuae/skills` 后可读取资源、执行脚本。
+- 本地 `agent-turn` 测试能证明投影并同步到 `.tjuae/skills` 后可读取资源、执行脚本。
 - 脚本输出必须是结构化 JSON，包含 `ok/code/message` 或明确的业务结果字段。
 - 业务脚本不得依赖开发机绝对路径。
 - 业务规则不得要求 tjuae 修改 mc-design 专用能力；只能使用 tjuae 已有通用 session/chat/tool/plugin/skill 能力。
