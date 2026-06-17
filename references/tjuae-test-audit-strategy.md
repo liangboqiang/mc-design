@@ -85,8 +85,8 @@ mc-design 当前集成方式：
 每次测试完成后建议审查：
 
 - 这次测试验证的是 tjuae 支持、mc-design adapter、客户端工具、skill 规则，还是外部系统可用性？
-- 是否走了合适入口，例如本地全链路优先走 `POST /api/runtime/agent-turn`；旧 `POST /api/runtime/test/agent-turn` 仅作为兼容入口。
-- `agent-turn` 是否模拟真实用户自然输入？不要为了让测试通过，在入口或测试 payload 中额外注入隐藏的 `allowed_tools`、`forbidden_tools` 或“必须调用某工具”的特制约束；如果确需做定向工具诊断，应单独标记为工具诊断，不能记为真实用户闭环通过。
+- 是否走了合适入口，例如本地全链路优先走 `POST /api/runtime/test/call-agent`，需要补充输入时走 `POST /api/runtime/test/respond-agent`。
+- `call_agent` 是否模拟真实用户自然输入？不要为了让测试通过，在入口或测试 payload 中额外注入隐藏的 `allowed_tools`、`forbidden_tools` 或“必须调用某工具”的特制约束；如果确需做定向工具诊断，应单独标记为工具诊断，不能记为真实用户闭环通过。
 - 测试结论是否经过完整 JSONL 日志审计？会话 summary 只能快速判断工具事件，不能替代 JSONL 对工具输出、`conversation_id`、建模计划、阻断项和副作用门禁的深度检查。
 - 测试中使用的输入是否应沉淀成 `examples/*.json`？
 - 测试中验证的业务规则是否应沉淀成 `resources/*.json`？
@@ -101,7 +101,7 @@ mc-design 当前集成方式：
 新增或修改 business skill 能力时，至少满足：
 
 - asset 打包测试能证明新增 `resources/scripts/examples/templates` 被打入 `agent_assets.mcdpkg`。
-- 本地 `agent-turn` 测试能证明投影并同步到 `.tjuae/skills` 后可读取资源、执行脚本。
+- 本地 `call_agent` 测试能证明投影并同步到 `.tjuae/skills` 后可读取资源、执行脚本。
 - 脚本输出必须是结构化 JSON，包含 `ok/code/message` 或明确的业务结果字段。
 - 业务脚本不得依赖开发机绝对路径。
 - 业务规则不得要求 tjuae 修改 mc-design 专用能力；只能使用 tjuae 已有通用 session/chat/tool/plugin/skill 能力。
