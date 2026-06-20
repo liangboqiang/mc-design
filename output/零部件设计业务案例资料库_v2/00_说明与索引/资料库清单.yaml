@@ -1,0 +1,85 @@
+资料库名称: 零部件设计业务案例资料库_v2
+用途: 支撑7类流程业务案例示例编写
+声明: 本资料库为演示业务资料，正式项目应替换为受控业务文件
+目录:
+  - 路径: 00_说明与索引/资料库索引.docx
+    类型: docx
+    sha256: 775c7ec9a9492be57037e2c67da6d1f89a5530f507456db5e55e71e6303b5801
+  - 路径: 01_依据规范/业务流程与证据规范.docx
+    类型: docx
+    sha256: b8f764d11b8a03cd5ce039bfe518495f189d058cf78bc0e3ea6db91d34385d60
+  - 路径: 01_依据规范/源流程映射表.xlsx
+    类型: xlsx
+    sha256: e7ec36237c65268cc385187118c0f00d6ff155554fed6adb2779fc5a183e4700
+  - 路径: 01_依据规范/运行依据文件清单.xlsx
+    类型: xlsx
+    sha256: 5ad7e227c85b606dfa606e20566f7bd0c2b9291c066d0515ede1761d57833356
+  - 路径: 02_任务来源/任务单_两项.docx
+    类型: docx
+    sha256: 35e26e1c6e3337f645b7500d27d766fbe4c1b58f0680e34dcb7a8ac5b057da54
+  - 路径: 02_任务来源/任务来源台账.xlsx
+    类型: xlsx
+    sha256: eb6e7f93f0d48c9b7b9e9aeee2a3446b094465d73ce59f0e8894d9a5050dae1a
+  - 路径: 03_模板与对象/TC模板与图纸候选清单.xlsx
+    类型: xlsx
+    sha256: fc346a65c2e1fc321cfd9ce17a04b5709817a0365547dbb28d49f2b311e5185d
+  - 路径: 04_参数资料/NX驱动参数导出.xlsx
+    类型: xlsx
+    sha256: 1dedaba267d6a1500d49cef49e0535cef387f6e4225cb77719abac09c57af9cb
+  - 路径: 04_参数资料/参数词典摘录.xlsx
+    类型: xlsx
+    sha256: 06944501e954dbc7ed599f0855096e31273d447044f1befc51128758049d0615
+  - 路径: 04_参数资料/建模计划与回读记录.xlsx
+    类型: xlsx
+    sha256: 3b9df915d30b5e3117fa7c71016f6d3dc9d421df7bafbd6b17c92841b376cba4
+  - 路径: 04_参数资料/边界参数与计算记录.xlsx
+    类型: xlsx
+    sha256: 0b17f3e1d62972519de8df31264f224cddab1e2f50218d9784c6094aec764ebf
+  - 路径: 05_交付资料/DFMEA评分准则.docx
+    类型: docx
+    sha256: 465a38da6c605aed59ee50c92fcdb3da9fa7d7c69b470faba1c2c738e086e2b5
+  - 路径: 05_交付资料/DFMEA风险资料.xlsx
+    类型: xlsx
+    sha256: ed64ecb89e6729f5107598c783092ba1e0ddb5971d0be4947a677591c480694f
+  - 路径: 05_交付资料/TC归档清单.xlsx
+    类型: xlsx
+    sha256: e03d8448945dd88936042f55d6f877d338ee85888db9b447d403a6e600cf68cd
+  - 路径: 05_交付资料/二维图纸更新记录.xlsx
+    类型: xlsx
+    sha256: c2b5578e8e17b4ccd6e1801d3c82d9ec27f32858ca0c06110912c785229d5a75
+  - 路径: 05_交付资料/设计说明书证据清单.xlsx
+    类型: xlsx
+    sha256: 26838628cef6db31a479951721d23f2b1442c3c95d2b0e7447b461e173ad438b
+  - 路径: 05_交付资料/设计说明书资料包.docx
+    类型: docx
+    sha256: d1dedd1bb3e4b4d1c0531cb69b19f33026222f2bc65c2ceb82d2ad2b24142496
+  - 路径: 06_截图证据/HPX_model_front.png
+    类型: png
+    sha256: 5d382af4024a6855315a31a62149613bf92e6a3ddafc555d05025defefd99aa1
+  - 路径: 06_截图证据/ZTP_model_front.png
+    类型: png
+    sha256: c9237ff3acb1af60fbc4688d68fc53945c4f790509097665c04fa3850b558354
+  - 路径: 07_案例示例/F1_多系统任务抓取与展示_业务案例示例.docx
+    类型: docx
+    sha256: eeb88aeb2d12b8bfd99978f591804f34952e02e7ff5ac89589c656a6bff34810
+  - 路径: 07_案例示例/F2_NX_零部件模板调用_业务案例示例.docx
+    类型: docx
+    sha256: 91d1a921dbab174f7e50121035f7fc84c183dd3f10618b633d51fc9bcc3ddd9d
+  - 路径: 07_案例示例/F3_参数智能化处理_业务案例示例.docx
+    类型: docx
+    sha256: 32351b18cfe19e975d03257627f04378032a6964cff0d5095bdca34c0f714617
+  - 路径: 07_案例示例/F4_自动化参数化建模及_TC_回传_业务案例示例.docx
+    类型: docx
+    sha256: 6b22da57cef158da97eed723474fe3060915eec95d45fb5d63c83e826890cd1a
+  - 路径: 07_案例示例/F5_二维图纸自动绘制更新_业务案例示例.docx
+    类型: docx
+    sha256: 106193146062347f1cd3daf6d0075ce9fd0968ebb66ca4657d8e67e19bdeb90f
+  - 路径: 07_案例示例/F6_DFMEA_表自动编写_业务案例示例.docx
+    类型: docx
+    sha256: 9a5492057500a2660f1de4c9254132ae81359270e900f0b83ff611cdb4c3fc56
+  - 路径: 07_案例示例/F7_设计说明书自动编写_业务案例示例.docx
+    类型: docx
+    sha256: 1fc18dd5f593c0be07961703ae4dbbfc001e5945b5f27a27778d94b711f299e1
+  - 路径: 07_案例示例/零部件设计业务案例示例集_7类14份.docx
+    类型: docx
+    sha256: 4a0ecb8232c6616d44be5655e57aab30b14f00112b0a385ffca92a613e451562
