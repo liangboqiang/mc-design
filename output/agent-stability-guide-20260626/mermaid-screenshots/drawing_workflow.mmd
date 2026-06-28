@@ -1,0 +1,25 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Microsoft YaHei, Segoe UI, Arial", "primaryColor": "#EAF3FF", "primaryTextColor": "#1F2937", "primaryBorderColor": "#2F5F98", "lineColor": "#4B5563", "secondaryColor": "#EEF7F1", "tertiaryColor": "#FFF7E6", "background": "#FFFFFF", "mainBkg": "#FFFFFF", "clusterBkg": "#F8FAFC", "clusterBorder": "#CBD5E1", "noteBkgColor": "#FFF7E6", "noteTextColor": "#111827", "actorBkg": "#EAF3FF", "actorBorder": "#2F5F98", "actorTextColor": "#111827", "activationBkgColor": "#DBEAFE", "activationBorderColor": "#2F5F98"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 52, "rankSpacing": 64}, "sequence": {"mirrorActors": false, "showSequenceNumbers": true, "wrap": true, "width": 180}} }%%
+sequenceDiagram
+
+    participant M as design-agent
+    participant A as drawing-update-agent
+    participant TC as Teamcenter工具
+    participant NX as NX图纸工具
+    participant FS as local_file工具
+    participant L as 日志证据
+    participant W as 评测工作台
+
+    M->>A: 提供TC对象和图纸/规范需求
+    A->>TC: 查询子项并导出候选图纸或规范
+    TC-->>A: 返回图纸对象、版本、路径
+    A->>NX: 打开TC图纸并读取视图列表
+    NX-->>A: 返回视图名称和状态
+    A->>NX: 切换视图、fit、生成截图、检查样式
+    NX-->>A: 返回截图路径和样式信息
+    A->>FS: 检查截图文件存在
+    FS-->>A: 返回文件状态
+    A-->>M: 输出图纸对象、视图清单、截图证据
+    A->>L: 记录图纸选择、视图切换、截图路径
+    L->>W: 失败时关联任务5检查点
+    Note over A,W: 修订抓手是图纸选择优先级、空视图阻断、截图命名和样式恢复
+

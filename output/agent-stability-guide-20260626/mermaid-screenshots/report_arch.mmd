@@ -1,0 +1,27 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Microsoft YaHei, Segoe UI, Arial", "primaryColor": "#EAF3FF", "primaryTextColor": "#1F2937", "primaryBorderColor": "#2F5F98", "lineColor": "#4B5563", "secondaryColor": "#EEF7F1", "tertiaryColor": "#FFF7E6", "background": "#FFFFFF", "mainBkg": "#FFFFFF", "clusterBkg": "#F8FAFC", "clusterBorder": "#CBD5E1", "noteBkgColor": "#FFF7E6", "noteTextColor": "#111827", "actorBkg": "#EAF3FF", "actorBorder": "#2F5F98", "actorTextColor": "#111827", "activationBkgColor": "#DBEAFE", "activationBorderColor": "#2F5F98"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 52, "rankSpacing": 64}, "sequence": {"mirrorActors": false, "showSequenceNumbers": true, "wrap": true, "width": 180}} }%%
+flowchart TB
+
+    M["design-agent<br/>汇总前序交付物和用户确认"]:::main
+    A["design-report-author-agent<br/>证据收集 + DOCX生成"]:::agent
+    S1["Skill: report-evidence-collection<br/>事实来源和章节证据"]:::data
+    S2["Skill: report-docx-generation<br/>模板生成和状态检查"]:::data
+    RP["设计报告工具<br/>template_inspect / start / collect / decrypt_image / answer / generate / status / artifact"]:::tool
+    FS["local_file<br/>存在性与字节读取"]:::tool
+    EV["证据包<br/>任务、参数、模型、截图、DFMEA、确认项"]:::data
+    DOC["设计说明书DOCX<br/>章节、图片、引用、状态"]:::out
+    LOG["日志与评测<br/>任务7 5场景 18检查点"]:::data
+    IMP["其他智能体<br/>事实一致性与模板缺口归因"]:::risk
+
+    M --> EV --> A --> S1 --> RP
+    A --> S2 --> RP --> DOC --> FS --> M
+    A --> LOG --> IMP --> S1
+    IMP --> S2
+
+
+classDef main fill:#EAF3FF,stroke:#2F5F98,stroke-width:2px,color:#111827;
+classDef agent fill:#EEF7F1,stroke:#2F7D4F,stroke-width:2px,color:#111827;
+classDef tool fill:#FFF7E6,stroke:#B7791F,stroke-width:2px,color:#111827;
+classDef data fill:#F5F3FF,stroke:#6D5BD0,stroke-width:2px,color:#111827;
+classDef risk fill:#FEE2E2,stroke:#B91C1C,stroke-width:2px,color:#111827;
+classDef out fill:#ECFEFF,stroke:#0E7490,stroke-width:2px,color:#111827;
+

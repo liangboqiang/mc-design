@@ -1,0 +1,23 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Microsoft YaHei, Segoe UI, Arial", "primaryColor": "#EAF3FF", "primaryTextColor": "#1F2937", "primaryBorderColor": "#2F5F98", "lineColor": "#4B5563", "secondaryColor": "#EEF7F1", "tertiaryColor": "#FFF7E6", "background": "#FFFFFF", "mainBkg": "#FFFFFF", "clusterBkg": "#F8FAFC", "clusterBorder": "#CBD5E1", "noteBkgColor": "#FFF7E6", "noteTextColor": "#111827", "actorBkg": "#EAF3FF", "actorBorder": "#2F5F98", "actorTextColor": "#111827", "activationBkgColor": "#DBEAFE", "activationBorderColor": "#2F5F98"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 52, "rankSpacing": 64}, "sequence": {"mirrorActors": false, "showSequenceNumbers": true, "wrap": true, "width": 180}} }%%
+sequenceDiagram
+
+    participant M as design-agent
+    participant A as nx-modeling-tc-agent
+    participant NX as NX写入工具
+    participant TC as Teamcenter工具
+    participant L as 日志证据
+    participant W as 评测工作台
+
+    M->>A: 提供已确认参数写入计划
+    A->>A: 校验计划完整性和人工确认标记
+    A->>NX: 解析表达式并执行批量写入
+    NX-->>A: 返回写入状态
+    A->>NX: 更新模型、保存、回读表达式和WorkPart
+    NX-->>A: 返回写后证据和保存状态
+    A->>TC: 上传或复制相关对象并准备回传
+    TC-->>A: 返回TC对象、版本、附件结果
+    A-->>M: 返回写入前后对比和TC回传清单
+    A->>L: 记录计划签名、写入结果、回读差异
+    L->>W: 失败时关联任务4检查点
+    Note over A,W: 修订抓手是写前门禁、写后回读表、保存失败阻断、TC回传清单
+

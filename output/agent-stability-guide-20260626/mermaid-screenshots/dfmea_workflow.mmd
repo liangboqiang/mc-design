@@ -1,0 +1,26 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Microsoft YaHei, Segoe UI, Arial", "primaryColor": "#EAF3FF", "primaryTextColor": "#1F2937", "primaryBorderColor": "#2F5F98", "lineColor": "#4B5563", "secondaryColor": "#EEF7F1", "tertiaryColor": "#FFF7E6", "background": "#FFFFFF", "mainBkg": "#FFFFFF", "clusterBkg": "#F8FAFC", "clusterBorder": "#CBD5E1", "noteBkgColor": "#FFF7E6", "noteTextColor": "#111827", "actorBkg": "#EAF3FF", "actorBorder": "#2F5F98", "actorTextColor": "#111827", "activationBkgColor": "#DBEAFE", "activationBorderColor": "#2F5F98"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 52, "rankSpacing": 64}, "sequence": {"mirrorActors": false, "showSequenceNumbers": true, "wrap": true, "width": 180}} }%%
+sequenceDiagram
+
+    participant M as design-agent
+    participant A as dfmea-author-agent
+    participant TC as Teamcenter工具
+    participant DF as DFMEA工具
+    participant FS as local_file工具
+    participant L as 日志证据
+    participant W as 评测工作台
+
+    M->>A: 提供任务、设计证据、图纸/参数结果
+    A->>TC: 获取必要附件和历史对象
+    TC-->>A: 返回证据文件和对象
+    A->>DF: 列出、检查并选择受控模板
+    DF-->>A: 返回模板结构和必填字段
+    A->>DF: 计算风险值并填充模板
+    DF-->>A: 返回DFMEA工作簿路径
+    A->>DF: validate_workbook校验
+    DF-->>A: 返回校验结果
+    A->>FS: 检查工作簿文件
+    A-->>M: 仅在校验通过后返回DFMEA交付物
+    A->>L: 记录模板、风险计算、校验错误
+    L->>W: 失败时关联任务6检查点
+    Note over A,W: 修订抓手是证据字段表、风险计算规则、模板校验阻断和高频失败样本
+

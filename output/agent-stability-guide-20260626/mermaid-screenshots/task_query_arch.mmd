@@ -1,0 +1,31 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Microsoft YaHei, Segoe UI, Arial", "primaryColor": "#EAF3FF", "primaryTextColor": "#1F2937", "primaryBorderColor": "#2F5F98", "lineColor": "#4B5563", "secondaryColor": "#EEF7F1", "tertiaryColor": "#FFF7E6", "background": "#FFFFFF", "mainBkg": "#FFFFFF", "clusterBkg": "#F8FAFC", "clusterBorder": "#CBD5E1", "noteBkgColor": "#FFF7E6", "noteTextColor": "#111827", "actorBkg": "#EAF3FF", "actorBorder": "#2F5F98", "actorTextColor": "#111827", "activationBkgColor": "#DBEAFE", "activationBorderColor": "#2F5F98"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 52, "rankSpacing": 64}, "sequence": {"mirrorActors": false, "showSequenceNumbers": true, "wrap": true, "width": 180}} }%%
+flowchart TB
+
+    M["design-agent<br/>调用任务抓取子智能体"]:::main
+    A["task-query-display-agent<br/>只负责任务查询与展示"]:::agent
+    S["Skill: enterprise-task-intake<br/>企业任务接入流程"]:::data
+    T1["IPM工具<br/>query_ipm_list"]:::tool
+    T2["QPP工具<br/>connect_qpp"]:::tool
+    T3["ECR工具<br/>query_ecr_list"]:::tool
+    PY["local_python_task<br/>长查询异步状态"]:::tool
+    RAW["原始任务字段<br/>来源、编号、描述、附件线索"]:::data
+    SNAP["完整任务快照<br/>不擅自改写业务事实"]:::out
+    LOG["日志与评测<br/>任务1 5场景 19检查点"]:::data
+    IMP["其他智能体<br/>日志证据 + 指标归因"]:::risk
+
+    M --> A --> S
+    S --> T1 --> RAW
+    S --> T2 --> RAW
+    S --> T3 --> RAW
+    S --> PY --> RAW
+    RAW --> SNAP --> M
+    A --> LOG --> IMP --> S
+
+
+classDef main fill:#EAF3FF,stroke:#2F5F98,stroke-width:2px,color:#111827;
+classDef agent fill:#EEF7F1,stroke:#2F7D4F,stroke-width:2px,color:#111827;
+classDef tool fill:#FFF7E6,stroke:#B7791F,stroke-width:2px,color:#111827;
+classDef data fill:#F5F3FF,stroke:#6D5BD0,stroke-width:2px,color:#111827;
+classDef risk fill:#FEE2E2,stroke:#B91C1C,stroke-width:2px,color:#111827;
+classDef out fill:#ECFEFF,stroke:#0E7490,stroke-width:2px,color:#111827;
+

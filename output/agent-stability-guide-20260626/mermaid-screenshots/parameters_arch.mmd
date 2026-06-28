@@ -1,0 +1,33 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Microsoft YaHei, Segoe UI, Arial", "primaryColor": "#EAF3FF", "primaryTextColor": "#1F2937", "primaryBorderColor": "#2F5F98", "lineColor": "#4B5563", "secondaryColor": "#EEF7F1", "tertiaryColor": "#FFF7E6", "background": "#FFFFFF", "mainBkg": "#FFFFFF", "clusterBkg": "#F8FAFC", "clusterBorder": "#CBD5E1", "noteBkgColor": "#FFF7E6", "noteTextColor": "#111827", "actorBkg": "#EAF3FF", "actorBorder": "#2F5F98", "actorTextColor": "#111827", "activationBkgColor": "#DBEAFE", "activationBorderColor": "#2F5F98"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 52, "rankSpacing": 64}, "sequence": {"mirrorActors": false, "showSequenceNumbers": true, "wrap": true, "width": 180}} }%%
+flowchart TB
+
+    M["design-agent<br/>提供任务快照、模板和用户确认"]:::main
+    A["parameter-intelligence-agent<br/>证据、公式、映射、写入计划"]:::agent
+    E["Skill: evidence-extraction<br/>字段、附件、用户输入抽取"]:::data
+    F["Skill: formula-calculation<br/>Excel公式权威计算"]:::data
+    P["Skill: write-plan<br/>仅生成计划不写NX"]:::data
+    DB["mysql_query<br/>公式、参数、历史样例"]:::tool
+    NX["NX只读工具<br/>WorkPart / all params / drive params / resolve"]:::tool
+    PY["local_python_task<br/>公式校验脚本"]:::tool
+    MAP["参数映射<br/>NX表达式、单位、来源证据"]:::data
+    PLAN["参数写入计划<br/>待执行值、置信度、确认项"]:::out
+    LOG["日志与评测<br/>任务3 5场景 20检查点"]:::data
+    IMP["其他智能体<br/>公式/单位/映射失败归因"]:::risk
+
+    M --> A --> E --> DB
+    A --> F --> PY
+    A --> P --> NX --> MAP
+    DB --> MAP
+    PY --> MAP --> PLAN --> M
+    A --> LOG --> IMP --> E
+    IMP --> F
+    IMP --> P
+
+
+classDef main fill:#EAF3FF,stroke:#2F5F98,stroke-width:2px,color:#111827;
+classDef agent fill:#EEF7F1,stroke:#2F7D4F,stroke-width:2px,color:#111827;
+classDef tool fill:#FFF7E6,stroke:#B7791F,stroke-width:2px,color:#111827;
+classDef data fill:#F5F3FF,stroke:#6D5BD0,stroke-width:2px,color:#111827;
+classDef risk fill:#FEE2E2,stroke:#B91C1C,stroke-width:2px,color:#111827;
+classDef out fill:#ECFEFF,stroke:#0E7490,stroke-width:2px,color:#111827;
+

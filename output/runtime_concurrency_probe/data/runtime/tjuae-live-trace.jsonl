@@ -1,0 +1,6 @@
+{"ts":1782226586.2967353,"type":"session.mapped","turn_id":"turn-f57cd5b8dc194b679da26fa94d16c710","conversation_id":"c1","agent_id":"design_agent","data":{"session_id":"session-1"}}
+{"ts":1782226586.298736,"type":"server.message.no_active_turn","turn_id":"","conversation_id":"","agent_id":"","data":{"type":"session.connected","tjuae_session_id":"session-1"}}
+{"ts":1782226586.298736,"type":"input.sent","turn_id":"turn-f57cd5b8dc194b679da26fa94d16c710","conversation_id":"c1","agent_id":"design_agent","data":{"input_action":"message","tjuae_session_id":"session-1","send_count":1}}
+{"ts":1782226586.3319807,"type":"session.mapped","turn_id":"turn-846771be7fd44c18a7e6f09b83b7e52c","conversation_id":"c2","agent_id":"design_agent","data":{"session_id":"session-2"}}
+{"ts":1782226586.332981,"type":"server.message.no_active_turn","turn_id":"","conversation_id":"","agent_id":"","data":{"type":"session.connected","tjuae_session_id":"session-2"}}
+{"ts":1782226586.333978,"type":"input.sent","turn_id":"turn-846771be7fd44c18a7e6f09b83b7e52c","conversation_id":"c2","agent_id":"design_agent","data":{"input_action":"message","tjuae_session_id":"session-2","send_count":1}}

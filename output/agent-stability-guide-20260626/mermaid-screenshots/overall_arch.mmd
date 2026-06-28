@@ -1,0 +1,60 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Microsoft YaHei, Segoe UI, Arial", "primaryColor": "#EAF3FF", "primaryTextColor": "#1F2937", "primaryBorderColor": "#2F5F98", "lineColor": "#4B5563", "secondaryColor": "#EEF7F1", "tertiaryColor": "#FFF7E6", "background": "#FFFFFF", "mainBkg": "#FFFFFF", "clusterBkg": "#F8FAFC", "clusterBorder": "#CBD5E1", "noteBkgColor": "#FFF7E6", "noteTextColor": "#111827", "actorBkg": "#EAF3FF", "actorBorder": "#2F5F98", "actorTextColor": "#111827", "activationBkgColor": "#DBEAFE", "activationBorderColor": "#2F5F98"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 52, "rankSpacing": 64}, "sequence": {"mirrorActors": false, "showSequenceNumbers": true, "wrap": true, "width": 180}} }%%
+flowchart TB
+
+    U["用户 / 业务工程师<br/>任务、确认、补充材料"]:::main
+    AI["AI Service<br/>call_agent / stream_turn"]:::main
+    BR["RuntimeBridgeManager<br/>turn-stream-v1 协议桥接"]:::main
+    APP["本地 ClientApp<br/>/mcp/&lt;toolbox&gt; 工具入口"]:::main
+    LIVE["TJUAE LiveCoordinator<br/>会话、插件、工具定义同步"]:::main
+    DA["design-agent<br/>只做任务分派与 AskUserQuestion"]:::agent
+    A1["task-query-display-agent<br/>任务抓取与展示"]:::agent
+    A2["nx-template-agent<br/>模板调用与工作部件确认"]:::agent
+    A3["parameter-intelligence-agent<br/>证据、公式、参数写入计划"]:::agent
+    A4["nx-modeling-tc-agent<br/>NX参数执行与TC回传"]:::agent
+    A5["drawing-update-agent<br/>二维图纸与视图证据"]:::agent
+    A6["dfmea-author-agent<br/>DFMEA模板化编写"]:::agent
+    A7["design-report-author-agent<br/>设计说明书生成"]:::agent
+    MCP["本地 MCP 工具箱<br/>connector / nx / teamcenter / dfmea / report / local_file"]:::tool
+    SYS["企业系统<br/>IPM / QPP / ECR / MySQL / NX / Teamcenter"]:::data
+    ART["交付物<br/>模型、截图、DFMEA、说明书"]:::out
+    LOG["conversation JSONL + summary<br/>tool_events / last_error / artifact"]:::data
+    WB["评测工作台<br/>7任务 35场景 134检查点"]:::data
+    IMP["其他智能体改进闭环<br/>日志证据 / 指标分析 / 失败归因 / 指令修订 / 复测"]:::risk
+
+    U --> AI --> BR --> APP --> LIVE --> DA
+    DA --> A1
+    DA --> A2
+    DA --> A3
+    DA --> A4
+    DA --> A5
+    DA --> A6
+    DA --> A7
+    A1 --> MCP
+    A2 --> MCP
+    A3 --> MCP
+    A4 --> MCP
+    A5 --> MCP
+    A6 --> MCP
+    A7 --> MCP
+    MCP --> SYS
+    MCP --> ART
+    APP --> LOG
+    LOG --> IMP
+    WB --> IMP
+    IMP --> DA
+    IMP --> A1
+    IMP --> A2
+    IMP --> A3
+    IMP --> A4
+    IMP --> A5
+    IMP --> A6
+    IMP --> A7
+
+
+classDef main fill:#EAF3FF,stroke:#2F5F98,stroke-width:2px,color:#111827;
+classDef agent fill:#EEF7F1,stroke:#2F7D4F,stroke-width:2px,color:#111827;
+classDef tool fill:#FFF7E6,stroke:#B7791F,stroke-width:2px,color:#111827;
+classDef data fill:#F5F3FF,stroke:#6D5BD0,stroke-width:2px,color:#111827;
+classDef risk fill:#FEE2E2,stroke:#B91C1C,stroke-width:2px,color:#111827;
+classDef out fill:#ECFEFF,stroke:#0E7490,stroke-width:2px,color:#111827;
+

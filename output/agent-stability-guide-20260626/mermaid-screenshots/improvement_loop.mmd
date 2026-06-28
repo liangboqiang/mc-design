@@ -1,0 +1,27 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Microsoft YaHei, Segoe UI, Arial", "primaryColor": "#EAF3FF", "primaryTextColor": "#1F2937", "primaryBorderColor": "#2F5F98", "lineColor": "#4B5563", "secondaryColor": "#EEF7F1", "tertiaryColor": "#FFF7E6", "background": "#FFFFFF", "mainBkg": "#FFFFFF", "clusterBkg": "#F8FAFC", "clusterBorder": "#CBD5E1", "noteBkgColor": "#FFF7E6", "noteTextColor": "#111827", "actorBkg": "#EAF3FF", "actorBorder": "#2F5F98", "actorTextColor": "#111827", "activationBkgColor": "#DBEAFE", "activationBorderColor": "#2F5F98"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 52, "rankSpacing": 64}, "sequence": {"mirrorActors": false, "showSequenceNumbers": true, "wrap": true, "width": 180}} }%%
+flowchart TB
+
+    F["发现失败<br/>用户反馈或评测记录未通过"]:::risk
+    L["日志证据智能体<br/>读取 JSONL / summary<br/>还原工具调用与错误"]:::agent
+    M["指标分析智能体<br/>引用评测工作台<br/>定位任务-场景-检查点-版本差异"]:::agent
+    R["失败归因智能体<br/>归类到路由、边界、证据、模板、外部系统、代码缺陷"]:::agent
+    P["指令/模板修订智能体<br/>只提出无代码修订<br/>Agent说明、Skill、模板、SOP、测试样例"]:::agent
+    H["人工评审<br/>确认不破坏边界与事实来源"]:::main
+    T["复测智能体<br/>固定原失败场景 + 相邻场景<br/>记录版本对比"]:::agent
+    G{"连续通过<br/>且无新增阻断?"}:::data
+    CLOSE["归档改进记录<br/>失败样本、修改点、复测结果"]:::out
+    ESC["升级缺陷<br/>仅当证据指向 MCP / NX / TC / 桥接代码故障"]:::risk
+
+    F --> L --> M --> R --> P --> H --> T --> G
+    G -- 是 --> CLOSE
+    G -- 否：继续无代码修订 --> L
+    R -- 明确代码故障 --> ESC
+
+
+classDef main fill:#EAF3FF,stroke:#2F5F98,stroke-width:2px,color:#111827;
+classDef agent fill:#EEF7F1,stroke:#2F7D4F,stroke-width:2px,color:#111827;
+classDef tool fill:#FFF7E6,stroke:#B7791F,stroke-width:2px,color:#111827;
+classDef data fill:#F5F3FF,stroke:#6D5BD0,stroke-width:2px,color:#111827;
+classDef risk fill:#FEE2E2,stroke:#B91C1C,stroke-width:2px,color:#111827;
+classDef out fill:#ECFEFF,stroke:#0E7490,stroke-width:2px,color:#111827;
+

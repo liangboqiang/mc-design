@@ -1,0 +1,28 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Microsoft YaHei, Segoe UI, Arial", "primaryColor": "#EAF3FF", "primaryTextColor": "#1F2937", "primaryBorderColor": "#2F5F98", "lineColor": "#4B5563", "secondaryColor": "#EEF7F1", "tertiaryColor": "#FFF7E6", "background": "#FFFFFF", "mainBkg": "#FFFFFF", "clusterBkg": "#F8FAFC", "clusterBorder": "#CBD5E1", "noteBkgColor": "#FFF7E6", "noteTextColor": "#111827", "actorBkg": "#EAF3FF", "actorBorder": "#2F5F98", "actorTextColor": "#111827", "activationBkgColor": "#DBEAFE", "activationBorderColor": "#2F5F98"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 52, "rankSpacing": 64}, "sequence": {"mirrorActors": false, "showSequenceNumbers": true, "wrap": true, "width": 180}} }%%
+flowchart TB
+
+    M["design-agent<br/>提供任务快照和模板需求"]:::main
+    A["nx-template-agent<br/>模板选择 + WorkPart确认"]:::agent
+    S1["Skill: template-source-selection<br/>模板来源选择"]:::data
+    S2["Skill: nx-workpart-confirmation<br/>工作部件确认"]:::data
+    TC["Teamcenter工具<br/>文件夹、分类、子项"]:::tool
+    NX1["NX打开工具<br/>nx_open_tcpart / nx_open_part"]:::tool
+    NX2["NX创建与回读<br/>nx_create_new_part / nx_get_work_part_info"]:::tool
+    SRC["候选模板<br/>TC对象、分类、路径、版本"]:::data
+    WP["WorkPart确认结果<br/>部件号、名称、单位、状态"]:::out
+    LOG["日志与评测<br/>任务2 5场景 22检查点"]:::data
+    IMP["其他智能体<br/>模板误选归因与指令修订"]:::risk
+
+    M --> A --> S1 --> TC --> SRC
+    SRC --> NX1 --> NX2 --> WP --> M
+    A --> S2 --> NX2
+    A --> LOG --> IMP --> S1
+
+
+classDef main fill:#EAF3FF,stroke:#2F5F98,stroke-width:2px,color:#111827;
+classDef agent fill:#EEF7F1,stroke:#2F7D4F,stroke-width:2px,color:#111827;
+classDef tool fill:#FFF7E6,stroke:#B7791F,stroke-width:2px,color:#111827;
+classDef data fill:#F5F3FF,stroke:#6D5BD0,stroke-width:2px,color:#111827;
+classDef risk fill:#FEE2E2,stroke:#B91C1C,stroke-width:2px,color:#111827;
+classDef out fill:#ECFEFF,stroke:#0E7490,stroke-width:2px,color:#111827;
+

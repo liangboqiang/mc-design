@@ -1,0 +1,18 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Microsoft YaHei, Segoe UI, Arial", "primaryColor": "#EAF3FF", "primaryTextColor": "#1F2937", "primaryBorderColor": "#2F5F98", "lineColor": "#4B5563", "secondaryColor": "#EEF7F1", "tertiaryColor": "#FFF7E6", "background": "#FFFFFF", "mainBkg": "#FFFFFF", "clusterBkg": "#F8FAFC", "clusterBorder": "#CBD5E1", "noteBkgColor": "#FFF7E6", "noteTextColor": "#111827", "actorBkg": "#EAF3FF", "actorBorder": "#2F5F98", "actorTextColor": "#111827", "activationBkgColor": "#DBEAFE", "activationBorderColor": "#2F5F98"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 52, "rankSpacing": 64}, "sequence": {"mirrorActors": false, "showSequenceNumbers": true, "wrap": true, "width": 180}} }%%
+sequenceDiagram
+
+    participant M as design-agent
+    participant A as task-query-display-agent
+    participant Q as IPM/QPP/ECR工具
+    participant L as 日志证据
+    participant W as 评测工作台
+
+    M->>A: 提交任务关键词、编号或用户条件
+    A->>Q: 查询候选任务并保留来源系统字段
+    Q-->>A: 返回候选列表、原始描述、附件线索
+    A->>A: 去重、标记缺失字段、禁止改写任务事实
+    A-->>M: 返回候选清单和被选任务完整快照
+    A->>L: 写入工具输入、输出、耗时、异常
+    L->>W: 失败时绑定任务1的场景和检查点
+    Note over A,W: 修订抓手是筛选话术、字段保留要求、慢查询处理和评测样本，不先改代码
+

@@ -1,0 +1,30 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Microsoft YaHei, Segoe UI, Arial", "primaryColor": "#EAF3FF", "primaryTextColor": "#1F2937", "primaryBorderColor": "#2F5F98", "lineColor": "#4B5563", "secondaryColor": "#EEF7F1", "tertiaryColor": "#FFF7E6", "background": "#FFFFFF", "mainBkg": "#FFFFFF", "clusterBkg": "#F8FAFC", "clusterBorder": "#CBD5E1", "noteBkgColor": "#FFF7E6", "noteTextColor": "#111827", "actorBkg": "#EAF3FF", "actorBorder": "#2F5F98", "actorTextColor": "#111827", "activationBkgColor": "#DBEAFE", "activationBorderColor": "#2F5F98"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 52, "rankSpacing": 64}, "sequence": {"mirrorActors": false, "showSequenceNumbers": true, "wrap": true, "width": 180}} }%%
+flowchart TB
+
+    M["design-agent<br/>交付已确认参数计划"]:::main
+    A["nx-modeling-tc-agent<br/>NX执行 + TC回传"]:::agent
+    S1["Skill: nx-parameter-execution<br/>写入、更新、回读"]:::data
+    S2["Skill: tc-release-preparation<br/>回传准备"]:::data
+    NX["NX写入工具<br/>resolve / update / batch / create / save"]:::tool
+    TC["Teamcenter工具<br/>upload / copy / export / personnel"]:::tool
+    FILE["local_file<br/>存在性与字节读取"]:::tool
+    PLAN["已确认参数计划<br/>值、单位、表达式、签名"]:::data
+    READBACK["写后回读证据<br/>表达式值、模型状态、保存状态"]:::data
+    UPLOAD["TC回传结果<br/>对象、版本、附件、人员"]:::out
+    LOG["日志与评测<br/>任务4 5场景 19检查点"]:::data
+    IMP["其他智能体<br/>执行链归因与门禁修订"]:::risk
+
+    M --> PLAN --> A --> S1 --> NX --> READBACK
+    READBACK --> S2 --> TC --> UPLOAD --> M
+    FILE --> TC
+    A --> LOG --> IMP --> S1
+    IMP --> S2
+
+
+classDef main fill:#EAF3FF,stroke:#2F5F98,stroke-width:2px,color:#111827;
+classDef agent fill:#EEF7F1,stroke:#2F7D4F,stroke-width:2px,color:#111827;
+classDef tool fill:#FFF7E6,stroke:#B7791F,stroke-width:2px,color:#111827;
+classDef data fill:#F5F3FF,stroke:#6D5BD0,stroke-width:2px,color:#111827;
+classDef risk fill:#FEE2E2,stroke:#B91C1C,stroke-width:2px,color:#111827;
+classDef out fill:#ECFEFF,stroke:#0E7490,stroke-width:2px,color:#111827;
+

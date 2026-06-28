@@ -1,0 +1,23 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Microsoft YaHei, Segoe UI, Arial", "primaryColor": "#EAF3FF", "primaryTextColor": "#1F2937", "primaryBorderColor": "#2F5F98", "lineColor": "#4B5563", "secondaryColor": "#EEF7F1", "tertiaryColor": "#FFF7E6", "background": "#FFFFFF", "mainBkg": "#FFFFFF", "clusterBkg": "#F8FAFC", "clusterBorder": "#CBD5E1", "noteBkgColor": "#FFF7E6", "noteTextColor": "#111827", "actorBkg": "#EAF3FF", "actorBorder": "#2F5F98", "actorTextColor": "#111827", "activationBkgColor": "#DBEAFE", "activationBorderColor": "#2F5F98"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 52, "rankSpacing": 64}, "sequence": {"mirrorActors": false, "showSequenceNumbers": true, "wrap": true, "width": 180}} }%%
+sequenceDiagram
+
+    participant M as design-agent
+    participant A as nx-template-agent
+    participant TC as Teamcenter工具
+    participant NX as NX工具
+    participant L as 日志证据
+    participant W as 评测工作台
+
+    M->>A: 提供任务类型、部件族、模板约束
+    A->>TC: 查找文件夹、分类、子项候选
+    TC-->>A: 返回模板对象、版本、路径
+    A->>A: 按模板选择规则排序并说明依据
+    A->>NX: 打开TC模板或创建新零件
+    NX-->>A: 返回打开状态
+    A->>NX: 回读 nx_get_work_part_info
+    NX-->>A: 返回当前 WorkPart 信息
+    A-->>M: 返回模板来源和 WorkPart 确认结果
+    A->>L: 记录TC/NX调用链和失败点
+    L->>W: 失败时关联任务2检查点
+    Note over A,W: 重点修订模板选择规则、别名表和WorkPart回读门禁
+
