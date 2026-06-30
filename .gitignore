@@ -21,6 +21,7 @@ __pycache__/
 # Root-level installed Windows payload/runtime data. Source lives under
 # mc-design-nx/client; a root client/ directory is never an active source entry.
 /client/
+/output/
 
 # Task execution evidence can be large and may contain local runtime logs.
 /.tasks/archives/
