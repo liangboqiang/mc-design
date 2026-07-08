@@ -22,6 +22,7 @@ __pycache__/
 # mc-design-nx/client; a root client/ directory is never an active source entry.
 /client/
 /output/
+/AIDesignClient/
 
 # Task execution evidence can be large and may contain local runtime logs.
 /.tasks/archives/
